@@ -1,32 +1,31 @@
-# El modelo de datos de JavaScript
+# The JavaScript data model
 
-Conocer un lenguaje de programación se traduce básicamente en conocer su
-sintaxis, modelo de datos, modelo de ejecución y estilo.
+Knowing a programming language basically means to know its syntax, data model,
+execution model, and style.
 
-Durante esta lección, [codificarás en JavaScript lo aprendido en la lección
-anterior](
-../0201-poo/).
+Throughout this lesson, [you will code into JavaScript what you learnt in the
+prior lesson](../0201-poo/).
 
-No todos los lenguajes permiten una transcripción 1 a 1 de los conceptos que
-recogemos en el modelo. Por ejemplo, JavaScript no tiene un mecanismo para crear
-tipos nuevos, pero tiene otros mecanismos que permiten implementar una
-funcionalidad similar.
+Not all languages allow for a 1:1 transcription of the concepts we have included
+in the model. For instance, JavaScript does not feature any mechanisms that allow
+for the creation of new types, but it does feature other mechanisms that allow for
+the implementation of a similar functionality.
 
-## Experimentando con JavaScript
+## Experimenting with JavaScript
 
-Vas a experimentar con JavaScript, así que necesitarás una forma rápida de
-inspeccionar expresiones y obtener feedback de lo que estás haciendo. La mejor
-forma es utilizar la **consola de Node**. Por ejemplo:
+You are going to experiment with JavaScript, so you will need a quick way of
+inspecting expressions and obtaining feedback on what you are doing. The best way
+is to use the **Node console**. For instance:
 
 ```sh
 $ node --use_strict
 ```
 
-La opción `--use_strict` activa el modo estricto de JavaScript, que simplifica
-algunos aspectos del lenguaje. El modo estricto recorta algunas características,
-pero los beneficios son mayores que las pérdidas.
+The `--use_strict` option enables JavaScript's strict mode, which simplifies some
+aspects of the language. Strict mode cuts back on some features, but its benefits
+outweigh its drawbacks.
 
-Ahora puedes probar a introducir algunas expresiones:
+Now you can try to insert some expressions:
 
 ```sh
 > 40 + 2
@@ -39,8 +38,7 @@ undefined
 1
 ```
 
-Para limpiar la pantalla presiona `ctrl+l`. Para salir de Node, presiona
-`ctrl+c` dos veces seguidas. Si escribiendo una expresión Node parece no
+In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c` twice in succession. If Node seems to be unresponsive while you are dos veces seguidas. Si escribiendo una expresión Node parece no
 responder, presiona `ctrl+c` una vez para cancelar la expresión.
 
 Si no quieres lidiar con la consola de Node, siempre puedes escribir un
