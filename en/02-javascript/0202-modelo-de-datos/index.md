@@ -140,24 +140,23 @@ This is the most frequent case, the _recommended_ one, and the one we shall use
 throughout this material; however, you ought to remember that under the hood,
 **the property name is a string**.
 
-Para acceder a las propiedades de un objeto, usamos los corchetes `[` `]` con el
-nombre de la propiedad entre estos:
+In order to access an object's properties, we use the brackets `[` `]` with the
+property name in between:
 
 ```js
 point['x'];
 point['y'];
 ```
 
-De nuevo, si seguimos las reglas de formación de identificadores, podemos usar
-la **notación de punto** para acceder a la propiedad, mucho más rápida de
-escribir:
+Again, if we are following the identifier forming rules, we can use the (much
+easier to write) **dot notation** to access the property:
 
 ```js
 point.x;
 point.y;
 ```
 
-Para cambiar el valor de una propiedad se utiliza el operador de asignación:
+We use the assignment operator to change the value of a property:
 
 ```js
 point.x = 0;
@@ -166,13 +165,14 @@ point['x'] = 0;
 point['y'] = 0;
 ```
 
-Si se accede a una **propiedad que no existe**, obtendras el valor `undefined`:
+If you access a **property which does not exist**, you will obtain the value
+`undefined`:
 
 ```js
 var label = point.label; // será undefined. Compruébalo con typeof.
 ```
 
-En cualquier momento podemos crear propiedades nuevas asignándoles algo.
+We can create new properties at any time by assigning something to them.
 
 ```js
 point.label = 'origin';
@@ -181,17 +181,17 @@ point;
 
 ### _Arrays_
 
-Las listas o **_arrays_** son colecciones de **datos ordenados**.
+**_Arrays_** are collections of **ordered data**.
 
-Por ejemplo, la lista de comandos de un menú en un videojuego:
+For instance, the command list in a videogame menu:
 
 ```js
 var menu = ['Attack', 'Defense', 'Inventory'];
 ```
 
-En este tipo de objetos, el orden importa. Para acceder a los distintos valores
-se utiliza el **índice del elemento en la lista**, entre corchetes. Los índices
-_comienzan en `0`_, y no en `1`.
+In this type of objects, order matters. In order to access the different values
+we use the **element's index in the array**, between brackets. Indices _begin
+from `0`_, and not from `1`.
 
 ```js
 menu[0];
@@ -199,7 +199,7 @@ menu[1];
 menu[2];
 ```
 
-Se puede consultar la longitud de un _array_ accediendo a la propiedad `length`.
+We can check an _array_'s length by accessing the `length` property.
 
 ```js
 menu.length;
