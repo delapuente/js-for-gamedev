@@ -27,7 +27,8 @@ benefits outweigh its drawbacks.
 
 Now you can try to insert some expressions:
 
-```sh
+```
+sh
 > 40 + 2
 42
 > var point = { x: 1, y: 1 };
@@ -129,7 +130,8 @@ discuss an object's **properties**, we are usually referring to values, while
 what we usually mean by **property name** is the tag.
 
 If property names are written according to the JavaScript
-[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier), the quotes are unnecessary and can be skipped.
+[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier),
+the quotes are unnecessary and can be skipped.
 
 ```js
 var point = { x: 10, y: 10 }; // much more convenient.
@@ -204,41 +206,43 @@ We can check an _array_'s length by accessing the `length` property.
 menu.length;
 ```
 
-Items can be appended to the _array_'s end by calling the
-[`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method:
+Items can be added to the _array_'s end by calling the
+[`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
+method:
 
 ```js
 menu.push('Magic');
 ```
 
-También se puede quitar un elemento por el final usando el método [`pop`](
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop):
+An item can also be removed from the end by using the
+[`pop`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
+method:
 
 ```js
 menu.pop();
 ```
 
-Se puede alterar un _array_ (insertar o borrar elementos), en cualquier lugar,
-usando el método [`splice`](
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice):
+An _array_ can be altered (have items added or removed) in any place by using
+the [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+method:
 
 ```js
-// Inspecciona la lista tras cada operación.
+// Inspect the list after every operation.
 menu = ['Attack', 'Defense', 'Inventory'];
-menu.splice(2, 0, 'Magic'); // añade Magic antes de Inventory.
-menu.splice(2, 2, 'Ench. Inventory'); // reemplaza Magic e Inventory con Ench. Inventory.
-menu.splice(0, 0, 'Wait'); // añade Wait al principio de la lista.
+menu.splice(2, 0, 'Magic'); // add Magic before Inventory.
+menu.splice(2, 2, 'Ench. Inventory'); // replace Magic and Inventory with Ench. Inventory.
+menu.splice(0, 0, 'Wait'); // add Wait to list beginning.
 ```
 
-Como en el caso de los objetos, podemos cambiar cualquier valor en cualquier
-momento usando el operador de asignación.
+As is the case with objects, we can change any value at any time by using the
+assignment operator.
 
 ```js
-menu[0] = 'Special'; // reemplaza Wait con Special
+menu[0] = 'Special'; // replace Wait with Special
 ```
 
-También como en el caso de los objetos, podemos acceder a un valor que no existe
-y recuperarlo o asignarlo en cualquier momento.
+Again, as is the case with objects, we can access a value that does not exist
+and retrieve or assign it at any time.
 
 ```js
 menu;
@@ -250,37 +254,37 @@ menu;
 menu.length;
 ```
 
-Si asignamos a un índice por encima de la longitud actual, **se extenderá el
-_array_** hasta ese índice.
+If we assign to an index beyond the current length, **the _array_ will be
+extended** until including that index.
 
-#### Distinguir entre objetos y _arrays_
+#### Making a distinction between objects and _arrays_
 
-_Arrays_ y objetos tienen tipo `'object'`, así que se ha de usar el método
-[`Array.isArray()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
-para distinguirlos.
+Both arrays and objects have the `'object'` type, therefore it is necessary to
+use the [`Array.isArray()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
+method to tell them apart.
 
 ```js
-var obj = {}; // el objeto vacío es tan válido como cualquier otro.
-var arr = []; // una lista sin elementos.
-typeof obj; // será object.
-typeof arr; // será object.
-Array.isArray(obj); // será false.
-Array.isArray(arr); // será true.
+var obj = {}; // the void object is as valid as any other.
+var arr = []; // an empty list.
+typeof obj; // will be object.
+typeof arr; // will be object.
+Array.isArray(obj); // will be false.
+Array.isArray(arr); // will be true.
 ```
 
 ### `null`
 
-Existe un último valor para el tipo objeto, que es `null`. Este valor representa
-la **ausencia de objeto** y se suele utilizar para:
+There is another last value for the object type, which is `null`. This value
+represents the **absence of an object** and normally has the following uses:
 
-- En funciones en las que se pregunta por un objeto, indicar que no se ha
-encontrado tal objeto.
+- In functions that query about an object, to indicate that the object has not
+been found.
 
-- En relaciones de composición, indicar que el objeto compuesto ya no necesita
-al objeto componente.
+- In compositing relationships, to indicate that the composite object no longer
+needs the compositing object.
 
-Por ejemplo, en un RPG, podemos preguntar por el siguiente enemigo vivo para
-comprobar si debemos continuar la batalla:
+For instance, in an RPG, we can query about the next living enemy in order to
+check whether the battle has to continue:
 
 ```js
 function getNextAliveEnemy() {
@@ -295,20 +299,20 @@ function getNextAliveEnemy() {
 }
 ```
 
-O bien, supón la ficha de personaje de un héroe:
+Or, in another example, consider a hero's character sheet:
 
 ```js
 var hero = { sword: null, shield: null };
-hero.sword = { attack: 20, magic: 5 }; // coge una espada.
-hero.sword = null; // suelta la espada.
+hero.sword = { attack: 20, magic: 5 }; // take a sword.
+hero.sword = null; // drop a sword.
 ```
 
-### Composición de objetos
+### Object compositing
 
-Objetos y _arrays_ permiten cualquier composición de objetos. Es decir, sus
-valores pueden ser otros objetos y _arrays_, números, cadenas o funciones.
+Objects and arrays allow any compositing of objects. That is to say, their
+values can be other objects and arrays, numbers, strings or functions.
 
-El siguiente ejemplo muestra una posible ficha de personaje de un RPG:
+The following example shows a possible RPG character sheet:
 
 ```js
 var hero = {
@@ -316,7 +320,7 @@ var hero = {
   life: 100,
   weapon: { kind: 'sword', power: 20, magicPower: 5 },
   defense: { kind: 'shield', power: 5, magicPower: 0 },
-  // Inventario por slots. Dos slots vacíos y un último con 5 pociones.
+  // Inventory in slots. Two empty slots and another with 5 potions.
   inventory: [
     { item: null, count: 0},
     { item: null, count: 0},
@@ -325,24 +329,26 @@ var hero = {
 };
 ```
 
-Algunas propiedades:
+Some properties:
 
 ```js
-hero.name; // el nombre del héroe
-hero.weapon.kind; // el tipo de arma
-hero.inventory[0]; // el primer slot del inventario
-hero.inventory[0].item; // qué hay en el primer slot del inventario
-hero.inventory[2].item.power; // el poder del item del 3r slot del inventario
+hero.name; // hero's name
+hero.weapon.kind; // type of weapon
+hero.inventory[0]; // first inventory slot
+hero.inventory[0].item; // what is in the first inventory slot
+hero.inventory[2].item.power; // power level of the item in the third inventory slot
 ```
 
-## Identidad de los objetos
+## Identity of objects
 
-En JavaScript, el operador de igualdad es `===` (el triple igual). Esto permite
-comparar dos objetos y decidir si **son iguales**. También existe el operador de
-desigualdad `!==` que compara dos objetos y decide si **no son iguales**.
+In JavaScript, the equality operator is `===` (triple equal). This allows us to
+compare two objects and decide whether **they are equal**. There is also the
+inequality operator `!==`, which compares two objects and decides whether
+**they are not equal**.
 
-Para los tipos `'bool'`, `'string'`, `'number'` y `'undefined'`, dos valores son
-iguales si tienen [la **misma forma**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
+For the types `'bool'`, `'string'`, `'number'` y `'undefined'`, two values are
+equal if they have
+[the **same structure**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
 
 ```js
 // Todas estas comparaciones son verdaderas.
