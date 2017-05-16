@@ -169,7 +169,7 @@ If you access a **property which does not exist**, you will obtain the value
 `undefined`:
 
 ```js
-var label = point.label; // será undefined. Compruébalo con typeof.
+var label = point.label; // will be undefined. Check it out with typeof.
 ```
 
 We can create new properties at any time by assigning something to them.
