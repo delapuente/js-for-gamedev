@@ -129,8 +129,8 @@ discuss an object's **properties**, we are usually referring to values, while
 what we usually mean by **property name** is the tag.
 
 If property names are written according to the JavaScript
-[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier),
-the quotes are unnecessary and can be skipped.
+[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Ide
+ntifier), the quotes are unnecessary and can be skipped.
 
 ```js
 var point = { x: 10, y: 10 }; // much more convenient.
@@ -190,7 +190,7 @@ var menu = ['Attack', 'Defense', 'Inventory'];
 ```
 
 In this type of objects, order matters. In order to access the different values
-we use the **element's index in the array**, between brackets. Indices _begin
+we use the **item's index in the array**, between brackets. Indices _begin
 from `0`_, and not from `1`.
 
 ```js
@@ -205,8 +205,8 @@ We can check an _array_'s length by accessing the `length` property.
 menu.length;
 ```
 
-Se puede añadir un elemento al final del _array_ llamando al método [`push`](
-https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push):
+Items can be appended to the _array_'s end by calling the
+[`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method:
 
 ```js
 menu.push('Magic');
