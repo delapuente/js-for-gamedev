@@ -6,24 +6,24 @@ execution model, and style.
 Throughout this lesson, [you will code into JavaScript what you learnt in the
 prior lesson](../0201-poo/).
 
-Not all languages allow for a 1:1 transcription of the concepts we have included
-in the model. For instance, JavaScript does not feature any mechanisms that allow
-for the creation of new types, but it does feature other mechanisms that allow for
-the implementation of a similar functionality.
+Not all languages allow for a 1:1 transcription of the concepts we have
+included in the model. For instance, JavaScript does not feature any mechanisms
+that allow for the creation of new types, but it does feature other mechanisms
+that allow for the implementation of a similar functionality.
 
 ## Experimenting with JavaScript
 
 You are going to experiment with JavaScript, so you will need a quick way of
-inspecting expressions and obtaining feedback on what you are doing. The best way
-is to use the **Node console**. For instance:
+inspecting expressions and obtaining feedback on what you are doing. The best
+way is to use the **Node console**. For instance:
 
 ```sh
 $ node --use_strict
 ```
 
-The `--use_strict` option enables JavaScript's strict mode, which simplifies some
-aspects of the language. Strict mode cuts back on some features, but its benefits
-outweigh its drawbacks.
+The `--use_strict` option enables JavaScript's strict mode, which simplifies
+some aspects of the language. Strict mode cuts back on some features, but its
+benefits outweigh its drawbacks.
 
 Now you can try to insert some expressions:
 
@@ -38,48 +38,50 @@ undefined
 1
 ```
 
-In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c` twice in succession. If Node seems to be unresponsive while you are dos veces seguidas. Si escribiendo una expresión Node parece no
-responder, presiona `ctrl+c` una vez para cancelar la expresión.
+In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c`
+twice in succession. If Node seems to be unresponsive while typing an
+expression, press `ctrl+c` once to cancel the expression.
 
-Si no quieres lidiar con la consola de Node, siempre puedes escribir un
-programa y usar `console.log()` para mostrar expresiones por pantalla.
+If you do not want to deal with the Node console, you can always write a
+program and use `console.log()` in order to show expressions on screen.
 
 ```js
-// en el fichero prueba.js
+// in file test.js
 console.log(40 + 2);
 var point = { x: 1, y: 1 };
 console.log(point);
-console.log('Coordenada X:', point.x);
+console.log('Coordinate X:', point.x);
 ```
 
-Ahora ejecuta el programa con Node:
+Now run the program with Node:
 
 ```sh
-$ node prueba.js
+$ node test.js
 42
 { x: 1, y: 1 }
-Coordenada X: 1
+Coordinate X: 1
 ```
 
-Esta lección asume que utilizarás una única sesión de la consola de Node, a
-menos que se indique lo contrario.
+This lesson assumes you will be using a single Node console session, unless
+otherwise specified.
 
-Para la mayoría de los ejemplos, puedes mantener la misma sesión abierta, pero
-si te encuentras con algo inesperado, antes de nada prueba a reiniciar la
-consola. Para reiniciar la consola tienes que **salir y volver a entrar**.
+You can keep the same session logged on for most of the examples, but should
+you find anything unexpected, you should try restarting the console before
+doing anything else. In order to restart the console, you have to **exit and
+enter again**.
 
-Lo mejor es que tengas este texto abierto en una ventana (o impreso), y la
-consola de Node en otra.
+It would be best for you to keep this text opened up in a window (or printed
+out), and the Node console on another.
 
-## Tipos primitivos
+## Primitive types
 
-Se llaman **tipos primitivos** a aquellos que vienen con el lenguaje y que
-permiten la creación de nuevos tipos más complejos. En JavaScript, los tipos
-primitivos son: **booleanos**, **números**, **cadenas** (_strings_), **objetos** y
-**funciones**.
+**Primitive types** is how we call those that come built in with the language
+and which allow for the creation of newer, more complex types. The primitive
+types in JavaScript are: **boolean**, **number**, **string**, **objects**, and
+**functions**.
 
 ```js
-// En los comentarios hay más valores posibles para cada uno de los tipos.
+// You can find more possible values for each of the types in the comments.
 var bool = true; // false
 var number = 1234.5; // 42, -Infinity, +Infinity
 var text = 'I want to be a pirate!'; // "I want to be a pirate"
@@ -87,8 +89,8 @@ var object = {}; // [], null
 var code = function () { return 42; };
 ```
 
-Los puedes reconocer porque responden de manera distinta al operador `typeof`.
-Observa cómo los tipos son cadenas de texto:
+You can tell them from others because they respond differently to the `typeof`
+operator. See how the types are text strings:
 
 ```js
 typeof true;
@@ -98,47 +100,46 @@ typeof {};
 typeof function () { return 42; };
 ```
 
-En JavaScript se puede declarar una variable y no asignarle ningún valor. En
-este caso, el tipo de la variable será `'undefined'`.
+In JavaScript, it is possible to declare a variable without assigning any value
+to it. In this case, the variable's type would be `'undefined'`.
 
 ```js
 var x;
 typeof x;
-x = 5; // tan pronto como le demos un valor, el tipo dejará de ser undefined.
+x = 5; // as soon as we give it a value, its type will cease to be undefined.
 typeof x;
 ```
 
-### Objetos en JavaScript
+### Objects in JavaScript
 
-De entre todos los tipos, vamos a prestar especial atención a aquel cuyos
-valores permiten la **composición** con otros valores. Estos son los de tipo `'object'` (objeto).
+From among all the types, we shall pay special attention to those which values
+allow **compositing** with other values. These are of the `'object'` type.
 
-En JavaScript, los objetos son colecciones de valores etiquetados. Por ejemplo,
-si queremos representar el punto `(10, 15)` del plano XY, podemos etiquetar el
-valor en el eje X con la cadena `'x'` y el valor en el eje Y con la cadena
-`'y'`.
+In JavaScript, objects are collections of tagged values. For instance, if we
+want to represent the point `(10, 15)` in the XY plane, we can tag the value on
+the Y axis with the string `'x'`, and the value on the Y axis with the `'y'`
+string.
 
 ```js
 var point = { 'x': 10, 'y': 15 };
 ```
 
-Cada par etiqueta y valor se llama **propiedad del objeto**. No es algo
-estricto, pero cuando se habla de las propiedades de un objeto, se suele
-referir a los valores; mientras que para hablar de las etiquetas se suele
-decir **nombre de la propiedad**.
+Every tag-value pair is called an **object property**. Less strictly, when we
+discuss an object's **properties**, we are usually referring to values, while
+what we usually mean by **property name** is the tag.
 
-Si los nombres de las propiedades se escriben siguiendo las
-[reglas de formación de identificadores](
-https://developer.mozilla.org/en-US/docs/Glossary/Identifier) en JavaScript, las
-comillas no son necesarias y podemos ahorrárnoslas.
+If property names are written according to the
+[identifier forming rules]
+(https://developer.mozilla.org/en-US/docs/Glossary/Identifier) in JavaScript,
+the quotes are unnecessary and can be skipped.
 
 ```js
-var point = { x: 10, y: 10 }; // mucho más conveniente.
+var point = { x: 10, y: 10 }; // much more convenient.
 ```
 
-Este es el caso más frecuente, el _recomendado_, y el que usaremos a los largo
-de este material; pero conviene saber que, por debajo, **el nombre de la
-propiedad es una cadena**.
+This is the most frequent case, the _recommended_ one, and the one we shall use
+throughout this material; however, you ought to remember that under the hood,
+**the property name is a string**.
 
 Para acceder a las propiedades de un objeto, usamos los corchetes `[` `]` con el
 nombre de la propiedad entre estos:
