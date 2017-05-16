@@ -129,8 +129,7 @@ discuss an object's **properties**, we are usually referring to values, while
 what we usually mean by **property name** is the tag.
 
 If property names are written according to the JavaScript
-[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Ide
-ntifier), the quotes are unnecessary and can be skipped.
+[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier), the quotes are unnecessary and can be skipped.
 
 ```js
 var point = { x: 10, y: 10 }; // much more convenient.
