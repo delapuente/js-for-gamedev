@@ -665,7 +665,7 @@ other object-oriented languages.
 What we do is sidestep the notion of _type_ altogether, in order to directly
 broach the **_constructor_** concept.
 
-![Object constructors](images/space-invaders-constructor-example.png)
+![Object constructors](images/space-invaders-constructor-example-EN.png)
 
 We are going to create two constructor functions: one for points, another for
 shots.
