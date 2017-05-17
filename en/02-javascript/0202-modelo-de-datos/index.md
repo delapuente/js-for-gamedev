@@ -394,7 +394,7 @@ translates into the **property set** of JavaScript objects.
 
 In the _Space Invaders_ example, the state of enemies comprised of:
 
-![Enemy state in the Space Invaders model]( images/space-invaders-enemy-state.png)
+![Enemy state in the Space Invaders model]( images/space-invaders-enemy-state-EN.png)
 
 Can be codified as:
 
