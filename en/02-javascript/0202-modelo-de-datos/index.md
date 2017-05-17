@@ -440,7 +440,7 @@ enemy._position.x = 100; // also perfectly valid.
 The actions an object's API is comprised of, i.e. **methods,** can be
 implemented as **functions** among an object's properties.
 
-![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api.png)
+![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api-EN.png)
 
 ```js
 var enemy = {
@@ -665,7 +665,7 @@ other object-oriented languages.
 What we do is sidestep the notion of _type_ altogether, in order to directly
 broach the **_constructor_** concept.
 
-![Object constructors](images/space-invaders-constructor-example.png)
+![Object constructors](images/space-invaders-constructor-example-EN.png)
 
 We are going to create two constructor functions: one for points, another for
 shots.
@@ -1015,7 +1015,7 @@ efficiently, by using constructors and the prototype chain.
 Now we shall see how an **inheritance relationship** is created. Remember the
 example for enemies and the player ship in the prior lesson:
 
-![Inheritance relationship between ship, enemies and the allied ship]( images/space-invaders-hierarchy.png)
+![Inheritance relationship between ship, enemies and the allied ship]( images/space-invaders-hierarchy-EN.png)
 
 We will need our points and shots:
 
@@ -1091,7 +1091,7 @@ In this case, it is probably best not to include the `shoot` method, since some
 ships shoot upwards and others downwards. We will not include `advance` either,
 as it is exclusive to enemies.
 
-![Constructor hierarchy](images/space-invaders-hierarchy-constructor.png)
+![Constructor hierarchy](images/space-invaders-hierarchy-constructor-EN.png)
 
 Keep in mind that, from now on, the constructors for both the allied ship and
 the enemies will first ask the ship constructor to create a ship, and then
