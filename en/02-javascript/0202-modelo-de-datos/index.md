@@ -396,7 +396,7 @@ In the _Space Invaders_ example, the state of enemies comprised of:
 
 ![Enemy state in the Space Invaders model]( images/space-invaders-enemy-state.png)
 
-Se puede codificar mediante:
+Can be codified as:
 
 ```js
 var enemy = {
@@ -407,17 +407,17 @@ var enemy = {
 };
 ```
 
-La primera limitación en JavaScript es que **no se puede restringir el acceso
-a las propiedades de un objeto** (es decir, no hay propiedades privadas). Así,
-nada nos impide poder modificar la posición directamente.
+The first limitation to JavaScript is that **access to object properties cannot
+be restricted** (i.e., there are no private properties). Thus, nothing prevents
+us from directly modifying the position.
 
 ```js
-enemy.position.x = 100; // perfectamente válido.
+enemy.position.x = 100; // perfectly valid.
 ```
 
-Lo único que se puede hacer es desaconsejar al usuario de ese código que utilice
-ciertas propiedades. Una práctica muy común en JavaScript es añadir un guión
-bajo `_` a los atributos que consideramos que son **privados**:
+The only caveat would be to warn the user against code utilizing certain
+properties. A widespread practice in JavaScript is to add an underscore `_` to
+attributes we want to consider to be **private:**
 
 ```js
 var enemy = {
@@ -428,19 +428,19 @@ var enemy = {
 };
 ```
 
-Pero, insistimos, esto es una convención y se puede seguir accediendo a los
-atributos que tengan este guión bajo:
+However, we insist that this is only a conventionality and underscore-marked
+attributes can still be accessed:
 
 ```js
-enemy._position.x = 100; // perfectamente válido también.
+enemy._position.x = 100; // also perfectly valid.
 ```
 
-### Codificando la API
+### Codifying the API
 
-Las acciones que forman la API de un objeto, los **métodos**, pueden
-implementarse como **funciones** en propiedades de un objeto.
+The actions which comprise an object's API, i.e. **methods,** can be
+implemented as **functions** among an object's properties.
 
-![API del enemigo en el modelado de Space Invaders]( images/space-invaders-enemy-api.png)
+![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api.png)
 
 ```js
 var enemy = {
@@ -452,48 +452,47 @@ var enemy = {
   moveLeft: function () { console.log('Going left!'); },
   moveRight: function () { console.log('Going right!'); },
   advance: function () { console.log('Marching forward!'); },
-  shoot: function () { console.log('PICHIUM!'); } // (es un láser)
+  shoot: function () { console.log('PEW!'); } // (it's a laser)
 };
 ```
 
-**Enviar un mensaje** a un objeto consiste sencillamente acceder a la propiedad
-del destinatario, que será una función, y llamarla.
+**Sending a message** to an object simply means to access the target's
+property, which will be a function, and calling it.
 
 ```js
-enemy.shoot(); // primero accedemos con punto, luego llamamos con ().
+enemy.shoot(); // first we access with dot, then call with ().
 enemy.moveLeft();
 enemy.moveLeft();
 enemy.advance();
-enemy['shoot'](); // es lo mismo, acceder con corchetes y llamar con ().
+enemy['shoot'](); // it is the same if we access with brackets and call with ().
 ```
 
-Cualquier función puede actuar como método. Para que actúe como un método
-tan sólo es necesario **llamarla desde la propiedad de un objeto**. Y, como
-cualquier propiedad de un objeto, podemos cambiarla en cualquier momento:
+Any function can behave as a method. In order to have it act as a method, all
+we need is **to call it from an object's property.** And, just like any other
+object property, we can change it at any time:
 
 ```js
-enemy.shoot(); // PICHIUM!
-enemy.shoot = function () { console.log('PAÑUM!'); };
-enemy.shoot(); // PAÑUM!
+enemy.shoot(); // PEW!
+enemy.shoot = function () { console.log('VOIP!'); };
+enemy.shoot(); // VOIP!
 ```
 
-Ahora bien, observa el siguiente comportamiento:
+Now then, notice the following behavior:
 
 ```js
-enemy; // fíjate en la posición.
+enemy; // notice the position.
 enemy.moveLeft();
-enemy; // fíjate en la posición otra vez.
+enemy; // notice the position again.
 ```
 
-Obviamente, echando un vistazo a lo que hace `moveLeft`, no podríamos decir
-que _cambia el estado_ del objeto destinatario del mensaje. ¿Cómo podríamos
-solucionarlo?
+Obviously, just from a glance at what `moveLeft` does, we couldn't tell it
+_changes the state_ of the message's target object. How could we fix this?
 
-Como cualquier función puede actuar como método, hace falta una forma de
-**referirse al destinatario del mensaje**, si existe. Cuando se usa como un
-método, el destinatario se guarda siempre en la variable **`this`**.
+Since any function can behave as a method, what we need is a way of **referring
+to the message's target,** should one exist. When used as a method, the target
+is always stored to the variable **`this`**.
 
-Gracias a ella, podemos implementar los métodos de movimiento:
+Thanks to this variable, we can implement the following movement methods:
 
 ```js
 enemy.moveLeft = function () { this._position.x -= 2; };
@@ -501,39 +500,39 @@ enemy.moveRight = function () { this._position.x += 2; };
 enemy.advance = function () { this._position.y += 2; };
 ```
 
-Prueba el mismo experimento de antes y observa cómo efectivamente alteramos el
-estado del objeto.
+Try the same experiment as before and notice how we are effectively changing
+the object's state.
 
 ```js
-enemy; // fíjate en la posición.
+enemy; // notice the position.
 enemy.moveLeft();
-enemy; // fíjate en la posición otra vez.
+enemy; // notice the position again.
 ```
 
-### El valor the `this`
+### The value of `this`
 
-El valor de `this` es uno de los aspectos más controvertidos de JavaScript.
+The value of `this` is one of JavaScript's most debated about aspects.
 
-En otros lenguajes, métodos y funciones son cosas distintas y un método
-_siempre_ tiene asociado un –y sólo un- objeto, así que `this` nunca cambia.
+In other languages, methods and functions are different things and a method
+_always_ has one -and only one- associated object, so `this` never changes.
 
-Pero en JavaScript, `this` depende de cómo se llame a la función: si se
-llama como si fuera una función, o si se llama como si fuera un método.
+But in JavaScript, `this` depends on how we call the function: whether we call
+it as a function, or as a method.
 
-Considera la siguiente función:
+Consider the following function:
 
 ```js
 function inspect() {
-  // sólo inspecciona this
+  // only inspects this
   console.log('Tipo:', typeof this);
   console.log('Valor:', this);
 }
 ```
 
-Y prueba lo siguiente:
+And try the following:
 
 ```js
-// Piensa qué puede valer this antes de probar cada ejemplo.
+// consider what may be the value of this before trying each example.
 var ship1 = { name: 'T-Fighter', method: inspect };
 var ship2 = { name: 'X-Wing', method: inspect };
 ship1.method();
@@ -541,112 +540,113 @@ ship2.method();
 inspect();
 ```
 
-En el último caso, el valor de `this` es `undefined` porque la función no se
-está usando como un método, por lo que no hay destinatario.
+In the latter case, the value of `this` is `undefined` because the function
+isn't being used as a method, so there is no target.
 
-En JavaScript podemos hacer que cualquier objeto sea `this` en cualquier
-función. Para ello usaremos
-[`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
-en una función.
+In JavaScript we can have any object be `this` to any function. To do this, we
+shall use [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
+on a function.
 
 ```js
 var onlyNameShip = { name: 'Death Star' };
-inspect.apply(onlyNameShip); // hace que this valga onlyNameShip en inspect.
+inspect.apply(onlyNameShip); // makes the value of this be onlyNameShip on inspect.
 ```
 
-A [`this`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value)
-se le conoce también como **objeto de contexto**, y en este material usaremos
-este término de vez en cuando.
+[`This`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value)
+is also known as the **context object,** and we shall use this term
+occasionally throughout this material.
 
-## Consideraciones adicionales
+## Additional considerations
 
-### Nombres y valores
+### Names and values
 
-Una **variable es un nombre**. Para el programa, quitando algunas excepciones,
-los nombres no tienen significado.
+**A variable is a name.** Names are meaningless to the program, save for some
+exceptions.
 
-Un **valor no es un nombre**. De hecho, sólo las funciones pueden tener nombre
-con el fin de poder implementar recursividad y un par de cosas más.
+**A value is not a name.** In fact, only functions can be named so as to being
+able to implement recursivity, as well as a couple extra things.
 
-Así que no es lo mismo el nombre `uno` que el valor `1`, y por supuesto, no
-es obligatoria ninguna relación coherente entre el nombre y el valor.
+Therefore, the name `one` and the value `1` are not the same, and of course,
+there is no obligatory coherent relationship between the name and the value.
 
 ```js
-var uno = 2; // para el programa tiene sentido, quizás para el programador no.
+var uno = 2; // makes sense to the program, maybe not to the programmer.
 ```
 
-En general, hablando de booleanos, cadenas y números, decimos que los **nombres
-guardan valores**, mientras que si hablamos de objetos y funciones decimos que
-los **nombres apuntan** a objetos o funciones o **son referencias** a objetos o
-funciones.
+Generally speaking, when dealing with booleans, strings and numbers, we say
+that **names store values,** while when speaking about objects and functions we
+say **names point** to objects or functions, or that they **are references** to
+objects or functions.
 
-### Funciones, referencias a funciones y llamadas a funciones
+### Functions, references to functions and calls to functions
 
-Hay dos formas de definir una función. Una es usando la **declaración de
-función** `function`:
+There are two ways of defining a function. One is to use the **function
+declaration,** `function`:
 
 ```js
-// Introduce una variable factorial que apunta a la función factorial.
+// introduces a factorial variable which points to the factorial function.
 function factorial(number) {
   if (number === 0) {
     return 1;
   }
   return number * factorial(number - 1);
-} // no hace falta un ';' en este caso.
+} // no semicolon ';' needed in this case.
 ```
 
-En este caso, el nombre de la función (antes de los paréntesis) es obligatorio.
-Dar nombre a una función tiene dos implicaciones:
+In this case, the name of the function (before the parentheses) is mandatory.
+Giving a name to a function has two implications:
 
-- Permite implementar **llamadas recursivas** como la del ejemplo.
+- It allows the implementation of **recursive calls** like the one in the example.
 
-- **Crea un nombre** `factorial` para referirnos a esa función.
+- **It creates a name,** `factorial`, to refer to that function by.
 
-La otra forma es usar una **expression de función**. Esta se parece más a como
-crearíamos otros valores, como números o cadenas:
+The other way is to use a **function expression.** This is more similar to the
+way we would create other values, such as numbers or strings:
 
 ```js
-// Introduce una variable recursiveFunction que apunta a OTRA funcion factorial.
+// Introduces a recursiveFunction variable that points to ANOTHER factorial function.
 var recursiveFunction = function factorial(number) {
   if (number === 0) {
     return 1;
   }
   return number * factorial(number - 1);
-}; // ahora sí hace falta ';', como en cualquier asignación.
+}; // now we do need a semicolon, just as in any other assignment.
 ```
 
-En este último caso, hay dos nombres. Uno es el nombre de la función
-`factorial`, que existe para poder referirnos a ella dentro del cuerpo de la
-función. El otro es la variable `recursiveFunction` que referencia a la función.
+In this last case, there are two names. One is the name of the function
+`factorial`, which exists so that we can refer to it within the function's
+body. The other is the `recursiveFunction` variable which references the
+function.
 
-La misma función puede referirse desde múltiples variables o, dicho de otra
-manera, tener muchos nombres:
+The same function can be referred to from multiple variables or, put another
+way, have many names:
 
 ```js
 var a = recursiveFunction;
 var b = recursiveFunction;
-a === b; // es cierto, se refieren a la misma función.
-a.name; // el nombre de la función no tiene que ver con el de la variable.
-b.name; // lo mismo.
+a === b; // true, they refer to the same function.
+a.name; // the function name has nothing to do with that of the variable.
+b.name; // same.
 recursiveFunction !== factorial;
 ```
 
-Tampoco podemos confundir la referencia a la función `factorial` y la
-llamada a la misma función, por ejemplo: `factorial(10)`.
+Neither should we confuse the reference to the function `factorial` and the
+call to the same function, for example, `factorial(10)`.
 
-Con la primera forma **nos referimos al objeto** que encapsula el código que hay
-que ejecutar. No requiere parámetros porque **no se quiere ejecutar el código**
-sino solamente referirse a la función.
+The first expression **refers to the object** that encapsulates the code that
+has to be run. It requires no parameters because **what we want is not to run
+the code,** but to refer to the function.
 
-Con la segunda, **pedimos a la función que se ejecute** y por tanto habrá que
-aportar todos los parámetros necesarios.
+With the second expression, **we are asking the function to be executed** and
+therefore all necessary parameters have to be provided.
 
-### En JavaScript todo es un objeto
+### Everything is an object in JavaScript
 
-Si, como definición alternativa, consideramos como objeto aquello que puede
-responder a un mensaje, resulta que en JavaScript **todo es un objeto**.
+If, according to the alternate definition, we consider an object to be anything
+that may respond to a message, then it results that **everything is an object**
+in JavaScript.
 
-Observa los siguiente ejemplos:
+Notice the following examples:
 
 ```js
 true.toString();
@@ -656,18 +656,19 @@ true.toString();
 (function (parameter) { return parameter; }).length;
 ```
 
-## Tipos y constructores de objetos
+## Types and object constructors
 
-Hemos comentado que JavaScript no permite modelar tipos nuevos y que
-hace falta "dar un rodeo". Esta es una de las principales diferencias con otros
-lenguajes orientados a objetos.
+As we said before, JavaScript does not allow for the modeling of new types,
+which necessitates a "workaround." This is one of its key differences with
+other object-oriented languages.
 
-Lo que se debe hacer es saltarse el concepto de _tipo_ para abordar directamente
-el de **_constructor_**.
+What we do is sidestep the notion of _type_ altogether, in order to directly
+broach the **_constructor_** concept.
 
-![Constructores de objetos](images/space-invaders-constructor-example.png)
+![Object constructors](images/space-invaders-constructor-example.png)
 
-Vamos a crear dos funciones constructoras: una para puntos y otra para disparos.
+We are going to create two constructor functions: one for points, another for
+shots.
 
 ```js
 function newPoint(x, y) {
