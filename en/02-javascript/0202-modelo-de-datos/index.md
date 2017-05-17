@@ -808,7 +808,7 @@ obj1.f --------------------------------------|
 obj1.z ------------------------------------------------X
 ```
 
-Creating this hyerarchy in JavaScript requires the use of [`Object.create()`]( https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create):
+Creating this hierarchy in JavaScript requires the use of [`Object.create()`]( https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create):
 
 ```js
 // The chain is assembled from rear to front.
@@ -971,11 +971,11 @@ var hero = new Hero('Link');
 hero;
 ```
 
-Si la función no devuelve nada, el **resultado del operador `new` será el
-nuevo objeto**. Esto automatiza el paso 5: no es necesario devolver el
-nuevo objeto, esta devolución se hace implícita al utilizar `new`.
+If the function returns nothing, **the result of the operator `new` will be the
+new object.** This automatizes step 5: returning the new object is no longer
+necessary, as this return is implicit to using `new`.
 
-Observa como quedaría el constructor de un objeto punto:
+Notice what the constructor for a point object would look like:
 
 ```js
 function Point(x, y) {
@@ -984,7 +984,7 @@ function Point(x, y) {
 }
 ```
 
-Y el del disparo:
+As for the shot:
 
 ```js
 function Shot(position, velocity) {
@@ -992,14 +992,14 @@ function Shot(position, velocity) {
     this._velocity = velocity;
 }
 
-// El prototipo ya existe, pero le añadimos el método advance()
+// The prototype does already exist, but we are adding the method advance() to it
 Shot.prototype.advance = function () {
     this._position.y += this._velocity;
 };
 ```
 
-Ahora crear los objetos será cuestión de usar `new`. Emplearemos además nuestro
-nuevo tipo punto (`Point`) para pasar la posición al disparo:
+Now, creating the objects is a matter of using `new`. We will also use our new
+type, `Point`, to pass the position to the shot:
 
 ```js
 var enemyShot = new Shot(new Point(15, 15), 2);
@@ -1007,17 +1007,17 @@ var allyShot = new Shot(new Point(15, 585), -2);
 enemyShot !== allyShot;
 ```
 
-## Herencia
+## Inheritance
 
-Ya hemos visto cómo crear objetos con atributos y cómo hacerlo eficazmente,
-usando constructores y la cadena de prototipos.
+We have seen how objects with attributes are created, and how to do it
+efficiently, by using constructors and the prototype chain.
 
-Veremos ahora cómo crear una **relación de herencia**. Recordemos el ejemplo de
-los enemigos y la nave protagonista de la lección anterior:
+Now we shall see how an **inheritance relationship** is created. Remember the
+example for enemies and the player ship in the prior lesson:
 
-![Relación de herencia entre nave y los enemigos y la nave aliada]( images/space-invaders-hierarchy.png)
+![Inheritance relationship between ship, enemies and the allied ship]( images/space-invaders-hierarchy.png)
 
-Necesitaremos nuestros puntos y disparos:
+We will need our points and shots:
 
 ```js
 function Point(x, y) {
@@ -1035,7 +1035,7 @@ Shot.prototype.advance = function () {
 };
 ```
 
-El constructor y los métodos de los enemigos podrían ser:
+The constructor and the methods for the enemies could be:
 
 ```js
 function Enemy(graphic, position, score) {
@@ -1056,7 +1056,7 @@ Enemy.prototype.shoot = function () {
 };
 ```
 
-Y aquí la implementación de la nave aliada:
+And here, the implementation for the allied ship:
 
 ```js
 function Ally(position) {
@@ -1074,8 +1074,8 @@ Ally.prototype.shoot = function () {
 };
 ```
 
-Ahora podemos generalizar y pensar en un constructor que capture las propiedades
-comunes de ambos tipos:
+Now we can generalize and think of a constructor that envelopes the properties
+that are common to both types:
 
 ```js
 function Ship(graphic, position) {
@@ -1087,15 +1087,15 @@ Ship.prototype.moveLeft = function () { this._position.x -= 2; };
 Ship.prototype.moveRight = function () { this._position.x += 2; };
 ```
 
-En este caso, probablemente sea mejor no incluir el método de disparar
-`shoot`, ya que unas naves disparan hacia arriba y otras hacia abajo. Tampoco
-incluiremos `advance`, puesto que es exclusivo de los enemigos y no de la nave
-aliada.
+In this case, it is probably best not to include the `shoot` method, since some
+ships shoot upwards and others downwards. We will not include `advance` either,
+as it is exclusive to enemies.
 
-![Jerarquía de constructores](images/space-invaders-hierarchy-constructor.png)
+![Constructor hierarchy](images/space-invaders-hierarchy-constructor.png)
 
-Recuerda que ahora los constructores de la nave aliada y los enemigos pedirán
-primero al constructor de nave que cree una nave y luego la personalizarán.
+Keep in mind that, from now on, the constructors for both the allied ship and
+the enemies will first ask the ship constructor to create a ship, and then
+customize it.
 
 ```js
 function Enemy(graphic, position, score) {
@@ -1109,25 +1109,23 @@ function Ally(position) {
 }
 ```
 
-Con [`apply`](
-https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
-se puede ejecutar una función indicando cuál será su objeto de contexto y sus
-parámetros.
+With [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
+we can execute a function specifying its context object as well as its parameters.
 
-Con la configuración anterior, las nuevas instancias de enemigos y aliados
-pasarán primero por el constructor de `Ship`, que establecerá los **atributos
-comunes** y luego estas instancias serán modificados cada una por el constructor
-pertinente para convertirse en enemigos o en aliados.
+With the previous configuration, all new instances of enemies and allies will
+first go through the `Ship` constructor, which will set the **common
+attributes;** these instances will then be modified individually by the
+relevant constructor in order to become enemies or allies.
 
-En cuanto a la API, lo ideal sería contar con una cadena de prototipos de la siguiente manera:
+As for the API, it would be ideal to have a prototype chain after the following fashion:
 
--  Los atributos del enemigo (o del aliado) están en la propia instancia.
+- Enemy (or ally) attributes are included in the instance itself.
 
--  La API específica del tipo `Enemy` or `Ally` están en la propiedad
-`prototype` del constructor de ese tipo.
+- The specific API for the `Enemy` or `Ally` types is in the `prototype`
+property of that type's constructor.
 
-- La API común a los tipos `Enemy` y `Ally` está en la propiedad `prototype` del
-constructor `Ship`.
+- The API common to the `Enemy` and `Ally` types is in the `prototype` property
+of the `Ship` constructor.
 
 ```
 var enemy = new Enemy()             Enemy.prototype      Ship.prototype
@@ -1137,33 +1135,33 @@ enemy.advance ------------------------|                    |
 enemy.moveLeft --------------------------------------------|
 ```
 
-Como ocurría con el ejemplo en la sección anterior, hay que crear la cadena
-desde atrás hacia adelante. El enlace entre las instancias y los
-constructores nos lo proporciona JavaScript al utilizar `new`, pero el enlace
-entre la propiedad `prototype` de `Enemy` y la de `Ship` **hay que que
-establecerlo manualmente**.
+As was the case for the example in the previous section, it is necessary to
+create the chain from the rear to the front. The link between instances and
+constructors is provided by JavaScript upon using `new`, but the link between
+the `prototype` property from `Enemy` and from `Ship` **has to be manually
+set.**
 
-Prueba lo siguiente:
+Try the following:
 
 ```js
-// Inspecciona el prototype de Enemy.
+// Inspects Enemy's prototype.
 Enemy.prototype;
 
-// Enlaza ambas propiedades prototype.
+// Links both prototype properties.
 Enemy.prototype = Object.create(Ship.prototype);
 
-// Inspecciona la propiedad prototype otra vez y busca diferencias.
+// Inspects the prototype property again and scans for differences.
 Enemy.prototype;
 
-// Corrige la propiedad constructor.
+// Corrects the constructor property.
 Enemy.prototype.constructor = Enemy;
 
-// Añade el método específico del tipo Enemy.
+// Adds the method specific to the type Enemy.
 Enemy.prototype.advance = function () {
     this._position.y += 2;
 };
 
-// Otro método específico.
+// Another specific method.
 Enemy.prototype.shoot = function () {
     var firePosition = new Point(this._position.x, this._position.y + 10);
     var shot = new Shot(firePosition, 2);
@@ -1171,10 +1169,10 @@ Enemy.prototype.shoot = function () {
 };
 ```
 
-Y para el tipo `Ally`:
+And for the `Ally` type:
 
 ```js
-// Lo mismo para el aliado.
+// The same for the ally.
 Ally.prototype = Object.create(Ship.prototype);
 Ally.prototype.constructor = Ally;
 
@@ -1185,7 +1183,7 @@ Ally.prototype.shoot = function () {
 };
 ```
 
-Ahora sí, ya podemos crear un enemigo y un aliado usando sus constructores:
+Now we can finally create an enemy and an ally by using their constructors:
 
 ```js
 var enemy = new Enemy('enemy1.png', new Point(10, 10), 40);
@@ -1198,7 +1196,7 @@ Object.getPrototypeOf(Ally.prototype) === Object.getPrototypeOf(Enemy.prototype)
 Object.getPrototypeOf(Ally.prototype) === Ship.prototype;
 ```
 
-También podemos comprobar dónde está cada propiedad:
+We can also check where every property is:
 
 ```js
 enemy.hasOwnProperty('_score');
@@ -1214,43 +1212,43 @@ Ship.prototype.hasOwnProperty('advance');
 Ship.prototype.hasOwnProperty('moveLeft');
 ```
 
-## Polimorfismo
+## Polymorphism
 
-Las relaciones de herencia que acabamos de establecer nos permiten decir que un
-enemigo es una instancia del tipo `Enemy`, pero también lo es del tipo `Ship`.
-Una misma instancia tiene **múltiples formas gracias a la herencia**. En
-programación orientada a objetos a esto se lo llama **polimorfismo**.
+The inheritance relationships we have just established allow us to say that an
+enemy is an instance of the `Enemy` type, but also of the `Ship` type. **A
+given instance can have multiple shapes thanks to inheritance.** In
+object-oriented programming this is called **polymorphism.**
 
-Alternativamente, podemos decir que un enemigo es una instancia de `Enemy`
-porque tiene la API de `Enemy`, o que es una instancia de `Ship` porque tiene
-la API de `Ship`. Esto es equivalente a decir que las propiedades `prototype`
-de `Enemy` y `Ship` están en la cadena de prototipos del objeto.
+Alternately, we can say an enemy is an instance of `Enemy` because it has the
+`Enemy` API, or that it is an instance of `Ship` because it has the `Ship` API.
+This is equivalent to saying that the `prototype` properties of `Enemy` and
+`Ship` are in the object's prototype chain.
 
-El operador `instanceof` devuelve verdadero si la propiedad `prototype` de la
-función a la derecha del operador está en la cadena de prototipos del objeto a
-la izquierda del operador.
+The `instanceof` operator returns true if the `prototype` property of the
+function to the operator's right is in the prototype chain of the object to the
+left of the operator.
 
 ```js
-enemy instanceof Enemy;  // Enemy.prototype es el primer eslabón.
-enemy instanceof Ship;   // Ship.prototype es el segundo.
-enemy instanceof Object; // Object.prototype, el tercero.
+enemy instanceof Enemy;  // Enemy.prototype is the first link.
+enemy instanceof Ship;   // Ship.prototype is the second.
+enemy instanceof Object; // Object.prototype, the third.
 
-enemy instanceof Ally;   // Ally.prototype no está en la cadena.
+enemy instanceof Ally;   // Ally.prototype is not in the chain.
 ```
 
-En lo referente al estado, resulta conveniente saber qué constructor ha
-construido el objeto para conocer de un vistazo los atributos que contendrá el
-mismo. Esto es equivalente a determinar cuál es la función cuya propiedad
-`prototype` es el **primer eslabón** de la cadena de prototipos.
+Regarding the state, it is convenient to know which constructor has built the
+object, so that we can know at a glance which attributes it will contain. This
+is equivalent to determining which is the function whose `prototype` function
+is the **first link** in the prototype chain.
 
-Dado que los objetos prototipo vienen de serie con una propiedad `constructor`,
-que por defecto apunta a la función que posee al objeto prototipo, basta con
-acceder a la propiedad `constructor` a través de la instancia.
+Given that the prototype objects come with a built in `constructor` property,
+which by default points to the function which owns the prototype object, all we
+need is access the `constructor` property through the instance.
 
 ```js
 enemy.constructor;
-enemy.constructor === Enemy; // fue construido por Enemy, no por Ship.
-enemy.constructor !== Ship; // es cierto que Ship fue utilizado, pero nada más.
+enemy.constructor === Enemy; // it was built by Enemy, not by Ship.
+enemy.constructor !== Ship; // it is true that Ship was used, but nothing else.
 ```
 
 ### Duck typing
@@ -1259,15 +1257,16 @@ enemy.constructor !== Ship; // es cierto que Ship fue utilizado, pero nada más.
 > QUACKS-like-a duck, WALKS-like-a duck, etc, etc, depending on exactly what
 > subset of duck-like behaviour you need to play your language-games with.
 
-[Alex Martelli sobre polimorfismo]( https://groups.google.com/forum/?hl=en#!msg/comp.lang.python/CCs2oJdyuzc/NYjla5HKMOIJ)
+[Alex Martelli on polymorphism]( https://groups.google.com/forum/?hl=en#!msg/comp.lang.python/CCs2oJdyuzc/NYjla5HKMOIJ)
 
-La cita se refiere a que más que comprobar si algo es una instancia de un
-tipo, se debería comprobar si tiene la funcionalidad que es necesaria.
+The quote refers to how it is not so much a matter of checking whether
+something is an instance of a type, as rather checking whether it has the
+necessary functionality.
 
-JavaScript es tan dinámico que el operador `instanceof` y la propiedad
-`constructor` sólo tienen sentido si se siguen las convenciones que acabamos de ver.
+JavaScript is so dynamic that the `instanceof` operator and the `constructor`
+property only make sense if the conventions we have just covered are followed.
 
-Nada nos impide borrar la propiedad `constructor` de un prototipo o
-sobreescribirla en un objeto determinado. De hecho, en las nuevas versiones de
-JavaScript, el prototipo de un objeto puede cambiar después de que el objeto
-haya sido construido.
+Nothing prevents us from deleting the `constructor` property from a prototype
+or overwriting it in a specific object. As a matter of fact, in the newer
+versions of JavaScript, an object's prototype can change after the object's
+construction.
