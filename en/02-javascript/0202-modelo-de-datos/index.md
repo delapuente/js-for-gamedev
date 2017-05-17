@@ -691,25 +691,25 @@ function newShot(position, velocity) {
 }
 ```
 
-La forma de las funciones constructoras es muy similar: crear un objeto vacío,
-establecer las propiedades del objeto y devolver el nuevo objeto.
+Constructor functions are very similar in form: create a void object, set the
+object properties and return the new object.
 
-Ahora podríamos crear disparos con algo así:
+Now we would be able to create shots with something like this:
 
 ```js
-// Velocidad positiva para que se mueva hacia abajo.
+// Positive velocity for downward movement.
 var enemyShot = newShot(newPoint(15, 15), 2);
 
-// Velocidad negativa para que se mueva hacia arriba.
+// Negative velocity for upwards movement.
 var allyShot = newShot(newPoint(15, 585), -2);
 
 enemyShot !== allyShot;
 ```
 
-### Reaprovechando funcionalidad
+### Repurposing functionality
 
-El problema con esta aproximación es que estamos creando funciones distintas
-para comportamientos idénticos: una función por objeto.
+The problem with this approach is that we are creating different functions for
+identical behaviors: one function per object.
 
 ```js
 var s1 = newShot(newPoint(15, 15), 2);
@@ -720,13 +720,13 @@ s2.advance !== s3.advance;
 s3.advance !== s1.advance;
 ```
 
-Esto es altamente ineficiente, dado que cada función ocupa un espacio distinto
-en memoria.
+This is highly inefficient, since every function takes up its own space in
+memory.
 
-Realmente no son necesarias tantas funciones, sino una solamente actuando sobre
-distintos objetos.
+Not so many functions are actually needed, but rather only one affecting
+several objects.
 
-Así que es mejor **crear un objeto que contenga únicamente la API**:
+Therefore, it is best to **create an object that contains only the API:**
 
 ```js
 var shotAPI = {
@@ -736,7 +736,7 @@ var shotAPI = {
 };
 ```
 
-Y usarlo en la creación del objeto para compartir los métodos de la API:
+And use it in the object's creation so that it borrows the API's methods:
 
 ```js
 function newShot(position, velocity) {
@@ -748,22 +748,22 @@ function newShot(position, velocity) {
 }
 ```
 
-Ahora todas las instancias comparten la misma función, pero cada función actúa
-sobre el objeto correspondiente gracias al valor de `this`:
+Now all instances share the same function, but every function affects the
+corresponding object thanks to the value of `this`:
 
 ```js
 var s1 = newShot(newPoint(15, 15), 2);
 var s2 = newShot(newPoint(15, 15), 2);
 var s3 = newShot(newPoint(15, 15), 2);
-s1.advance === s2.advance; // ahora SÍ son iguales.
+s1.advance === s2.advance; // now they ARE the same.
 s2.advance === s3.advance;
 s3.advance === s1.advance;
 ```
 
-Para hacer todavía más fuerte la asociación entre el constructor y la API,
-vamos a realizar una pequeña modificación: crear el objeto con
-la API como una **propiedad de la función constructora**, quedando así todo
-agrupado en el mismo sitio (la función `newShot`).
+In order to further strengthen the association between constructor and API, we
+shall carry out a minor modification: creating the object with the API as a
+**property of the constructor function,** thereby grouping everything in the
+same place (the `newShot` function.)
 
 ```js
 function newShot(position, velocity) {
@@ -774,7 +774,7 @@ function newShot(position, velocity) {
     return obj;
 }
 
-// Una función es un objeto, así que le podemos añadir una propiedad.
+// A function is an object, so we can add a property to it.
 newShot.api = {
     advance: function () {
         this._position.y += this._velocity;
@@ -784,21 +784,20 @@ newShot.api = {
 
 ## La cadena de prototipos
 
-JavaScript posee una característica muy representativa y única del lenguaje:
-**la cadena de prototipos**.
+JavaScript has a signature feature, unique to the language: the **prototype
+chain.**
 
-Puedes experimentar con ella en [Object Playground]( http://www.objectplayground.com/),
-una excelente herramienta que te ayudará a visualizarla.
+You can experiment with it in [Object Playground]( http://www.objectplayground.com/),
+an excellent tool that will help you visualize it.
 
-La idea no es complicada: la cadena de prototipos **es una lista de búsqueda
-para las propiedades**. Cada elemento de la cadena es **prototipo** del
-objeto anterior.
+The idea is not too complicated: the prototype chain is a **property search
+list.** Every item in the chain is a **prototype** of the prior item.
 
-Cuando accedes a una propiedad de un objeto, esta propiedad se busca en el
-objeto y, si no se encuentra, se busca en el prototipo del objeto, y así
-sucesivamente hasta alcanzar la propiedad o el final de esta cadena.
+When you access a property of an object, this property is searched for in the
+object and if it is not found, it is searched for in the object's prototype,
+and so on until either the property or the chain's end are reached.
 
-Por ejemplo:
+For instance:
 
 ```
 obj1                    obj2               obj3
@@ -809,16 +808,16 @@ obj1.f --------------------------------------|
 obj1.z ------------------------------------------------X
 ```
 
-Crear esta jerarquía en JavaScript requiere el uso de [`Object.create()`]( https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create):
+Creating this hyerarchy in JavaScript requires the use of [`Object.create()`]( https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Object/create):
 
 ```js
-// La cadena se monta de atrás hacia adelante.
+// The chain is assembled from rear to front.
 var obj3 = { f: 6 };
-// Encadenamos obj2 a obj3
+// Chaining obj2 to obj3
 var obj2 = Object.create(obj3);
 obj2.d = 4;
 obj2.e = 5;
-// Encadenamos obj1 a obj2
+// Chaining obj1 to obj2
 var obj1 = Object.create(obj2);
 obj1.a = 1;
 obj1.b = 2;
@@ -830,8 +829,8 @@ obj1.f;
 obj1.z; // undefined
 ```
 
-El método `Object.create()` crea un nuevo objeto vacío (como `{}`) cuyo
-prototipo es el objeto pasado como parámetro.
+The method `Object.create()` creates a new void object (like `{}`) which
+prototype is the object we passed as a parameter.
 
 Se puede usar el método [`hasOwnProperty`]( https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
 para determinar si una propiedad pertenece a un objeto sin atravesar la cadena
