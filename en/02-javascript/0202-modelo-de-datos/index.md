@@ -168,7 +168,7 @@ point['x'] = 0;
 point['y'] = 0;
 ```
 
-If you access a **property which does not exist**, you will obtain the value
+If you access a **property which does not exist,** you will obtain the value
 `undefined`:
 
 ```js
@@ -182,9 +182,9 @@ point.label = 'origin';
 point;
 ```
 
-### _Arrays_
+### Arrays
 
-**_Arrays_** are collections of **ordered data**.
+**Arrays** are collections of **ordered data.**
 
 For instance, the command list in a videogame menu:
 
@@ -193,7 +193,7 @@ var menu = ['Attack', 'Defense', 'Inventory'];
 ```
 
 In this type of objects, order matters. In order to access the different values
-we use the **item's index in the array**, between brackets. Indices _begin
+we use the **item's index in the array,** between brackets. Indices _begin
 from `0`_, and not from `1`.
 
 ```js
@@ -202,13 +202,13 @@ menu[1];
 menu[2];
 ```
 
-We can check an _array_'s length by accessing the `length` property.
+We can check an array's length by accessing the `length` property.
 
 ```js
 menu.length;
 ```
 
-Items can be added to the _array_'s end by calling the
+Items can be added to the array's end by calling the
 [`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
 method:
 
@@ -224,8 +224,8 @@ method:
 menu.pop();
 ```
 
-An _array_ can be altered (have items added or removed) in any place by using
-the [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
+An array can be altered (have items added or removed) in any place by using the
+[`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 method:
 
 ```js
@@ -250,16 +250,16 @@ and retrieve or assign it at any time.
 menu;
 menu.length;
 var item = menu[10];
-typeof item; // será undefined.
+typeof item; // will be undefined.
 menu[10] = 'Secret';
 menu;
 menu.length;
 ```
 
-If we assign to an index beyond the current length, **the _array_ will be
+If we assign to an index beyond the current length, **the array will be
 extended** until including that index.
 
-#### Making a distinction between objects and _arrays_
+#### Making a distinction between objects and arrays
 
 Both arrays and objects have the `'object'` type, therefore it is necessary to
 use the [`Array.isArray()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
@@ -277,7 +277,8 @@ Array.isArray(arr); // will be true.
 ### `null`
 
 There is another last value for the object type, which is `null`. This value
-represents the **absence of an object** and normally has the following uses:
+represents the **absence of an object,** and it normally has the following
+uses:
 
 - In functions that query about an object, to indicate that the object has not
 been found.
@@ -343,58 +344,57 @@ hero.inventory[2].item.power; // power level of the item in the third inventory 
 
 ## Identity of objects
 
-In JavaScript, the equality operator is `===` (triple equal). This allows us to
-compare two objects and decide whether **they are equal**. There is also the
+In JavaScript, the equality operator is `===` (triple equal.) This allows us to
+compare two objects and decide whether **they are equal.** There is also the
 inequality operator `!==`, which compares two objects and decides whether
-**they are not equal**.
+**they are not equal.**
 
-For the types `'bool'`, `'string'`, `'number'` y `'undefined'`, two values are
-equal if they have
-[the **same structure**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
+For the types `'bool'`, `'string'`, `'number'` & `'undefined'`, two values are
+equal if they are
+[of the **same shape**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
 
 ```js
-// Todas estas comparaciones son verdaderas.
+// All of these comparisons are true.
 "Hola" === "Hola";
 "Hola" !== "hola";
 true === true;
 123 === 123.0;
 123 !== "123";
-123 === 122 + 1; // primero se resuelve la expresión, luego se compara.
+123 === 122 + 1; // the expression is first solved, then compared.
 undefined === undefined;
 ```
 
-Para el tipo `object`, dos objetos son iguales sólo si se refieren al mismo
-objeto:
+For the `object` type, two objects are equal only if they refer to the same
+object:
 
 ```js
-({} !== {}); // da igual la forma, esto son dos objetos distintos.
+({} !== {}); // regardless of the shape, these are two different objects.
 ({} !== []);
-[] !== []; // igual que antes.
-[1, 2, 3] !== [1, 2, 3]; // la forma da igual, los objetos son distintos.
-null === null; // pero con null funciona porque sólo hay un valor null.
+[] !== []; // same as before.
+[1, 2, 3] !== [1, 2, 3]; // regardless of the shape, the objects are different.
+null === null; // but with null it works, since there is only one null value.
 var obj = {};
 var sameObj = obj;
 var another = {};
-sameObj === obj; // funciona porque ambos nombres se refieren al mismo objeto.
-sameObj !== another; // igual que antes, distintos, pese a la forma.
+sameObj === obj; // it works because both names refer to the same object.
+sameObj !== another; // like before, different despite the same shape.
 ```
 
-## Objetos y paso de mensajes
+## Objects and message passing
 
-Los objetos de JavaScript y el poder usar código como un valor más, permiten
-codificar los conceptos de _objeto_ y _paso de mensajes_ de la programación
-orientada a objetos.
+JavaScript objects, as well as being able to use code as any other like value,
+allow us to codify the concepts of _object_ and _message passing_ from
+object-oriented programming.
 
-### Codificando el estado
+### Codifying the state
 
-Con lo que se ha visto hasta ahora deberías tener el conocimiento suficiente
-para codificar el estado. El **conjunto de atributos** del objeto en el modelo
-orientado a objetos se traduce en el **conjunto de propiedades** de los objetos
-JavaScript.
+With what we have seen until now, you should have enough knowledge to codify
+the state. The **attribute set** of the object in the object-oriented model
+translates into the **property set** of JavaScript objects.
 
-En el ejemplo de _Space Invaders_, el estado de los enemigos formado por:
+In the _Space Invaders_ example, the state of enemies comprised of:
 
-![Estado del enemigo en el modelado de Space Invaders]( images/space-invaders-enemy-state.png)
+![Enemy state in the Space Invaders model]( images/space-invaders-enemy-state.png)
 
 Se puede codificar mediante:
 
