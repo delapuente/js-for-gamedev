@@ -3,8 +3,8 @@
 Knowing a programming language basically means to know its syntax, data model,
 execution model, and style.
 
-Throughout this lesson, [you will code into JavaScript what you learnt in the
-prior lesson](../0201-poo/).
+Throughout this lesson,
+[you will code into JavaScript what you learnt in the prior lesson](../0201-poo/).
 
 Not all languages allow for a 1:1 transcription of the concepts we have
 included in the model. For instance, JavaScript does not feature any mechanisms
@@ -15,9 +15,10 @@ that allow for the implementation of a similar functionality.
 
 You are going to experiment with JavaScript, so you will need a quick way of
 inspecting expressions and obtaining feedback on what you are doing. The best
-way is to use the **Node console**. For instance:
+way is to use the **Node console.** For instance:
 
-```sh
+```
+sh
 $ node --use_strict
 ```
 
@@ -56,7 +57,8 @@ console.log('Coordinate X:', point.x);
 
 Now run the program with Node:
 
-```sh
+```
+sh
 $ node test.js
 42
 { x: 1, y: 1 }
@@ -69,7 +71,7 @@ otherwise specified.
 You can keep the same session logged on for most of the examples, but should
 you find anything unexpected, you should try restarting the console before
 doing anything else. In order to restart the console, you have to **exit and
-enter again**.
+enter again.**
 
 It would be best for you to keep this text opened up in a window (or printed
 out), and the Node console on another.
@@ -79,7 +81,7 @@ out), and the Node console on another.
 **Primitive types** is how we call those that come built in with the language
 and which allow for the creation of newer, more complex types. The primitive
 types in JavaScript are: **boolean**, **number**, **string**, **objects**, and
-**functions**.
+**functions.**
 
 ```js
 // You can find more possible values for each of the types in the comments.
@@ -125,8 +127,8 @@ string.
 var point = { 'x': 10, 'y': 15 };
 ```
 
-Every tag-value pair is called an **object property**. Less strictly, when we
-discuss an object's **properties**, we are usually referring to values, while
+Every tag-value pair is called an **object property.** Less strictly, when we
+discuss an object's **properties,** we are usually referring to values, while
 what we usually mean by **property name** is the tag.
 
 If property names are written according to the JavaScript
@@ -139,7 +141,7 @@ var point = { x: 10, y: 10 }; // much more convenient.
 
 This is the most frequent case, the _recommended_ one, and the one we shall use
 throughout this material; however, you ought to remember that under the hood,
-**the property name is a string**.
+**the property name is a string.**
 
 In order to access an object's properties, we use the brackets `[` `]` with the
 property name in between:
