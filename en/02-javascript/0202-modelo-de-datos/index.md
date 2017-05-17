@@ -78,7 +78,7 @@ out), and the Node console on another.
 
 ## Primitive types
 
-**Primitive types** is how we call those that come built in with the language
+**Primitive types** is how we call types that come built in with the language
 and which allow for the creation of newer, more complex types. The primitive
 types in JavaScript are: **boolean**, **number**, **string**, **objects**, and
 **functions.**
@@ -115,7 +115,7 @@ typeof x;
 
 ### Objects in JavaScript
 
-From among all the types, we shall pay special attention to those which values
+From among all the types, we shall pay special attention to those whose values
 allow **compositing** with other values. These are of the `'object'` type.
 
 In JavaScript, objects are collections of tagged values. For instance, if we
@@ -437,7 +437,7 @@ enemy._position.x = 100; // also perfectly valid.
 
 ### Codifying the API
 
-The actions which comprise an object's API, i.e. **methods,** can be
+The actions an object's API is comprised of, i.e. **methods,** can be
 implemented as **functions** among an object's properties.
 
 ![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api.png)
@@ -615,7 +615,7 @@ var recursiveFunction = function factorial(number) {
 
 In this last case, there are two names. One is the name of the function
 `factorial`, which exists so that we can refer to it within the function's
-body. The other is the `recursiveFunction` variable which references the
+body. The other is the `recursiveFunction` variable, which references the
 function.
 
 The same function can be referred to from multiple variables or, put another
@@ -829,12 +829,12 @@ obj1.f;
 obj1.z; // undefined
 ```
 
-The method `Object.create()` creates a new void object (like `{}`) which
+The method `Object.create()` creates a new void object (like `{}`) whose
 prototype is the object we passed as a parameter.
 
-Se puede usar el método [`hasOwnProperty`]( https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
-para determinar si una propiedad pertenece a un objeto sin atravesar la cadena
-de prototipos:
+The method [`hasOwnProperty`]( https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
+can be used to determine whether a property belongs to an object without having
+to go through the prototype chain:
 
 ```js
 obj1.hasOwnProperty('c'); // true
@@ -853,8 +853,8 @@ obj3.hasOwnProperty('f'); // true
 obj3.hasOwnProperty('z'); // false
 ```
 
-Se puede usar el método [`Object.getPrototypeOf()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf)
-para obtener el prototipo de un objeto:
+The method [`Object.getPrototypeOf()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf)
+can be used to obtain an object's prototype:
 
 ```js
 Object.getPrototypeOf(obj1) === obj2;
@@ -863,10 +863,10 @@ Object.getPrototypeOf(obj3) === Object.prototype;
 Object.getPrototypeOf(Object.prototype) === null;
 ```
 
-## Constructores y cadenas de prototipos
+## Constructors and prototype chains
 
-Los prototipos se prestan a ser el lugar ideal para contener la API, que es el
-comportamiento común de todos los objetos de un tipo.
+Prototypes lend themselves to be an ideal place to contain the API, which is
+the common behavior to all objects of a given type.
 
 ```
 var obj = newShot()                               newShot.api
@@ -876,11 +876,11 @@ obj.advance ----------------------------------------|
 obj.goBack ------------------------------------------------------------------X
 ```
 
-Para crear este enlace, modificaremos nuestro constructor de la siguiente forma:
+In order to establish this link, we shall modify our constructor as follows:
 
 ```js
 function newShot(position, velocity) {
-    // Con esto la API es el prototipo del objeto.
+    // With this, the API is the object's prototype.
     var obj = Object.create(newShot.api);
     obj._position = position;
     obj._velocity = velocity;
@@ -895,36 +895,36 @@ newShot.api = {
 };
 ```
 
-Prueba ahora a crear un nuevo disparo:
+Now try creating a new shot:
 
 ```js
 var shot = newShot({x: 0, y: 0}, 2);
-shot; // al inspeccionar shot sólo se muestran las propiedades del objeto.
-shot.advance; // pero advance existe en su prototipo.
+shot; // on inspecting shot, only the object's properties are shown.
+shot.advance; // but advance exists in its prototype.
 shot.hasOwnProperty('advance'); // false
 Object.getPrototypeOf(shot).hasOwnProperty('advance'); // true
 ```
 
-Si hacemos esto con todos los constructores, pronto encontraremos un patrón:
+If we do this for all constructors, we shall soon come across a pattern:
 
-1. Crear un objeto para contener la API.
+1. Create an object to contain the API.
 
-2. Implementar la API como propiedades de este objeto.
+2. Implement the API as properties of this object.
 
-3. En el constructor, hacer que este objeto sea el prototipo de un nuevo objeto.
+3. In the constructor, make this object be the prototype to a new object.
 
-4. Establecer las propiedades del nuevo objeto con el estado.
+4. Establish the properties of the new object with the state.
 
-5. Devolver el nuevo objeto.
+5. Return the new object.
 
-Sólo los pasos 2 y 4 involucran diferencias de un constructor a otro, todo lo
-demás es exactamente igual. Tanto es así, que JavaScript lo tiene en cuenta
-y viene con los mecanismos para automatizar los pasos 1, 3 y 5.
+Only steps 2 and 4 involve differences between one constructor and the other,
+the rest is exactly the same. So much so that JavaScript takes note of it and
+comes with built in mechanisms to automatize steps 1, 3 and 5.
 
-Primero, JavaScript permite que _cualquier función_ pueda usarse como
-constructor. Por eso, cada vez que escribimos una función, JavaScript crea una
-**propiedad de la función llamada `prototype`**, que es un
-objeto con una única propiedad `constructor` que apunta a la función.
+First of all, JavaScript allows for _any function_ to be used as a constructor.
+Because of this, everytime we type a function, JavaScript creates a **property
+of the function called "prototype",** which is an object with a single
+property, `constructor`, that points to the function.
 
 ```js
 function anyFunction() {}
@@ -932,34 +932,33 @@ anyFunction.prototype;
 anyFunction.prototype.constructor === anyFunction;
 ```
 
-Esto automatiza el paso 1: ya no es necesario el objeto `api` que preparábamos
-nosotros manualmente. La propiedad `prototype` es equivalente a la propiedad
-`api`.
+This automatizes step 1: no longer do we need the `api` object that we would
+manually set. The `prototype` property is equivalent to the `api` property.
 
-Ahora, al llamar a la función con el operador `new` delante, se crea un **nuevo
-objeto cuyo prototipo es precisamente la propiedad `prototype`** de la función:
+Now, upon calling the function with the operator `new` first, **a new object
+whose prototype is precisely the function's "prototype" property** is created:
 
 ```js
 var obj = new anyFunction();
 var anotherObj = new anyFunction();
 
-// Los objetos son distintos.
+// The objects are different.
 obj !== anotherObj;
 
-// Pero sus prototipos son iguales.
+// But their prototypes are the same.
 Object.getPrototypeOf(obj) === Object.getPrototypeOf(anotherObj);
 
-// Y además son la propiedad prototype de la función.
+// Furthermore, they are the function's "prototype" property.
 Object.getPrototypeOf(obj) === anyFunction.prototype;
 ```
 
-Con esto se automatiza el paso 3: ya no es necesario llamar a `Object.create()`
-para establecer la cadena de prototipos entre objeto y API (lo conseguimos
-automáticamente al utilizar el operador `new`).
+With this, step 3 is automatized: it is no longer necessary to call
+`Object.create()` in order to establish the prototype chain between object and
+API (we get this automatically by using the `new` operator.)
 
-Finalmente, cuando se llama con `new`, la **función recibe como objeto de
-contexto (`this`) el elemento que está siendo creado**, lo que nos
-permite establecer sus atributos.
+Finally, by calling it with `new`, **the function receives as its context
+object (`this`) the element that is being created,** which allows us to set its
+attributes.
 
 ```js
 function Hero(name) {
