@@ -1,13 +1,13 @@
 # The JavaScript data model
 
-Knowing a programming language basically means to know its syntax, data model,
-execution model, and style.
+To know a programming language basically means to know its syntax, data model,
+execution model, and idioms.
 
 Throughout this lesson,
-[you will code into JavaScript what you learnt in the prior lesson](../0201-poo/).
+[you will code into JavaScript what you learned in the prior lesson](../0201-poo/).
 
-Not all languages allow for a 1:1 transcription of the concepts we have
-included in the model. For instance, JavaScript does not feature any mechanisms
+Not all languages allow for a 1:1 translation of the concepts we have
+included in the model. For instance, JavaScript doesn't feature any mechanisms
 that allow for the creation of new types, but it does feature other mechanisms
 that allow for the implementation of a similar functionality.
 
@@ -44,8 +44,8 @@ In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c`
 twice in succession. If Node seems to be unresponsive while typing an
 expression, press `ctrl+c` once to cancel the expression.
 
-If you do not want to deal with the Node console, you can always write a
-program and use `console.log()` in order to show expressions on screen.
+If you don't want to put up with the Node console, you can always write a
+program and use `console.log()` in order to display expressions on screen.
 
 ```js
 // in file test.js
@@ -68,20 +68,20 @@ Coordinate X: 1
 This lesson assumes you will be using a single Node console session, unless
 otherwise specified.
 
-You can keep the same session logged on for most of the examples, but should
-you find anything unexpected, you should try restarting the console before
-doing anything else. In order to restart the console, you have to **exit and
-enter again.**
+You can keep the same session logged on for most of the examples, but in the 
+case that you find anything unexpected, you should try restarting the console 
+before doing anything else. In order to restart the console, you have to **exit 
+and enter again.**
 
 It would be best for you to keep this text opened up in a window (or printed
-out), and the Node console on another.
+out,) and the Node console on another.
 
 ## Primitive types
 
-**Primitive types** is how we call types that come built in with the language
-and which allow for the creation of newer, more complex types. The primitive
-types in JavaScript are: **boolean**, **number**, **string**, **objects**, and
-**functions.**
+**Primitive types** is how we call types that come as a part of the language
+and allow for the creation of newer, more complex types. The primitive
+types in JavaScript are: **boolean**, **number**, **string**, **object**, and
+**function.**
 
 ```js
 // You can find more possible values for each of the types in the comments.
@@ -93,7 +93,7 @@ var code = function () { return 42; };
 ```
 
 You can tell them from others because they respond differently to the `typeof`
-operator. See how the types are text strings:
+operator. Notice how the types are text strings:
 
 ```js
 typeof true;
@@ -103,7 +103,7 @@ typeof {};
 typeof function () { return 42; };
 ```
 
-In JavaScript, it is possible to declare a variable without assigning any value
+In JavaScript, it is possible to declare a variable without assigning a value
 to it. In this case, the variable's type would be `'undefined'`.
 
 ```js
@@ -127,7 +127,7 @@ string.
 var point = { 'x': 10, 'y': 15 };
 ```
 
-Every tag-value pair is called an **object property.** Less strictly, when we
+Every tag/value pair is called an **object property.** Less strictly, when we
 discuss an object's **properties,** we are usually referring to values, while
 what we usually mean by **property name** is the tag.
 
@@ -140,7 +140,7 @@ var point = { x: 10, y: 10 }; // much more convenient.
 ```
 
 This is the most frequent case, the _recommended_ one, and the one we shall use
-throughout this material; however, you ought to remember that under the hood,
+throughout this material; however, you should remember that under the hood,
 **the property name is a string.**
 
 In order to access an object's properties, we use the brackets `[` `]` with the
@@ -151,7 +151,7 @@ point['x'];
 point['y'];
 ```
 
-Again, if we are following the identifier forming rules, we can use the (much
+Again, if we follow the identifier forming rules, we can use the (much
 easier to write) **dot notation** to access the property:
 
 ```js
@@ -168,14 +168,14 @@ point['x'] = 0;
 point['y'] = 0;
 ```
 
-If you access a **property which does not exist,** you will obtain the value
+If you access a **non-extant property,** you will obtain the value
 `undefined`:
 
 ```js
 var label = point.label; // will be undefined. Check it out with typeof.
 ```
 
-We can create new properties at any time by assigning something to them.
+We can create new properties at any time by assigning a value to them.
 
 ```js
 point.label = 'origin';
@@ -186,7 +186,7 @@ point;
 
 **Arrays** are collections of **ordered data.**
 
-For instance, the command list in a videogame menu:
+Consider the command list in a videogame menu:
 
 ```js
 var menu = ['Attack', 'Defense', 'Inventory'];
@@ -224,7 +224,7 @@ method:
 menu.pop();
 ```
 
-An array can be altered (have items added or removed) in any place by using the
+An array can be altered (have items added or removed from it) in any place by using the
 [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
 method:
 
@@ -243,8 +243,7 @@ assignment operator.
 menu[0] = 'Special'; // replace Wait with Special
 ```
 
-Again, as is the case with objects, we can access a value that does not exist
-and retrieve or assign it at any time.
+Again, as with objects, we can access a non-extant value and retrieve or assign it at any time.
 
 ```js
 menu;
@@ -257,7 +256,7 @@ menu.length;
 ```
 
 If we assign to an index beyond the current length, **the array will be
-extended** until including that index.
+extended** until that index is included.
 
 #### Making a distinction between objects and arrays
 
@@ -280,11 +279,9 @@ There is another last value for the object type, which is `null`. This value
 represents the **absence of an object,** and it normally has the following
 uses:
 
-- In functions that query about an object, to indicate that the object has not
-been found.
+- In functions that query about an object, to indicate that the object has not been found.
 
-- In compositing relationships, to indicate that the composite object no longer
-needs the compositing object.
+- In compositing relationships, to indicate that the composite object no longer needs the compositing object.
 
 For instance, in an RPG, we can query about the next living enemy in order to
 check whether the battle has to continue:
@@ -313,7 +310,7 @@ hero.sword = null; // drop a sword.
 ### Object compositing
 
 Objects and arrays allow any compositing of objects. That is to say, their
-values can be other objects and arrays, numbers, strings or functions.
+values can be other objects, arrays, numbers, strings or functions.
 
 The following example shows a possible RPG character sheet:
 
@@ -388,7 +385,7 @@ object-oriented programming.
 
 ### Codifying the state
 
-With what we have seen until now, you should have enough knowledge to codify
+With everything we've seen until now, you should have enough knowledge to codify
 the state. The **attribute set** of the object in the object-oriented model
 translates into the **property set** of JavaScript objects.
 
@@ -407,15 +404,15 @@ var enemy = {
 };
 ```
 
-The first limitation to JavaScript is that **access to object properties cannot
-be restricted** (i.e., there are no private properties). Thus, nothing prevents
-us from directly modifying the position.
+The foremost limitation to JavaScript is that **access to object properties cannot
+be restricted** (i.e., there are no private properties.) Because of this, there 
+is nothing to prevent us from directly modifying the position.
 
 ```js
 enemy.position.x = 100; // perfectly valid.
 ```
 
-The only caveat would be to warn the user against code utilizing certain
+At most, we could warn the user against code that handles certain
 properties. A widespread practice in JavaScript is to add an underscore `_` to
 attributes we want to consider to be **private:**
 
@@ -428,8 +425,8 @@ var enemy = {
 };
 ```
 
-However, we insist that this is only a conventionality and underscore-marked
-attributes can still be accessed:
+However, we insist that this is only a conventionality, and underscore-marked
+attributes can be accessed regardless:
 
 ```js
 enemy._position.x = 100; // also perfectly valid.
@@ -437,7 +434,7 @@ enemy._position.x = 100; // also perfectly valid.
 
 ### Codifying the API
 
-The actions an object's API is comprised of, i.e. **methods,** can be
+The actions an object's API is comprised of, i.e. its **methods,** can be
 implemented as **functions** among an object's properties.
 
 ![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api-EN.png)
@@ -456,7 +453,7 @@ var enemy = {
 };
 ```
 
-**Sending a message** to an object simply means to access the target's
+**Sending a message** to an object simply means accessing the target's
 property, which will be a function, and calling it.
 
 ```js
@@ -485,11 +482,11 @@ enemy.moveLeft();
 enemy; // notice the position again.
 ```
 
-Obviously, just from a glance at what `moveLeft` does, we couldn't tell it
-_changes the state_ of the message's target object. How could we fix this?
+Obviously, only from a glance at what `moveLeft` does, we couldn't tell that it
+_changes the state_ of the message's target object. How can we fix this?
 
 Since any function can behave as a method, what we need is a way of **referring
-to the message's target,** should one exist. When used as a method, the target
+to the message's target,** if there is one. When used as a method, the target
 is always stored to the variable **`this`**.
 
 Thanks to this variable, we can implement the following movement methods:
@@ -500,7 +497,7 @@ enemy.moveRight = function () { this._position.x += 2; };
 enemy.advance = function () { this._position.y += 2; };
 ```
 
-Try the same experiment as before and notice how we are effectively changing
+Try the same experiment as before and notice how we are, effectively, changing
 the object's state.
 
 ```js
@@ -511,7 +508,7 @@ enemy; // notice the position again.
 
 ### The value of `this`
 
-The value of `this` is one of JavaScript's most debated about aspects.
+The value of `this` is one of JavaScript's most debated aspects.
 
 In other languages, methods and functions are different things and a method
 _always_ has one -and only one- associated object, so `this` never changes.
@@ -554,7 +551,7 @@ inspect.apply(onlyNameShip); // makes the value of this be onlyNameShip on inspe
 
 [`This`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value)
 is also known as the **context object,** and we shall use this term
-occasionally throughout this material.
+occasionally throughout these materials.
 
 ## Additional considerations
 
@@ -575,8 +572,8 @@ var uno = 2; // makes sense to the program, maybe not to the programmer.
 
 Generally speaking, when dealing with booleans, strings and numbers, we say
 that **names store values,** while when speaking about objects and functions we
-say **names point** to objects or functions, or that they **are references** to
-objects or functions.
+say **names point** to objects or functions, or that they **reference** objects 
+or functions.
 
 ### Functions, references to functions and calls to functions
 
