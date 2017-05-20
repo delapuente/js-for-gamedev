@@ -529,7 +529,7 @@ function inspect() {
 And try the following:
 
 ```js
-// consider what may be the value of this before trying each example.
+// before trying each example, consider what might the value of this be.
 var ship1 = { name: 'T-Fighter', method: inspect };
 var ship2 = { name: 'X-Wing', method: inspect };
 ship1.method();
@@ -560,19 +560,19 @@ occasionally throughout these materials.
 **A variable is a name.** Names are meaningless to the program, save for some
 exceptions.
 
-**A value is not a name.** In fact, only functions can be named so as to being
-able to implement recursivity, as well as a couple extra things.
+**A value is not a name.** In fact, only functions can be named so that we can 
+implement recursivity, as well as a couple extra things.
 
 Therefore, the name `one` and the value `1` are not the same, and of course,
 there is no obligatory coherent relationship between the name and the value.
 
 ```js
-var uno = 2; // makes sense to the program, maybe not to the programmer.
+var uno = 2; // makes sense to the program, maybe not so much to the programmer.
 ```
 
 Generally speaking, when dealing with booleans, strings and numbers, we say
 that **names store values,** while when speaking about objects and functions we
-say **names point** to objects or functions, or that they **reference** objects 
+say that **names point** to objects or functions, or that they **reference** objects 
 or functions.
 
 ### Functions, references to functions and calls to functions
@@ -593,7 +593,7 @@ function factorial(number) {
 In this case, the name of the function (before the parentheses) is mandatory.
 Giving a name to a function has two implications:
 
-- It allows the implementation of **recursive calls** like the one in the example.
+- It allows the implementation of **recursive calls,** like the one in the example.
 
 - **It creates a name,** `factorial`, to refer to that function by.
 
@@ -615,7 +615,7 @@ In this last case, there are two names. One is the name of the function
 body. The other is the `recursiveFunction` variable, which references the
 function.
 
-The same function can be referred to from multiple variables or, put another
+The same function can be referenced by multiple variables or, put another
 way, have many names:
 
 ```js
@@ -688,8 +688,8 @@ function newShot(position, velocity) {
 }
 ```
 
-Constructor functions are very similar in form: create a void object, set the
-object properties and return the new object.
+Constructor functions are very similar in form: they create a void object, set the
+object's properties and return the new object.
 
 Now we would be able to create shots with something like this:
 
@@ -705,7 +705,7 @@ enemyShot !== allyShot;
 
 ### Reusing functionality
 
-The problem with this approach is that we are creating different functions for
+The problem with this approach is that we're creating different functions for
 identical behaviors: one function per object.
 
 ```js
@@ -720,7 +720,7 @@ s3.advance !== s1.advance;
 This is highly inefficient, since every function takes up its own space in
 memory.
 
-Not so many functions are actually needed, but rather only one affecting
+There is no need for so many functions, but rather only one, affecting
 several objects.
 
 Therefore, it is best to **create an object that contains only the API:**
@@ -862,8 +862,8 @@ Object.getPrototypeOf(Object.prototype) === null;
 
 ## Constructors and prototype chains
 
-Prototypes lend themselves to be an ideal place to contain the API, which is
-the common behavior to all objects of a given type.
+Prototypes are uniquely suited to contain the API, which is the common 
+behavior to all objects of a given type.
 
 ```
 var obj = newShot()                               newShot.api
@@ -915,8 +915,8 @@ If we do this for all constructors, we shall soon come across a pattern:
 5. Return the new object.
 
 Only steps 2 and 4 involve differences between this constructor and any others,
-the rest is exactly the same. So much so that JavaScript takes note of it and
-comes with built in mechanisms to automatize steps 1, 3 and 5.
+the rest is exactly the same. So much so that JavaScript takes note of it, and
+comes with built-in mechanisms to automatize steps 1, 3 and 5.
 
 First of all, JavaScript allows for _any function_ to be used as a constructor.
 Because of this, everytime we type a function, JavaScript creates a **property
@@ -1006,7 +1006,7 @@ enemyShot !== allyShot;
 
 ## Inheritance
 
-We have seen how objects with attributes are created, and how to do it
+We have seen how objects with attributes are created; also how to do it
 efficiently, by using constructors and the prototype chain.
 
 Now we shall see how an **inheritance relationship** is created. Remember the
@@ -1084,7 +1084,7 @@ Ship.prototype.moveLeft = function () { this._position.x -= 2; };
 Ship.prototype.moveRight = function () { this._position.x += 2; };
 ```
 
-In this case, it is probably best not to include the `shoot` method, since some
+In this case, it's probably best not to include the `shoot` method, since some
 ships shoot upwards and others downwards. We will not include `advance` either,
 as it is exclusive to enemies.
 
@@ -1107,22 +1107,20 @@ function Ally(position) {
 ```
 
 With [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
-we can execute a function specifying its context object as well as its parameters.
+we can execute a function specifying its context object, as well as its parameters.
 
 With the previous configuration, all new instances of enemies and allies will
 first go through the `Ship` constructor, which will set the **common
 attributes;** these instances will then be modified individually by the
-relevant constructor in order to become enemies or allies.
+relevant constructor, in order for them to become enemies or allies.
 
 As for the API, it would be ideal to have a prototype chain after the following fashion:
 
 - Enemy (or ally) attributes are included in the instance itself.
 
-- The specific API for the `Enemy` or `Ally` types is in the `prototype`
-property of that type's constructor.
+- The specific API for the `Enemy` or `Ally` types is in the `prototype` property of that type's constructor.
 
-- The API common to the `Enemy` and `Ally` types is in the `prototype` property
-of the `Ship` constructor.
+- The API common to the `Enemy` and `Ally` types is in the `prototype` property of the `Ship` constructor.
 
 ```
 var enemy = new Enemy()             Enemy.prototype      Ship.prototype
@@ -1132,7 +1130,7 @@ enemy.advance ------------------------|                    |
 enemy.moveLeft --------------------------------------------|
 ```
 
-As was the case for the example in the previous section, it is necessary to
+As was the case for the example in the previous section, it's necessary to
 create the chain from the rear to the front. The link between instances and
 constructors is provided by JavaScript upon using `new`, but the link between
 the `prototype` property from `Enemy` and from `Ship` **has to be manually
@@ -1233,14 +1231,14 @@ enemy instanceof Object; // Object.prototype, the third.
 enemy instanceof Ally;   // Ally.prototype is not in the chain.
 ```
 
-Regarding the state, it is convenient to know which constructor has built the
+Regarding the state, it's convenient to know which constructor has built the
 object, so that we can know at a glance which attributes it will contain. This
 is equivalent to determining which is the function whose `prototype` property 
 is the **first link** in the prototype chain.
 
 Given that the prototype objects come with a built in `constructor` property,
 which by default points to the function which owns the prototype object, all we
-need is access the `constructor` property through the instance.
+need is to access the `constructor` property through the instance.
 
 ```js
 enemy.constructor;
@@ -1256,8 +1254,8 @@ enemy.constructor !== Ship; // it is true that Ship was used, but nothing else.
 
 [Alex Martelli on polymorphism]( https://groups.google.com/forum/?hl=en#!msg/comp.lang.python/CCs2oJdyuzc/NYjla5HKMOIJ)
 
-The quote refers to how it is not so much a matter of checking whether
-something is an instance of a type, as rather checking whether it has the
+The quote refers to how it isn't so much a matter of checking whether
+something is an instance of a type, as rather checking whether it's got the
 necessary functionality.
 
 JavaScript is so dynamic that the `instanceof` operator and the `constructor`
