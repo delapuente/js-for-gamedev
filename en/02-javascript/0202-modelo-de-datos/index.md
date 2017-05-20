@@ -1,6 +1,6 @@
 # The JavaScript data model
 
-To know a programming language basically means to know its syntax, data model,
+Knowing a programming language basically means that we know its syntax, data model,
 execution model, and idioms.
 
 Throughout this lesson,
@@ -435,7 +435,7 @@ enemy._position.x = 100; // also perfectly valid.
 ### Codifying the API
 
 The actions an object's API is comprised of, i.e. its **methods,** can be
-implemented as **functions** among an object's properties.
+implemented as **functions** inside properties of the object.
 
 ![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api-EN.png)
 
@@ -521,8 +521,8 @@ Consider the following function:
 ```js
 function inspect() {
   // only inspects this
-  console.log('Tipo:', typeof this);
-  console.log('Valor:', this);
+  console.log('Type:', typeof this);
+  console.log('Value:', this);
 }
 ```
 
@@ -540,13 +540,13 @@ inspect();
 In the latter case, the value of `this` is `undefined` because the function
 isn't being used as a method, so there is no target.
 
-In JavaScript we can have any object be `this` to any function. To do this, we
+In JavaScript, we can make a function take any object as its `this`. To do this, we
 shall use [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
 on a function.
 
 ```js
 var onlyNameShip = { name: 'Death Star' };
-inspect.apply(onlyNameShip); // makes the value of this be onlyNameShip on inspect.
+inspect.apply(onlyNameShip); // makes the value of this be onlyNameShip for inspect.
 ```
 
 [`This`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value)
@@ -639,7 +639,7 @@ therefore all necessary parameters have to be provided.
 
 ### Everything is an object in JavaScript
 
-If, according to the alternate definition, we consider an object to be anything
+If, according to an alternate definition, we consider an object to be anything
 that may respond to a message, then it results that **everything is an object**
 in JavaScript.
 
@@ -703,7 +703,7 @@ var allyShot = newShot(newPoint(15, 585), -2);
 enemyShot !== allyShot;
 ```
 
-### Repurposing functionality
+### Reusing functionality
 
 The problem with this approach is that we are creating different functions for
 identical behaviors: one function per object.
@@ -779,7 +779,7 @@ newShot.api = {
 };
 ```
 
-## La cadena de prototipos
+## The prototype chain
 
 JavaScript has a signature feature, unique to the language: the **prototype
 chain.**
@@ -788,7 +788,7 @@ You can experiment with it in [Object Playground]( http://www.objectplayground.c
 an excellent tool that will help you visualize it.
 
 The idea is not too complicated: the prototype chain is a **property search
-list.** Every item in the chain is a **prototype** of the prior item.
+list.** Every item in the chain is the **prototype** of the prior item.
 
 When you access a property of an object, this property is searched for in the
 object and if it is not found, it is searched for in the object's prototype,
@@ -914,7 +914,7 @@ If we do this for all constructors, we shall soon come across a pattern:
 
 5. Return the new object.
 
-Only steps 2 and 4 involve differences between one constructor and the other,
+Only steps 2 and 4 involve differences between this constructor and any others,
 the rest is exactly the same. So much so that JavaScript takes note of it and
 comes with built in mechanisms to automatize steps 1, 3 and 5.
 
@@ -1235,7 +1235,7 @@ enemy instanceof Ally;   // Ally.prototype is not in the chain.
 
 Regarding the state, it is convenient to know which constructor has built the
 object, so that we can know at a glance which attributes it will contain. This
-is equivalent to determining which is the function whose `prototype` function
+is equivalent to determining which is the function whose `prototype` property 
 is the **first link** in the prototype chain.
 
 Given that the prototype objects come with a built in `constructor` property,
