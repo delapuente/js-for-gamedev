@@ -101,32 +101,24 @@ In JavaScript, objects are collections of tagged values. For instance, if we wan
 var point = { 'x': 10, 'y': 15 };
 ```
 
-Every tag/value pair is called an **object property.** Less strictly, when we
-discuss an object's **properties,** we are usually referring to values, while
-what we usually mean by **property name** is the tag.
+Every tag/value pair is called an **object property.** In a less strict way of speaking, when we discuss an object's **properties,** we are usually referring to values, while what we usually mean by a **property name** is a tag.
 
-If property names are written according to the JavaScript
-[identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier),
-the quotes are unnecessary and can be skipped.
+If property names are written according to the JavaScript [identifier forming rules](https://developer.mozilla.org/en-US/docs/Glossary/Identifier), the quotes are unnecessary and can be skipped.
 
 ```js
 var point = { x: 10, y: 10 }; // much more convenient.
 ```
 
-This is the most frequent case, the _recommended_ one, and the one we shall use
-throughout this material; however, you should remember that under the hood,
-**the property name is a string.**
+This is the most frequent case, the _recommended_ one, and the one we shall use throughout this material; however, you should remember that under the hood, **the property name is a string.**
 
-In order to access an object's properties, we use the brackets `[` `]` with the
-property name in between:
+In order to access a property of an object, we use the brackets `[` `]` with the property name in between:
 
 ```js
 point['x'];
 point['y'];
 ```
 
-Again, if we follow the identifier forming rules, we can use the (much
-easier to write) **dot notation** to access the property:
+Again, if we follow the identifier forming rules, we can use the (much easier to write) **dot notation** to access the property:
 
 ```js
 point.x;
@@ -142,8 +134,7 @@ point['x'] = 0;
 point['y'] = 0;
 ```
 
-If you access a **non-extant property,** you will obtain the value
-`undefined`:
+If you access a **non-extant property,** you will obtain the value `undefined`:
 
 ```js
 var label = point.label; // will be undefined. Check it out with typeof.
@@ -166,9 +157,7 @@ Consider the command list in a videogame menu:
 var menu = ['Attack', 'Defense', 'Inventory'];
 ```
 
-In this type of objects, order matters. In order to access the different values
-we use the **item's index in the array,** between brackets. Indices _begin
-from `0`_, and not from `1`.
+In this type of objects, order matters. Accessing the different values is done by using the **item's index in the array,** between brackets. Indices _begin from `0`_, and not from `1`.
 
 ```js
 menu[0];
@@ -176,31 +165,25 @@ menu[1];
 menu[2];
 ```
 
-We can check an array's length by accessing the `length` property.
+We can check an array's length by accessing its `length` property.
 
 ```js
 menu.length;
 ```
 
-Items can be added to the array's end by calling the
-[`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push)
-method:
+Items can be added to the array's end by calling the [`push`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) method:
 
 ```js
 menu.push('Magic');
 ```
 
-An item can also be removed from the end by using the
-[`pop`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop)
-method:
+An item can also be removed from the end by using the [`pop`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method:
 
 ```js
 menu.pop();
 ```
 
-An array can be altered (have items added or removed from it) in any place by using the
-[`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice)
-method:
+An array can be altered (have items added or removed from it) in any place by using the [`splice`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) method:
 
 ```js
 // Inspect the list after every operation.
@@ -210,8 +193,7 @@ menu.splice(2, 2, 'Ench. Inventory'); // replace Magic and Inventory with Ench. 
 menu.splice(0, 0, 'Wait'); // add Wait to list beginning.
 ```
 
-As is the case with objects, we can change any value at any time by using the
-assignment operator.
+As is the case with objects, we can change any value at any time by using the assignment operator.
 
 ```js
 menu[0] = 'Special'; // replace Wait with Special
@@ -229,14 +211,11 @@ menu;
 menu.length;
 ```
 
-If we assign to an index beyond the current length, **the array will be
-extended** until that index is included.
+If we assign to an index beyond the current length, **the array will be extended** until that index is included.
 
 #### Making a distinction between objects and arrays
 
-Both arrays and objects have the `'object'` type, therefore it is necessary to
-use the [`Array.isArray()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
-method to tell them apart.
+Both arrays and objects have the `'object'` type, therefore it is necessary to use the [`Array.isArray()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray) method to tell them apart.
 
 ```js
 var obj = {}; // the void object is as valid as any other.
@@ -249,16 +228,13 @@ Array.isArray(arr); // will be true.
 
 ### `null`
 
-There is another last value for the object type, which is `null`. This value
-represents the **absence of an object,** and it normally has the following
-uses:
+There is another last value for the object type, which is `null`. This value represents the **absence of an object,** and it normally has the following uses:
 
 - In functions that query about an object, to indicate that the object has not been found.
 
 - In compositing relationships, to indicate that the composite object no longer needs the compositing object.
 
-For instance, in an RPG, we can query about the next living enemy in order to
-check whether the battle has to continue:
+For instance, in an RPG, we can query about the next living enemy in order to check whether the battle has to keep going:
 
 ```js
 function getNextAliveEnemy() {
@@ -283,8 +259,7 @@ hero.sword = null; // drop a sword.
 
 ### Object compositing
 
-Objects and arrays allow any compositing of objects. That is to say, their
-values can be other objects, arrays, numbers, strings or functions.
+Objects and arrays allow any compositing of objects. That is to say, their values can be other objects, arrays, numbers, strings or functions.
 
 The following example shows a possible RPG character sheet:
 
@@ -315,14 +290,9 @@ hero.inventory[2].item.power; // power level of the item in the third inventory 
 
 ## Identity of objects
 
-In JavaScript, the equality operator is `===` (triple equal.) This allows us to
-compare two objects and decide whether **they are equal.** There is also the
-inequality operator `!==`, which compares two objects and decides whether
-**they are not equal.**
+In JavaScript, the equality operator is `===` (triple equal.) This allows us to compare two objects and decide whether **they are equal.** There is also the inequality operator `!==`, which compares two objects and decides whether **they are not equal.**
 
-For the types `'bool'`, `'string'`, `'number'` & `'undefined'`, two values are
-equal if they are
-[of the **same shape**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
+For the types `'bool'`, `'string'`, `'number'` & `'undefined'`, two values are equal if they are [of the **same shape**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators):
 
 ```js
 // All of these comparisons are true.
@@ -335,8 +305,7 @@ true === true;
 undefined === undefined;
 ```
 
-For the `object` type, two objects are equal only if they refer to the same
-object:
+For the `object` type, two objects are equal only if they refer to the same object:
 
 ```js
 ({} !== {}); // regardless of the shape, these are two different objects.
@@ -353,15 +322,11 @@ sameObj !== another; // like before, different despite the same shape.
 
 ## Objects and message passing
 
-JavaScript objects, as well as being able to use code as any other like value,
-allow us to codify the concepts of _object_ and _message passing_ from
-object-oriented programming.
+JavaScript objects and the ability to use code as a value like any other allow us to codify the concepts of _object_ and _message passing_ from object-oriented programming.
 
 ### Codifying the state
 
-With everything we've seen until now, you should have enough knowledge to codify
-the state. The **attribute set** of the object in the object-oriented model
-translates into the **property set** of JavaScript objects.
+With everything we have seen until now, you should have enough knowledge to codify the state. The **attribute set** of the object in the object-oriented model translates into the **property set** of JavaScript objects.
 
 In the _Space Invaders_ example, the state of enemies comprised of:
 
@@ -378,17 +343,13 @@ var enemy = {
 };
 ```
 
-The foremost limitation to JavaScript is that **access to object properties cannot
-be restricted** (i.e., there are no private properties.) Because of this, there 
-is nothing to prevent us from directly modifying the position.
+The foremost limitation to JavaScript is that **access to object properties cannot be restricted** (i.e., there are no private properties.) Because of this, there is nothing to prevent us from directly modifying the position.
 
 ```js
 enemy.position.x = 100; // perfectly valid.
 ```
 
-At most, we could warn the user against code that handles certain
-properties. A widespread practice in JavaScript is to add an underscore `_` to
-attributes we want to consider to be **private:**
+At most, we could warn the user against code that handles certain properties. A widespread practice in JavaScript is to add an underscore `_` to attributes we want to consider to be **private:**
 
 ```js
 var enemy = {
@@ -399,8 +360,7 @@ var enemy = {
 };
 ```
 
-However, we insist that this is only a conventionality, and underscore-marked
-attributes can be accessed regardless:
+We insist, however, that this is only a conventionality and underscore-marked attributes can be accessed regardless:
 
 ```js
 enemy._position.x = 100; // also perfectly valid.
@@ -408,8 +368,7 @@ enemy._position.x = 100; // also perfectly valid.
 
 ### Codifying the API
 
-The actions an object's API is comprised of, i.e. its **methods,** can be
-implemented as **functions** inside properties of the object.
+The actions an object's API is comprised of, i.e. its **methods,** can be implemented as **functions** inside properties of the object.
 
 ![Enemy API in the Space Invaders model]( images/space-invaders-enemy-api-EN.png)
 
@@ -427,8 +386,7 @@ var enemy = {
 };
 ```
 
-**Sending a message** to an object simply means accessing the target's
-property, which will be a function, and calling it.
+**Sending a message** to an object simply means accessing the target's property, which will be a function, and calling it.
 
 ```js
 enemy.shoot(); // first we access with dot, then call with ().
@@ -438,9 +396,7 @@ enemy.advance();
 enemy['shoot'](); // it is the same if we access with brackets and call with ().
 ```
 
-Any function can behave as a method. In order to have it act as a method, all
-we need is **to call it from an object's property.** And, just like any other
-object property, we can change it at any time:
+Any function can behave as a method. In order to have it act as a method, all we need is **to call it from an object's property.** And, just like any other object property, we can change it at any time:
 
 ```js
 enemy.shoot(); // PEW!
@@ -456,12 +412,9 @@ enemy.moveLeft();
 enemy; // notice the position again.
 ```
 
-Obviously, only from a glance at what `moveLeft` does, we couldn't tell that it
-_changes the state_ of the message's target object. How can we fix this?
+Obviously, only from a glance at what `moveLeft` does, we couldn't tell that it _changes the state_ of the message's target object. How can we fix this?
 
-Since any function can behave as a method, what we need is a way of **referring
-to the message's target,** if there is one. When used as a method, the target
-is always stored to the variable **`this`**.
+Since any function can behave as a method, what we need is a way of **referring to the message's target,** if there is one. When used as a method, the target is always stored to the variable **`this`**.
 
 Thanks to this variable, we can implement the following movement methods:
 
@@ -511,48 +464,36 @@ ship2.method();
 inspect();
 ```
 
-In the latter case, the value of `this` is `undefined` because the function
-isn't being used as a method, so there is no target.
+In the latter case, the value of `this` is `undefined` because the function is not being used as a method, so there is no target.
 
-In JavaScript, we can make a function take any object as its `this`. To do this, we
-shall use [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
-on a function.
+In JavaScript, we can make a function take any object as its `this`. To do this, we shall use [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) on a function.
 
 ```js
 var onlyNameShip = { name: 'Death Star' };
 inspect.apply(onlyNameShip); // makes the value of this be onlyNameShip for inspect.
 ```
 
-[`This`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value)
-is also known as the **context object,** and we shall use this term
-occasionally throughout these materials.
+[`This`](http://dmitrysoshnikov.com/ecmascript/javascript-the-core/#this-value) is also known as the **context object,** and we shall use this term occasionally throughout these materials.
 
 ## Additional considerations
 
 ### Names and values
 
-**A variable is a name.** Names are meaningless to the program, save for some
-exceptions.
+**A variable is a name.** Names are meaningless to the program, save for some exceptions.
 
-**A value is not a name.** In fact, only functions can be named so that we can 
-implement recursivity, as well as a couple extra things.
+**A value is not a name.** In fact, only functions can be named so that we can implement recursivity, as well as a couple extra things.
 
-Therefore, the name `one` and the value `1` are not the same, and of course,
-there is no obligatory coherent relationship between the name and the value.
+Therefore, the name `one` and the value `1` are not the same thing; and of course, there is no obligatory coherent relationship between name and value.
 
 ```js
 var uno = 2; // makes sense to the program, maybe not so much to the programmer.
 ```
 
-Generally speaking, when dealing with booleans, strings and numbers, we say
-that **names store values,** while when speaking about objects and functions we
-say that **names point** to objects or functions, or that they **reference** objects 
-or functions.
+Generally speaking, when dealing with booleans, strings and numbers, we say that **names store values;** while when speaking about objects and functions we say that **names point** to objects or functions, or that they **reference** objects or functions.
 
 ### Functions, references to functions and calls to functions
 
-There are two ways of defining a function. One is to use the **function
-declaration,** `function`:
+There are two ways of defining a function. One is to use the **function declaration,** `function`:
 
 ```js
 // introduces a factorial variable which points to the factorial function.
@@ -564,15 +505,13 @@ function factorial(number) {
 } // no semicolon ';' needed in this case.
 ```
 
-In this case, the name of the function (before the parentheses) is mandatory.
-Giving a name to a function has two implications:
+In this case, the name of the function (before the parentheses) is mandatory. Giving a name to a function has two implications:
 
 - It allows the implementation of **recursive calls,** like the one in the example.
 
 - **It creates a name,** `factorial`, to refer to that function by.
 
-The other way is to use a **function expression.** This is more similar to the
-way we would create other values, such as numbers or strings:
+The other way is to use a **function expression.** This is more similar to the way we would create other values, such as numbers or strings:
 
 ```js
 // Introduces a recursiveFunction variable that points to ANOTHER factorial function.
@@ -584,13 +523,9 @@ var recursiveFunction = function factorial(number) {
 }; // now we do need a semicolon, just as in any other assignment.
 ```
 
-In this last case, there are two names. One is the name of the function
-`factorial`, which exists so that we can refer to it within the function's
-body. The other is the `recursiveFunction` variable, which references the
-function.
+In this last case, there are two names. One is the name of the function `factorial`, which exists so that we can refer to it within the function's body. The other is the `recursiveFunction` variable, which references the function.
 
-The same function can be referenced by multiple variables or, put another
-way, have many names:
+The same function can be referenced by multiple variables or, put another way, have many names:
 
 ```js
 var a = recursiveFunction;
@@ -601,21 +536,15 @@ b.name; // same.
 recursiveFunction !== factorial;
 ```
 
-Neither should we confuse the reference to the function `factorial` and the
-call to the same function, for example, `factorial(10)`.
+Neither should we confuse the reference to the function `factorial` and the call to the same function, for example, `factorial(10)`.
 
-The first expression **refers to the object** that encapsulates the code that
-has to be run. It requires no parameters because **what we want is not to run
-the code,** but to refer to the function.
+The first expression **refers to the object** that encapsulates the code to be run. It requires no parameters because **what we want is not to run the code,** but to refer to the function.
 
-With the second expression, **we are asking the function to be executed** and
-therefore all necessary parameters have to be provided.
+With the second expression, **we are asking the function to be executed** and, therefore, all necessary parameters have to be provided.
 
 ### Everything is an object in JavaScript
 
-If, according to an alternate definition, we consider an object to be anything
-that may respond to a message, then it results that **everything is an object**
-in JavaScript.
+If, according to an alternate definition, we consider an object to be anything that may respond to a message, then it results that **everything is an object** in JavaScript.
 
 Notice the following examples:
 
@@ -629,17 +558,13 @@ true.toString();
 
 ## Types and object constructors
 
-As we said before, JavaScript does not allow for the modeling of new types,
-which necessitates a "workaround." This is one of its key differences with
-other object-oriented languages.
+As we said before, JavaScript does not allow for the modeling of new types, which necessitates a "workaround." This is one of its key differences with other object-oriented languages.
 
-What we do is sidestep the notion of _type_ altogether, in order to directly
-broach the **_constructor_** concept.
+What we do is sidestep the notion of _type_ altogether, in order to directly broach the **_constructor_** concept.
 
 ![Object constructors](images/space-invaders-constructor-example-EN.png)
 
-We are going to create two constructor functions: one for points, another for
-shots.
+We are going to create two constructor functions: one for points, another for shots.
 
 ```js
 function newPoint(x, y) {
@@ -662,8 +587,7 @@ function newShot(position, velocity) {
 }
 ```
 
-Constructor functions are very similar in form: they create a void object, set the
-object's properties and return the new object.
+Constructor functions are very similar in form: they create a void object, set the object's properties and return the new object.
 
 Now we would be able to create shots with something like this:
 
@@ -679,8 +603,7 @@ enemyShot !== allyShot;
 
 ### Reusing functionality
 
-The problem with this approach is that we're creating different functions for
-identical behaviors: one function per object.
+The problem with this approach is that we are creating different functions for identical behaviors: one function per object.
 
 ```js
 var s1 = newShot(newPoint(15, 15), 2);
@@ -691,11 +614,9 @@ s2.advance !== s3.advance;
 s3.advance !== s1.advance;
 ```
 
-This is highly inefficient, since every function takes up its own space in
-memory.
+This is highly inefficient, since every function takes up its own space in memory.
 
-There is no need for so many functions, but rather only one, affecting
-several objects.
+There is no need for so many functions, but rather only one, affecting several objects.
 
 Therefore, it is best to **create an object that contains only the API:**
 
@@ -719,8 +640,7 @@ function newShot(position, velocity) {
 }
 ```
 
-Now all instances share the same function, but every function affects the
-corresponding object thanks to the value of `this`:
+Now all instances share the same function, but every function affects the corresponding object, thanks to the value of `this`:
 
 ```js
 var s1 = newShot(newPoint(15, 15), 2);
@@ -731,10 +651,7 @@ s2.advance === s3.advance;
 s3.advance === s1.advance;
 ```
 
-In order to further strengthen the association between constructor and API, we
-shall carry out a minor modification: creating the object with the API as a
-**property of the constructor function,** thereby grouping everything in the
-same place (the `newShot` function.)
+In order to further strengthen the association between constructor and API, we shall perform a minor modification: creating the object with the API as a **property of the constructor function,** thereby grouping everything in the same place (the `newShot` function.)
 
 ```js
 function newShot(position, velocity) {
@@ -755,18 +672,13 @@ newShot.api = {
 
 ## The prototype chain
 
-JavaScript has a signature feature, unique to the language: the **prototype
-chain.**
+JavaScript has a signature feature, unique to the language: the **prototype chain.**
 
-You can experiment with it in [Object Playground]( http://www.objectplayground.com/),
-an excellent tool that will help you visualize it.
+You can experiment with it in [Object Playground]( http://www.objectplayground.com/), an excellent tool that will help you visualize it.
 
-The idea is not too complicated: the prototype chain is a **property search
-list.** Every item in the chain is the **prototype** of the prior item.
+The idea is not too complicated: the prototype chain is a **property search list.** Every item in the chain is the **prototype** of the prior item.
 
-When you access a property of an object, this property is searched for in the
-object and if it is not found, it is searched for in the object's prototype,
-and so on until either the property or the chain's end are reached.
+When you access a property of an object, this property is looked up in the object and if it is not found, it is looked up in the object's prototype, and so on until either the property or the chain's end are reached.
 
 For instance:
 
@@ -800,12 +712,9 @@ obj1.f;
 obj1.z; // undefined
 ```
 
-The method `Object.create()` creates a new void object (like `{}`) whose
-prototype is the object we passed as a parameter.
+The method `Object.create()` creates a new void object (like `{}`) whose prototype is the object we passed as a parameter.
 
-The method [`hasOwnProperty`]( https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)
-can be used to determine whether a property belongs to an object without having
-to go through the prototype chain:
+The method [`hasOwnProperty`]( https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty) can be used to determine whether a property belongs to an object without having to go through the prototype chain:
 
 ```js
 obj1.hasOwnProperty('c'); // true
@@ -824,8 +733,7 @@ obj3.hasOwnProperty('f'); // true
 obj3.hasOwnProperty('z'); // false
 ```
 
-The method [`Object.getPrototypeOf()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf)
-can be used to obtain an object's prototype:
+The method [`Object.getPrototypeOf()`]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf) can be used to obtain an object's prototype:
 
 ```js
 Object.getPrototypeOf(obj1) === obj2;
@@ -836,8 +744,7 @@ Object.getPrototypeOf(Object.prototype) === null;
 
 ## Constructors and prototype chains
 
-Prototypes are uniquely suited to contain the API, which is the common 
-behavior to all objects of a given type.
+Prototypes are uniquely suited to contain the API, which is the common behavior to all objects of a given type.
 
 ```
 var obj = newShot()                               newShot.api
@@ -882,20 +789,15 @@ If we do this for all constructors, we shall soon come across a pattern:
 
 2. Implement the API as properties of this object.
 
-3. In the constructor, make this object be the prototype to a new object.
+3. Within the constructor, make this object be the prototype to a new object.
 
 4. Establish the properties of the new object with the state.
 
 5. Return the new object.
 
-Only steps 2 and 4 involve differences between this constructor and any others,
-the rest is exactly the same. So much so that JavaScript takes note of it, and
-comes with built-in mechanisms to automatize steps 1, 3 and 5.
+Only steps 2 and 4 involve differences between this constructor and any others, the rest is exactly the same. So much so that JavaScript takes note of it, and comes with built-in mechanisms to automatize steps 1, 3 and 5.
 
-First of all, JavaScript allows for _any function_ to be used as a constructor.
-Because of this, everytime we type a function, JavaScript creates a **property
-of the function called "prototype",** which is an object with a single
-property, `constructor`, that points to the function.
+First of all, JavaScript allows for _any function_ to be used as a constructor. Because of this, everytime we type a function, JavaScript creates a **property of the function called "prototype",** which is an object with a single property, `constructor`, that points to the function.
 
 ```js
 function anyFunction() {}
@@ -903,11 +805,9 @@ anyFunction.prototype;
 anyFunction.prototype.constructor === anyFunction;
 ```
 
-This automatizes step 1: no longer do we need the `api` object that we would
-manually set. The `prototype` property is equivalent to the `api` property.
+This automatizes step 1: no longer do we need the `api` object that we would manually set. The `prototype` property is equivalent to the `api` property.
 
-Now, upon calling the function with the operator `new` first, **a new object
-whose prototype is precisely the function's "prototype" property** is created:
+Now, upon calling the function with the operator `new` first, **a new object whose prototype is precisely the function's "prototype" property** is created:
 
 ```js
 var obj = new anyFunction();
@@ -923,13 +823,9 @@ Object.getPrototypeOf(obj) === Object.getPrototypeOf(anotherObj);
 Object.getPrototypeOf(obj) === anyFunction.prototype;
 ```
 
-With this, step 3 is automatized: it is no longer necessary to call
-`Object.create()` in order to establish the prototype chain between object and
-API (we get this automatically by using the `new` operator.)
+With this, step 3 is automatized: it is no longer necessary to call `Object.create()` in order to establish the prototype chain between object and API (we get this automatically by using the `new` operator.)
 
-Finally, by calling it with `new`, **the function receives as its context
-object (`this`) the element that is being created,** which allows us to set its
-attributes.
+Finally, by calling it with `new`, **the function receives as its context object (`this`) the element that is being created,** which allows us to set its attributes.
 
 ```js
 function Hero(name) {
@@ -942,9 +838,7 @@ var hero = new Hero('Link');
 hero;
 ```
 
-If the function returns nothing, **the result of the operator `new` will be the
-new object.** This automatizes step 5: returning the new object is no longer
-necessary, as this return is implicit to using `new`.
+If the function returns nothing, **the result of the operator `new` will be the new object.** This automatizes step 5: returning the new object is no longer necessary, as this return is implicit to using `new`.
 
 Notice what the constructor for a point object would look like:
 
@@ -969,8 +863,7 @@ Shot.prototype.advance = function () {
 };
 ```
 
-Now, creating the objects is a matter of using `new`. We will also use our new
-type, `Point`, to pass the position to the shot:
+Now, creating the objects is a matter of using `new`. We will also use our new type, `Point`, to pass the position to the shot:
 
 ```js
 var enemyShot = new Shot(new Point(15, 15), 2);
@@ -980,11 +873,9 @@ enemyShot !== allyShot;
 
 ## Inheritance
 
-We have seen how objects with attributes are created; also how to do it
-efficiently, by using constructors and the prototype chain.
+We have seen how objects with attributes are created; also how to do it efficiently, by using constructors and the prototype chain.
 
-Now we shall see how an **inheritance relationship** is created. Remember the
-example for enemies and the player ship in the prior lesson:
+Now we shall see how an **inheritance relationship** is created. Remember the example for enemies and the player ship in the prior lesson:
 
 ![Inheritance relationship between ship, enemies and the allied ship]( images/space-invaders-hierarchy-EN.png)
 
@@ -1045,8 +936,7 @@ Ally.prototype.shoot = function () {
 };
 ```
 
-Now we can generalize and think of a constructor that envelopes the properties
-that are common to both types:
+Now we can generalize and think of a constructor that envelopes the properties that are common to both types:
 
 ```js
 function Ship(graphic, position) {
@@ -1058,15 +948,11 @@ Ship.prototype.moveLeft = function () { this._position.x -= 2; };
 Ship.prototype.moveRight = function () { this._position.x += 2; };
 ```
 
-In this case, it's probably best not to include the `shoot` method, since some
-ships shoot upwards and others downwards. We will not include `advance` either,
-as it is exclusive to enemies.
+In this case, it's probably best not to include the `shoot` method, since some ships shoot upwards and others downwards. We will not include `advance` either, as it is exclusive to enemies.
 
 ![Constructor hierarchy](images/space-invaders-hierarchy-constructor-EN.png)
 
-Keep in mind that, from now on, the constructors for both the allied ship and
-the enemies will first ask the ship constructor to create a ship, and then
-customize it.
+Keep in mind that, from now on, the constructors for both the allied ship and the enemies will first ask the ship constructor to create a ship, and then customize it.
 
 ```js
 function Enemy(graphic, position, score) {
@@ -1080,13 +966,9 @@ function Ally(position) {
 }
 ```
 
-With [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply)
-we can execute a function specifying its context object, as well as its parameters.
+With [`apply`](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Function/apply) we can execute a function specifying its context object, as well as its parameters.
 
-With the previous configuration, all new instances of enemies and allies will
-first go through the `Ship` constructor, which will set the **common
-attributes;** these instances will then be modified individually by the
-relevant constructor, in order for them to become enemies or allies.
+With the previous configuration, all new instances of enemies and allies will first go through the `Ship` constructor, which will set the **common attributes;** these instances will then be modified individually by the relevant constructor, in order for them to become enemies or allies.
 
 As for the API, it would be ideal to have a prototype chain after the following fashion:
 
@@ -1104,11 +986,7 @@ enemy.advance ------------------------|                    |
 enemy.moveLeft --------------------------------------------|
 ```
 
-As was the case for the example in the previous section, it's necessary to
-create the chain from the rear to the front. The link between instances and
-constructors is provided by JavaScript upon using `new`, but the link between
-the `prototype` property from `Enemy` and from `Ship` **has to be manually
-set.**
+As was the case for the example in the previous section, it is necessary to create the chain from the rear to the front. The link between instances and constructors is provided by JavaScript upon using `new`, but the link between the `prototype` property from `Enemy` and from `Ship` **has to be manually set.**
 
 Try the following:
 
@@ -1183,19 +1061,11 @@ Ship.prototype.hasOwnProperty('moveLeft');
 
 ## Polymorphism
 
-The inheritance relationships we have just established allow us to say that an
-enemy is an instance of the `Enemy` type, but also of the `Ship` type. **A
-given instance can have multiple shapes thanks to inheritance.** In
-object-oriented programming this is called **polymorphism.**
+The inheritance relationships we have just established allow us to say that an enemy is an instance of the `Enemy` type, but also of the `Ship` type. **A given instance can have multiple shapes, thanks to inheritance.** In object-oriented programming this is called **polymorphism.**
 
-Alternately, we can say an enemy is an instance of `Enemy` because it has the
-`Enemy` API, or that it is an instance of `Ship` because it has the `Ship` API.
-This is equivalent to saying that the `prototype` properties of `Enemy` and
-`Ship` are in the object's prototype chain.
+Alternately, we can say an enemy is an instance of `Enemy` because it has the `Enemy` API, or that it is an instance of `Ship` because it has the `Ship` API. This is equivalent to saying that the `prototype` properties of `Enemy` and `Ship` are in the object's prototype chain.
 
-The `instanceof` operator returns true if the `prototype` property of the
-function to the operator's right is in the prototype chain of the object to the
-left of the operator.
+The `instanceof` operator returns true if the `prototype` property of the function to the operator's right is in the prototype chain of the object to the left of the operator.
 
 ```js
 enemy instanceof Enemy;  // Enemy.prototype is the first link.
@@ -1205,14 +1075,9 @@ enemy instanceof Object; // Object.prototype, the third.
 enemy instanceof Ally;   // Ally.prototype is not in the chain.
 ```
 
-Regarding the state, it's convenient to know which constructor has built the
-object, so that we can know at a glance which attributes it will contain. This
-is equivalent to determining which is the function whose `prototype` property 
-is the **first link** in the prototype chain.
+Regarding the state, it's convenient to know which constructor has built the object, so that we can know at a glance which attributes it will contain. This is equivalent to determining which is the function whose `prototype` property is the **first link** in the prototype chain.
 
-Given that the prototype objects come with a built in `constructor` property,
-which by default points to the function which owns the prototype object, all we
-need is to access the `constructor` property through the instance.
+Given that the prototype objects come with a built in `constructor` property, which by default points to the function which owns the prototype object, all we need is to access the `constructor` property through the instance.
 
 ```js
 enemy.constructor;
@@ -1228,14 +1093,8 @@ enemy.constructor !== Ship; // it is true that Ship was used, but nothing else.
 
 [Alex Martelli on polymorphism]( https://groups.google.com/forum/?hl=en#!msg/comp.lang.python/CCs2oJdyuzc/NYjla5HKMOIJ)
 
-The quote refers to how it isn't so much a matter of checking whether
-something is an instance of a type, as rather checking whether it's got the
-necessary functionality.
+The quote refers to how it is not so much a matter of checking whether something is an instance of a type, as rather checking whether it has the necessary functionality.
 
-JavaScript is so dynamic that the `instanceof` operator and the `constructor`
-property only make sense if the conventions we have just covered are followed.
+JavaScript is so dynamic that the `instanceof` operator and the `constructor` property only make sense if the conventions we have just covered are followed.
 
-Nothing prevents us from deleting the `constructor` property from a prototype
-or overwriting it in a specific object. As a matter of fact, in the newer
-versions of JavaScript, an object's prototype can change after the object's
-construction.
+Nothing prevents us from deleting the `constructor` property from a prototype or overwriting it in a specific object. As a matter of fact, in the newer versions of JavaScript, an object's prototype can change after the object's construction.
