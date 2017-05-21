@@ -33,7 +33,7 @@ undefined
 
 In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c` twice in succession. If Node seems to be unresponsive while typing an expression, press `ctrl+c` once to cancel the expression.
 
-If you don't want to put up with the Node console, you can always write a program and use `console.log()` in order to display expressions on screen.
+If you would rather not put up with the Node console, you can always write a program and use `console.log()` in order to display expressions on screen.
 
 ```js
 // in file test.js
@@ -412,7 +412,7 @@ enemy.moveLeft();
 enemy; // notice the position again.
 ```
 
-Obviously, only from a glance at what `moveLeft` does, we couldn't tell that it _changes the state_ of the message's target object. How can we fix this?
+Obviously, from just a glance at what `moveLeft` does, we would be unable to tell that it _changes the state_ of the message's target object. How can we fix this?
 
 Since any function can behave as a method, what we need is a way of **referring to the message's target,** if there is one. When used as a method, the target is always stored to the variable **`this`**.
 
@@ -948,7 +948,7 @@ Ship.prototype.moveLeft = function () { this._position.x -= 2; };
 Ship.prototype.moveRight = function () { this._position.x += 2; };
 ```
 
-In this case, it's probably best not to include the `shoot` method, since some ships shoot upwards and others downwards. We will not include `advance` either, as it is exclusive to enemies.
+In this case, it is probably best not to include the `shoot` method, since some ships shoot upwards and others downwards. We will not include `advance` either, as it is exclusive to enemies.
 
 ![Constructor hierarchy](images/space-invaders-hierarchy-constructor-EN.png)
 
@@ -1075,7 +1075,7 @@ enemy instanceof Object; // Object.prototype, the third.
 enemy instanceof Ally;   // Ally.prototype is not in the chain.
 ```
 
-Regarding the state, it's convenient to know which constructor has built the object, so that we can know at a glance which attributes it will contain. This is equivalent to determining which is the function whose `prototype` property is the **first link** in the prototype chain.
+Regarding the state, it is convenient to know which constructor has built the object, so that we can know at a glance which attributes it will contain. This is equivalent to determining which is the function whose `prototype` property is the **first link** in the prototype chain.
 
 Given that the prototype objects come with a built in `constructor` property, which by default points to the function which owns the prototype object, all we need is to access the `constructor` property through the instance.
 
