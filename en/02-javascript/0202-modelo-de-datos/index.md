@@ -1,30 +1,21 @@
 # The JavaScript data model
 
-Knowing a programming language basically means that we know its syntax, data model,
-execution model, and idioms.
+Knowing a programming language basically means that we know its syntax, data model, execution model, and idioms.
 
-Throughout this lesson,
-[you will code into JavaScript what you learned in the prior lesson](../0201-poo/).
+Throughout this lesson, [you will code into JavaScript what you learned in the prior lesson](../0201-poo/).
 
-Not all languages allow for a 1:1 translation of the concepts we have
-included in the model. For instance, JavaScript doesn't feature any mechanisms
-that allow for the creation of new types, but it does feature other mechanisms
-that allow for the implementation of a similar functionality.
+Not all languages allow a 1:1 translation of the concepts we have included in the model. For instance, JavaScript does not feature any mechanisms that allow for the creation of new types, but it does feature other mechanisms that allow for the implementation of a similar functionality.
 
 ## Experimenting with JavaScript
 
-You are going to experiment with JavaScript, so you will need a quick way of
-inspecting expressions and obtaining feedback on what you are doing. The best
-way is to use the **Node console.** For instance:
+You are going to be experimenting with JavaScript, so you will need a quick way of inspecting expressions and obtaining feedback on what you are doing. The best way is to use the **Node console.** For instance:
 
 ```
 sh
 $ node --use_strict
 ```
 
-The `--use_strict` option enables JavaScript's strict mode, which simplifies
-some aspects of the language. Strict mode cuts back on some features, but its
-benefits outweigh its drawbacks.
+The option `--use_strict` enables JavaScript's strict mode, which simplifies some aspects of the language. Strict mode cuts back on some features, but its benefits outweigh its drawbacks.
 
 Now you can try to insert some expressions:
 
@@ -40,12 +31,9 @@ undefined
 1
 ```
 
-In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c`
-twice in succession. If Node seems to be unresponsive while typing an
-expression, press `ctrl+c` once to cancel the expression.
+In order to clear the screen, press `ctrl+l`. To exit Node, press `ctrl+c` twice in succession. If Node seems to be unresponsive while typing an expression, press `ctrl+c` once to cancel the expression.
 
-If you don't want to put up with the Node console, you can always write a
-program and use `console.log()` in order to display expressions on screen.
+If you don't want to put up with the Node console, you can always write a program and use `console.log()` in order to display expressions on screen.
 
 ```js
 // in file test.js
@@ -65,23 +53,15 @@ $ node test.js
 Coordinate X: 1
 ```
 
-This lesson assumes you will be using a single Node console session, unless
-otherwise specified.
+This lesson assumes you will be using a single Node console session, unless otherwise specified.
 
-You can keep the same session logged on for most of the examples, but in the 
-case that you find anything unexpected, you should try restarting the console 
-before doing anything else. In order to restart the console, you have to **exit 
-and enter again.**
+You can keep the same session logged on for most of the examples, but in the case that you find anything unexpected, you should try restarting the console before doing anything else. In order to restart the console, you have to **exit and enter again.**
 
-It would be best for you to keep this text opened up in a window (or printed
-out,) and the Node console on another.
+It would be best for you to keep this text opened up in a window (or printed out,) and the Node console on another.
 
 ## Primitive types
 
-**Primitive types** is how we call types that come as a part of the language
-and allow for the creation of newer, more complex types. The primitive
-types in JavaScript are: **boolean**, **number**, **string**, **object**, and
-**function.**
+**Primitive types** is how we call types that come built into the language and allow for the creation of newer, more complex types. The primitive types in JavaScript are: **boolean**, **number**, **string**, **object**, and **function.**
 
 ```js
 // You can find more possible values for each of the types in the comments.
@@ -92,8 +72,7 @@ var object = {}; // [], null
 var code = function () { return 42; };
 ```
 
-You can tell them from others because they respond differently to the `typeof`
-operator. Notice how the types are text strings:
+You can tell them from others because they respond differently to the `typeof` operator. Notice how the types are text strings:
 
 ```js
 typeof true;
@@ -103,8 +82,7 @@ typeof {};
 typeof function () { return 42; };
 ```
 
-In JavaScript, it is possible to declare a variable without assigning a value
-to it. In this case, the variable's type would be `'undefined'`.
+In JavaScript, it is possible to declare a variable without assigning a value to it. In this case, the variable's type would be `'undefined'`.
 
 ```js
 var x;
@@ -115,13 +93,9 @@ typeof x;
 
 ### Objects in JavaScript
 
-From among all the types, we shall pay special attention to those whose values
-allow **compositing** with other values. These are of the `'object'` type.
+From among all the types, we shall pay special attention to those whose values allow **compositing** with other values. These are of the `'object'` type.
 
-In JavaScript, objects are collections of tagged values. For instance, if we
-want to represent the point `(10, 15)` in the XY plane, we can tag the value on
-the Y axis with the string `'x'`, and the value on the Y axis with the `'y'`
-string.
+In JavaScript, objects are collections of tagged values. For instance, if we want to represent the point `(10, 15)` in the XY plane, we can tag the value on the Y axis with the string `'x'`, and the value on the Y axis with the `'y'` string.
 
 ```js
 var point = { 'x': 10, 'y': 15 };
