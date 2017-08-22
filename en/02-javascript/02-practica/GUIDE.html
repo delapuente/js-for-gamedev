@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Guía · GitBook</title>
+        <title>Guide · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -109,7 +109,7 @@
                 <a href="../../01-intro/">
             
                     
-                    El entorno de trabajo
+                    The work environment
             
                 </a>
             
@@ -122,7 +122,7 @@
                 <span>
             
                     
-                    JavaScript básico
+                    JavaScript basics
             
                 </span>
             
@@ -136,7 +136,7 @@
                 <a href="../0201-poo/">
             
                     
-                    Programación orientada a objetos
+                    Object-oriented programming
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="../0202-modelo-de-datos/">
             
                     
-                    El modelo de datos de JavaScript
+                    The JavaScript data model
             
                 </a>
             
@@ -162,7 +162,7 @@
                 <a href="../0203-modelo-de-ejecucion/">
             
                     
-                    El modelo de ejecución de JavaScript
+                    The JavaScript execution model
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="../02-ejercicios/">
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="./">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="GUIDE.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <span>
             
                     
-                    JavaScript en el navegador
+                    JavaScript in the browser
             
                 </span>
             
@@ -252,7 +252,7 @@
                 <a href="../../03-javascript-en-el-navegador/0301-dom/">
             
                     
-                    Navegador y DOM
+                    The browser & DOM
             
                 </a>
             
@@ -278,7 +278,7 @@
                 <span>
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -291,7 +291,7 @@
                 <a href="../../03-javascript-en-el-navegador/03-practica/">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="../../03-javascript-en-el-navegador/03-practica/guia.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -353,7 +353,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Guía</a>
+        <a href="../.." >Guide</a>
     </h1>
 </div>
 
@@ -368,103 +368,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="batalla-rpg---gu&#xED;a-de-la-pr&#xE1;ctica">Batalla RPG - Gu&#xED;a de la pr&#xE1;ctica</h1>
-<p>La gu&#xED;a de la pr&#xE1;ctica te sugiere un orden para completar con &#xE9;xito la
-implementaci&#xF3;n de la funcionalidad de la pr&#xE1;ctica. Prep&#xE1;rate, eso s&#xED;, para
-<strong>leer mucho JavaScript</strong> y ten a mano Google, la MDN y StackOverflow.</p>
-<h2 id="1-el-modelo-de-datos">1. El modelo de datos</h2>
-<p>En el juego existen muchos tipos de entidades, algunos relacionados y otros no.</p>
-<p>La especificaci&#xF3;n de tales entidades puede encontrarse en <code>spec/entities.js</code> y
-la implementaci&#xF3;n en <code>src/entities.js</code>, <code>src/Character.js</code> y <code>src/items.js</code>.</p>
-<h3 id="efectos">Efectos</h3>
-<p>Quiz&#xE1; el tipo m&#xE1;s sencillo sea el tipo <code>Effect</code> en <code>src/items.js</code> y especificado
-en <code>spec/entities.js</code>. Comienza por aqu&#xED;.</p>
-<h3 id="personajes">Personajes</h3>
-<p>Contin&#xFA;a activando los tests relacionados con el tipo <code>Character</code> y desactiva
-los dem&#xE1;s.</p>
-<p>A continuaci&#xF3;n abre <code>src/Character.js</code> e implementa las partes que faltan.</p>
-<h3 id="elementos">Elementos</h3>
-<p>Contin&#xFA;a con el m&#xF3;dulo <code>src/items.js</code> activando paulatinamente las <em>suites</em> para
-los tipos <code>Item</code>, <code>Weapon</code> y <code>Scroll</code> que encontrar&#xE1;s en <code>spec/entities.js</code>.</p>
-<h3 id="entidades-por-defecto">Entidades por defecto</h3>
-<p>Tienes que crear algunos personajes, armas y pergaminos por defecto para que
-otras pr&#xE1;cticas puedan usarlos. La <em>suite</em> <em>built-in entities</em> en
-<code>spec/entities.js</code> incluye todas las expectativas de estas entidades.</p>
-<p>Ve al archivo <code>src/entities.js</code> y completa las que falten. F&#xED;jate que las
-propiedades son <em>getters</em> para que cada acceso a las propiedades te devuelvan
-un nuevo personaje.</p>
-<h2 id="2-la-lista-de-turnos">2. La lista de turnos</h2>
-<p>Esta es f&#xE1;cil. La especificaci&#xF3;n se encuentra en <code>spec/TurnList.js</code> y la
-implementaci&#xF3;n en <code>src/TurnList.js</code>. Tan s&#xF3;lo rellena los huecos. Es pura
-algoritmia. Quiz&#xE1; tengas que mirarte c&#xF3;mo funciona la funci&#xF3;n <code>Array.sort()</code>
-para no implementarte tu propia funci&#xF3;n de ordenamiento.</p>
-<h2 id="3-la-vista-del-personaje">3. La vista del personaje</h2>
-<p>La vista del personaje es una representaci&#xF3;n de s&#xF3;lo lectura de las estad&#xED;sticas
-del mismo. Su especificaci&#xF3;n est&#xE1; en <code>spec/CharactersView.js</code> y su
-implementaci&#xF3;n en <code>src/CharactersView.js</code>. Puedes continuar por ah&#xED;.</p>
-<h2 id="4-el-grupo-de-opciones">4. El grupo de opciones</h2>
-<p>El grupo de opciones representa las opciones que se pueden elegir en un momento
-dado. La especificaci&#xF3;n est&#xE1; en <code>spec/Options.js</code> y la implementaci&#xF3;n,
-casi completa, en <code>src/Options.js</code>. F&#xED;jate c&#xF3;mo el tipo <code>Options</code>
-extiende <code>EventEmitter</code>. Tu misi&#xF3;n ser&#xE1; implementar el m&#xE9;todo <code>.select()</code> para
-que al llamarlo se emita un evento acorde con la especificaci&#xF3;n.</p>
-<h2 id="5-la-pila-de-opciones">5. La pila de opciones</h2>
-<p>Un RPG se compone normalmente de varios men&#xFA;s apilados. Por ejemplo, el men&#xFA;
-de acciones da paso al men&#xFA; de hechizos que da paso al men&#xFA; de objetivos. En
-cualquier momento podemos regresar al men&#xFA; anterior. La pila de opciones en
-<code>src/OptionsStack.js</code> y especificada en <code>spec/OptionsStack.js</code> refleja este
-comportamiento.</p>
-<p>La API es la misma que el grupo de opciones pero los m&#xE9;todos realmente s&#xF3;lo
-se deben redirigir al &#xFA;ltimo men&#xFA; apilado. F&#xED;jate en c&#xF3;mo se apilan y desapilan
-men&#xFA;s nuevos.</p>
-<h2 id="6-utilidades">6. Utilidades</h2>
-<p>Tranqui. No tienes que hacer nada aqu&#xED;, tan s&#xF3;lo ten en cuenta que tienes el
-m&#xF3;dulo <code>src/utils.js</code> donde puedes colocar m&#xE1;s utilidades si encuentras que
-andas repitiendo el mismo c&#xF3;digo en muchas partes. Te aconsejo que escribas
-alg&#xFA;n test. Puedes inspirarte en los que ya hay en <code>spec/utils.js</code>.</p>
-<h2 id="7-la-batalla">7. La batalla</h2>
-<p>Has llegado al plato fuerte de la pr&#xE1;ctica. Hasta aqu&#xED; era todo preparar los
-tipos en los que se apoya el tipo <code>Battle</code>. Ahora tendr&#xE1;s que implementar
-la m&#xE1;quina de estados que controla las acciones de batalla: defender, atacar
-y lanzar un hechizo.</p>
-<p>F&#xED;jate que los combatientes, sus armas y los hechizos <strong>no son los que vienen
-por defecto en <code>src/entities.js</code></strong> sino los que se encuentran en
-<code>spec/samplelib.js</code>.</p>
-<p>La especificaci&#xF3;n de la batalla est&#xE1; en <code>spec/Battle.js</code> y la implementaci&#xF3;n en
-<code>src/Battle.js</code>. Para abordar esta implementaci&#xF3;n con &#xE9;xito es necesario que
-todos los tests hasta ahora pasen.</p>
-<p>En esta parte de la pr&#xE1;ctica no hay recomendaciones sobre qu&#xE9; tests activar
-primero. Tendr&#xE1;s que experimentar.</p>
-<p>Repasa bien el c&#xF3;digo, muchos de los ejercicios consisten en dar las
-implementaciones de <strong>funciones auxiliares</strong>. Es el caso de:</p>
+                                <h1 id="rpg-battle---practice-guide">RPG Battle - Practice guide</h1>
+<p>The practice guide suggests you an order you can follow in order to successfully accomplish the implementation of the practice&apos;s functionality. You should brace yourself, however, for some <strong>heavy JavaScript reading</strong>; also be sure to keep Google, the MDN and StackOverflow handy.</p>
+<h2 id="1-the-data-model">1. The data model</h2>
+<p>There are many types of entities in the game; some of them are related to each other, others are not.</p>
+<p>The specification for such entities can be found in <code>spec/entities.js</code>; their implementation in <code>src/entities.js</code>, <code>src/Character.js</code> and <code>src/items.js</code>.</p>
+<h3 id="effects">Effects</h3>
+<p>Perhaps the easiest type is <code>Effect</code> in <code>src/items.js</code>, which is specified in <code>spec/entities.js</code>. Begin from there.</p>
+<h3 id="characters">Characters</h3>
+<p>Keep enabling the tests related to the type <code>Character</code>, and disable the rest.</p>
+<p>Next, open up <code>src/Character.js</code> and implement the remaining parts.</p>
+<h3 id="items">Items</h3>
+<p>Go on with the <code>src/items.js</code> module, incrementally enabling the suites for the <code>Item</code>, <code>Weapon</code> and <code>Scroll</code> types you will find in <code>spec/entities.js</code>.</p>
+<h3 id="default-entities">Default entities</h3>
+<p>You need to create some default characters, weapons and scrolls so that other practices will be able to use them. The <em>built-in entities</em> suite in <code>spec/entities.js</code> includes all of the expectations for these entities.</p>
+<p>Go to the <code>src/entities.js</code> file and complete the remaining ones. Notice that the properties are <em>getters</em>, so that every time you access the properties they will return a new character.</p>
+<h2 id="2-the-turn-list">2. The turn list</h2>
+<p>This is an easy one. The specification can be found in <code>spec/TurnList.js</code>, and the implementation in <code>src/TurnList.js</code>. You only need to fill the gaps. It is pure algorithmics. You may have to look at how the <code>Array.sort()</code> function works if you do not want to implement your own sorting function.</p>
+<h2 id="3-the-characters-view">3. The character&apos;s view</h2>
+<p>The character&apos;s view is a read-only display of the character&apos;s stats. Its specification is contained in <code>spec/CharactersView.js</code> and its implementation in <code>src/CharactersView.js</code>. You can pick up from there.</p>
+<h2 id="4-the-options-set">4. The options set</h2>
+<p>The options set represents the options that can be chosen at any given time. The specification is contained in <code>spec/Options.js</code>, and the near-complete implementation in <code>src/Options.js</code>. Notice how the <code>Options</code> type extends <code>EventEmitter</code>. Your task will be to implement the <code>.select()</code> method so that when it is called, an event according to the specification will be emitted.</p>
+<h2 id="5-the-options-stack">5. The options stack</h2>
+<p>An RPG is normally made up of several stacked menus. For instance, the action menu gives way to the spell menu, which in turn gives way to the target menu. We can switch to the prior menu at any point. The options stack in <code>src/OptionsStack.js</code>, specified in <code>spec/OptionsStack.js</code>, reflects this behavior.</p>
+<p>The API is the same as for the options set, but the methods are to be redirected to the last stacked menu only. Notice how new menus are stacked and unstacked.</p>
+<h2 id="6-utilities">6. Utilities</h2>
+<p>Easy! Nothing to do here, just keep in mind you have the <code>src/utils.js</code> module, where you can place more utilities if you find yourself repeating the same code in many places. We suggest you write some kind of test. You can look at the ones that are already in <code>spec/utils.js</code> for inspiration.</p>
+<h2 id="7-the-battle">7. The battle</h2>
+<p>You got to the real meat of the practice. Until now, it was all a matter of readying the different types the <code>Battle</code> type relies on. Now you will have to implement the state machine that controls battle actions: defending, attacking, and spellcasting.</p>
+<p>Do notice that the fighters and their weapons and spells <strong>are not the ones that are included by default in <code>src/entities.js</code></strong>, but those that are found in <code>spec/samplelib.js</code>.</p>
+<p>The battle specification is contained in <code>spec/Battle.js</code>, and its implementation in <code>src/Battle.js</code>. In order to successfully approach this implementation, it is necessary for all of the tests up until now to pass.</p>
+<p>There are no recommendations as to which tests should be enabled first in this part of the practice. You will have to experiment.</p>
+<p>Review your code well, many of the exercises consist of giving implementation to <strong>auxiliary functions</strong>. This is the case for:</p>
 <ul>
 <li><code>assignParty</code></li>
 <li><code>useUniqueNames</code></li>
 <li><code>isAlive</code></li>
 <li><code>getCommonParty</code></li>
 </ul>
-<p>F&#xED;jate entonces en la funci&#xF3;n <code>_showAction</code> que har&#xE1; que las acciones de
-batalla est&#xE9;n disponibles en el atributo <code>options</code>.</p>
-<p>Ahora conc&#xE9;ntrate en las acciones. La implementaci&#xF3;n de <code>_defend</code> est&#xE1; casi
-hecha. S&#xF3;lo tendr&#xE1;s que completar las funciones <code>_improveDefense</code> y
-<code>_restoreDefense</code> para el c&#xE1;lculo de la defensa mejorada.</p>
-<p>La acci&#xF3;n <em>defend</em> rellena la estructura <code>this._action</code> con el nombre de la
-acci&#xF3;n, los identificadores del personaje activo y del objetivo, el efecto
-y la nueva defensa. Todos menos la defensa son necesarios para poder llamar
-a la funci&#xF3;n <code>_executeAction</code> que ejecutar&#xE1; la acci&#xF3;n e informar&#xE1; del
-resultado.</p>
-<p>Durante el proceso de implementaci&#xF3;n de las acciones, tendr&#xE1;s que implementar
-tambi&#xE9;n <code>_showTargets</code> y <code>_showScrolls</code> de manera similar, de acuerdo a la
-especificaci&#xF3;n y al <a href="./">enunciado</a>.</p>
-<h2 id="8-calidad-del-c&#xF3;digo">8. Calidad del c&#xF3;digo</h2>
-<p>Cuando termines y todos tus tests est&#xE9;n en verde habr&#xE1;s terminado la pr&#xE1;ctica.</p>
-<p>Rotula la rama con un <em>tag</em> o cambia de rama antes de mejorar la calidad del
-c&#xF3;digo.</p>
-<p>Lee ahora los errores de estilo que el comando de tests pueda proporcionar y
-pasa los tests cada vez que realices una modificaci&#xF3;n para asegurarte que no
-has roto nada.</p>
-<h2 id="fin">Fin</h2>
-<p>&#xA1;Enhorabuena! Has completado la pr&#xE1;ctica.</p>
+<p>Notice then the <code>_showAction</code> function, which will make battle actions available in the <code>options</code> attribute.</p>
+<p>Now concentrate on the actions. The implementation for <code>_defend</code> is almost finished. You only need to complete the functions <code>_improveDefense</code> and <code>_restoreDefense</code> for defense improvement calculations.</p>
+<p>The <em>defend</em> action fills the structure <code>this._action</code> in with the action&apos;s name, identifiers for the active character and the target, its effect, and the new defense value. All of them, save for defense, are necessary in order to be able to call the function <code>_executeAction</code>, which will execute the action and report the result.</p>
+<p>During the process of implementing actions, you will also need to implement <code>_showTargets</code> and <code>_showScrolls</code> in a similar way, according to the specification and to the <a href="./">header</a>.</p>
+<h2 id="8-code-quality">8. Code quality</h2>
+<p>When you are done and all of your tests check out green, you will have finished the practice.</p>
+<p>Mark the branch with a <em>tag</em> or switch branches before proceeding to improve the code&apos;s quality.</p>
+<p>Now read any style errors the test command may provide, and run the tests every time you make any alterations in order to make sure you have not broken anything.</p>
+<h2 id="end">End</h2>
+<p>Congratulations! You have finished the practice.</p>
 
                                 
                                 </section>
@@ -492,7 +443,7 @@ has roto nada.</p>
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Práctica">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Practice">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -508,7 +459,7 @@ has roto nada.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Guía","level":"1.3.5.1","depth":3,"next":{"title":"TDD","level":"1.3.5.2","depth":3,"path":"02-javascript/02-practica/TDD.md","ref":"02-javascript/02-practica/TDD.md","articles":[]},"previous":{"title":"Práctica","level":"1.3.5","depth":2,"path":"02-javascript/02-practica/index.md","ref":"02-javascript/02-practica/index.md","articles":[{"title":"Guía","level":"1.3.5.1","depth":3,"path":"02-javascript/02-practica/GUIDE.md","ref":"02-javascript/02-practica/GUIDE.md","articles":[]},{"title":"TDD","level":"1.3.5.2","depth":3,"path":"02-javascript/02-practica/TDD.md","ref":"02-javascript/02-practica/TDD.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"02-javascript/02-practica/GUIDE.md","mtime":"2017-05-22T16:49:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:35:47.095Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Guide","level":"1.3.5.1","depth":3,"next":{"title":"TDD","level":"1.3.5.2","depth":3,"path":"02-javascript/02-practica/TDD.md","ref":"02-javascript/02-practica/TDD.md","articles":[]},"previous":{"title":"Practice","level":"1.3.5","depth":2,"path":"02-javascript/02-practica/index.md","ref":"02-javascript/02-practica/index.md","articles":[{"title":"Guide","level":"1.3.5.1","depth":3,"path":"02-javascript/02-practica/GUIDE.md","ref":"02-javascript/02-practica/GUIDE.md","articles":[]},{"title":"TDD","level":"1.3.5.2","depth":3,"path":"02-javascript/02-practica/TDD.md","ref":"02-javascript/02-practica/TDD.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"02-javascript/02-practica/GUIDE.md","mtime":"2017-08-22T18:17:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:37:55.899Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

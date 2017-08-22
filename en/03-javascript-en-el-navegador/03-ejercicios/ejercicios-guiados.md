@@ -1,19 +1,19 @@
-# Ejercicios
+# Exercises
 
-Realiza estos ejercicios en orden y trata de responder a las preguntas que se plantean.
+Complete these exercises in order and try to answer the proposed questions.
 
-Recuerda que puedes consultar la documentación (por ejemplo, [la MDN](http://developer.mozilla.org)), realizar búsquedas en Internet, etc.
+Remember you can always look up the documentation (for instance), [the MDN](http://developer.mozilla.org)), search the Internet, etc.
 
-**Importante**: en cada ejercicio se pedirá que crees un archivo HTML, otro de JavaScript y quizás uno de CSS. **Debes crear archivos nuevos**, y no reutilizar los de ejercicios anteriores. Si quieres conservar los archivos de los ejercicios, puedes crear un directorio diferente para cada uno.
+**Important**: each exercise will as you to create an HTML file, a JavaScript and possibly a CSS one. **You must create new files**, not reuse the ones for previous exercises. If you want to keep the exercise files, you can create a different directory for each.
 
-## Ejercicio 1. Ejecutar JavaScript en el navegador
+## Exercise 1. Execute JavaScript on the browser
 
-Crea un fichero `index.html` con el siguiente contenido:
+Create an `index.html` file with the following content:
 
 ```html
 <html>
 <head>
-    <title>Ejercicios</title>
+    <title>Exercises</title>
     <meta charset="utf-8">
     <script src="main.js"></script>
 </head>
@@ -22,54 +22,54 @@ Crea un fichero `index.html` con el siguiente contenido:
 </html>
 ```
 
-Crea también `main.js` (si te fijas, lo incluimos desde el fichero HTML con la etiqueta `<script>`) con lo siguiente:
+Create `main.js` too (you may notice we include it from the HTML file, with the `<script>` tag) with the following:
 
 ```javascript
-console.log("Hola, mundo!");
+console.log("Hello, world!");
 ```
 
-Abre el archivo en el navegador, y verás que aparece en blanco –porque el HTML está vacío. Pero si abrimos **la consola del navegador**, podremos ver el mensaje que hemos escrito desde el archivo JavaScript.
+Open the file in the browser, and you will see it shows up blank, since the HTML is empty. But if we open the **browser console**, we can see the message we have written from the JavaScript file.
 
-En Firefox Developer Edition, puedes abrir las herramientas de desarrollo con `Ctrl + Shift + I` (o `⌘ + ⌥ + I` ), o bien desde el menú `Tools / Web Developer / Toggle Tools`. Aparecerán varios paneles con distintas herramientas, entre ellas, la **consola**, que puedes activar haciendo clic en su pestaña.
+In Firefox Developer Edition, you can open up the development tools with `Ctrl + Shift + I` (or `⌘ + ⌥ + I` ), or from the menu `Tools / Web Developer / Toggle Tools`. Several panels will show up with different tools, among them the **console**, which you can enable by clicking on its tab.
 
-![Consola](images/console.png)
+![Console](images/console.png)
 
-Vamos ahora a modificar el HTML dinámicamente para que aparezca texto escrito en la pantalla.
+Now we shall modify the HTML dynamically so that written text will show on screen.
 
-Añade lo siguiente al archivo de JavaScript `main.js`:
+Add the following to the JavaScript file, `main.js`:
 
 ```javascript
-document.body.innerHTML = '<h1>Hola, mundo!</h1>';
+document.body.innerHTML = '<h1>Hello, world!</h1>';
 ```
 
-Prueba a recargar… ¡y sigue la página en blanco! Sin embargo, si cambiamos la línea anterior por el siguiente bloque, el problema se resuelve:
+Then try reloading… and the page still shows up blank! However, if we replace the previous line with the following block, the problem is fixed:
 
 ```javascript
 window.onload = function () {
-    document.body.innerHTML = '<h1>Hola, mundo!</h1>';
+    document.body.innerHTML = '<h1>Hello, world!</h1>';
 };
 ```
 
-![Ejercicio 1 - screenshot](images/exercise01.png)
+![Exercise 1 - screenshot](images/exercise01.png)
 
 ---
 
-**Pregunta**: ¿Por qué sucede esto?
+**Question**: Why does this happen?
 
-Recursos:
+Resources:
 
 - [`window.onload`](https://developer.mozilla.org/en/docs/Web/API/GlobalEventHandlers/onload) (MDN)
 
-## Ejercicio 2. Invocar a una horda de gatos
+## Exercise 2. Summoning a horde of cats
 
-Este ejercicio consiste en crear una imagen al vuelo cuando se pulsa un botón, y añadirla a la página.
+This exercise consists of creating an image on the fly on the press of a button, and adding it to the page.
 
-Crea un `index.html`:
+Create an `index.html`:
 
 ```html
 <html>
 <head>
-    <title>Ejercicios</title>
+    <title>Exercises</title>
     <meta charset="utf-8">
     <script src="main.js"></script>
 </head>
@@ -81,7 +81,7 @@ Crea un `index.html`:
 </html>
 ```
 
-Ahora `main.js`. Primero vamos a detectar clicks en el botón:
+Now for `main.js`. First, we shall check for clicks on the button:
 
 ```javascript
 window.onload = function () {
@@ -92,9 +92,9 @@ window.onload = function () {
 };
 ```
 
-Ejecuta el código en el navegador, y comprueba que el mensaje de `Summon!` aparece en la consola.
+Execute the code on the browser, and check whether the `Summon!` message shows up on the console.
 
-Una vez que tenemos el evento detectado, vamos a crear una imagen dinámicamente y añadirla al DOM para que se vea por pantalla. Reemplaza el contenido de la función de _callback_ (la línea que imprimía en la consola) por lo siguiente:
+Once we have detected the event, we shall dynamically create an image and then add it to the DOM so that it displays on screen. Replace the content of the callback function (the line that was printed out on the console) with the following:
 
 ```javascript
 var img = new Image();
@@ -102,32 +102,32 @@ img.src = 'https://placekitten.com/g/200/200/';
 document.getElementById('kittens').appendChild(img);
 ```
 
-Comprueba que se inserta una imagen nueva con cada click en el botón:
+Check out whether a new image is inserted with each click on the button:
 
-![Invocando gatos](images/exercise02.png)
+![Summoning cats](images/exercise02.png)
 
 ---
 
-**Ejercicio**: en vez de crear un objeto `Image`, modifica el código para insertar HTML directamente como contenido del párrafo con `id` `kittens`.
+**Exercises**: instead of creating an `Image` object, modify the code so that it directly inserts HTML as paragraph content with `id` `kittens`.
 
-Recursos:
+Resources:
 
 - [`Element.innerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) (MDN)
 - [`<img>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) (MDN)
 
-Consideraciones:
+Considerations:
 
-- Recuerda que `innerHTML` es una propiedad tanto de lectura como de escritura.
-- Puedes concatenar _strings_ usando el operador `+`. Ej: `'hola, ' + 'mundo'`.
-- En este caso, usar `Image` respecto a crear el elemento vía HTML no nos da ninguna ventaja. Se suele utilizar `Image` cuando necesitamos subscribinos a algún elemento de esta (p. ej: `load`), o necesitamos acceder a sus propiedades vía JavaScript.
+- Keep in mind `innerHTML` is both a read property and a write property.
+- You can concatenate strings by using the `+` operator. E.g.: `'hello, ' + 'world'`.
+- In this case, using `Image` yields no advantage over creating the object via HTML. `Image` is usually employed when we need to subscribe to an event of the image (e.g., `load`), or we need to access its properties via JavaScript.
 
-## Ejercicio 3. Estilos, formularios y atributos personalizados
+## Exercise 3. Styles, forms and custom attributes
 
-En este ejercicio vamos a mostrar una lista de personajes y utilizaremos un formulario para seleccionar a cual queremos "matar". Además, mostraremos los personajes muertos con una apariencia diferente.
+In this exercise, we shall display a list of characters and use a form to select which of them we want to "kill". Additionally, we shall display dead characters with a different appearance.
 
-### Paso 1. Setup
+### Step 1. Setup
 
-Partiremos del siguiente archivo HTML:
+We shall start from the following HTML file:
 
 ```html
 <!doctype html>
@@ -152,7 +152,7 @@ Partiremos del siguiente archivo HTML:
 </html>
 ```
 
-Crearemos además `styles.css` con lo siguiente:
+We shall also create `styles.css`, containing the following:
 
 ```css
 .dead {
@@ -160,11 +160,11 @@ Crearemos además `styles.css` con lo siguiente:
 }
 ```
 
-### Paso 2. Insertar contenido dinámicamente
+### Step 2. Inserting content dynamically
 
-Este paso lo haremos con JavaScript desde un archivo `main.js`. Lo que haremos será rellenar la lista de personajes con los datos de una _party_, así como personalizar el control de dropdown del formulario (el `<select>`) para que muestre la lista de personajes también.
+We shall perform this step with JavaScript, from a `main.js` file. What we shall do is fill in the character list with the data from a **party**, as well as customizing the form's dropdown controls (the `<select>`) so that it too can display the character list.
 
-Primero crearemos los datos de la _party_. Por ejemplo:
+We shall first create the party data. For instance:
 
 ```javascript
 var party = [
@@ -174,7 +174,7 @@ var party = [
 ];
 ```
 
-Con esto ya podemos rellenar la lista `<ul>`:
+With this we can now fill in the list, `<ul>`:
 
 ```javascript
 window.onload = function () {
@@ -187,9 +187,9 @@ window.onload = function () {
 };
 ```
 
-Para añadir "líneas" al control de dropdown, `<select>`, debemos utilizar elementos `<option>`. El texto contenido en la etiqueta será el mostrado en el menú. Sin embargo, para conocer el _valor_ seleccionado, debemos añadir un atributo `name` a `<option>`, y esa _string_ es la que nos devolverá el elemento `<select>` cuando le preguntemos qué opción tiene seleccionada.
+In order to add "lines" to the dropdown controls, that is to say the `<select>`, we must use `<option>` elements. The text contained in the tag will be the one that displays on the menu. However, in order to know the selected _value_, we need to add a `name` attribute to `<option>`, and this string is the one the `<select>` element will return when we ask it which option is the one it currently has selected.
 
-Este sería el HTML de ejemplo de un `<select>` (no lo copies, es sólo un ejemplo):
+This would be the sample HTML for a `<select>` (do not copy it, it is just an example):
 
 ```html
 <select name="size">
@@ -199,9 +199,9 @@ Este sería el HTML de ejemplo de un `<select>` (no lo copies, es sólo un ejemp
 </select>
 ```
 
-Si el usuario seleccionara la opción `Medium`, el `<select>` nos devolvería el valor `size-m` cuando le preguntemos por la opción seleccionada.
+Should the user select the option `Medium`, `<select>` would return the value `size-m` when asked about the selected option.
 
-Ahora que sabemos esto, vamos a generar un `<select>` que contenga los personajes de la _party_. Utilizaremos el nombre como texto a mostrar, y la ID como valor para esa opción.
+Now that we know this, we shall generate a `<select>` containing the characters in the party. We shall use their names as the display text, and their ID as the value for that option.
 
 ```javascript
 var select = document.querySelector('select[name=chara]');
@@ -213,34 +213,34 @@ party.forEach(function (character) {
 });
 ```
 
-Si ejecutas el código, verás lo siguiente:
+If you run the code, you shall see the following:
 
-![Ejercicio 3 - paso 2 - screenshot](images/exercise03_step02.png)
+![Exercise 3 - step 2 - screenshot](images/exercise03_step02.png)
 
-Visualmente parece que está todo correcto, pero vamos a comprobar que las `<option>` tienen efectivamente el `value` que queremos.
+Visually, everything looks alright, but we are going to make sure all of the `<option>`s effectively have the `value` we want.
 
-Para ello, haz click con el botón derecho sobre el `<select>` y selecciona la opción `Inspect Element` del menú contextual. Se abrirán las developer tools (si no estaban abiertas ya) con el Inspector como panel activo.
+To this end, right-click on the `<select>` and select the `Inspect Element` element from the context menu. The developer tools will open up (if they were not already), with the Inspector as active panel.
 
-![Ejercicio 3 - inspector screenshot](images/exercise03_inspector01.png)
+![Exercise 3 - inspector screenshot](images/exercise03_inspector01.png)
 
-Haz clic en la flecha de la izquierda para desplegar el contenido de ese nodo del DOM:
+Click the arrow on the left to unfold the content of that DOM node:
 
-![Ejercicio 3 - inspector expanded screenshot](images/exercise03_inspector02.png)
+![Exercise 3 - inspector expanded screenshot](images/exercise03_inspector02.png)
 
-Comprueba que los `value` son los correctos.
+Check whether the `value`s are the right ones.
 
 
-### Paso 3. Interceptar el formulario
+### Step 3. Intercepting the form
 
-Prueba a seleccionar un personaje y a pulsar el botón de _Kill_. Verás que la página se recarga, pero la URL es un poco diferente:
+Try selecting a character and hitting the _Kill_ button. You will see that the page reloads, but the URL is a bit different:
 
-![Ejercicio 3 - querystring](images/exercise03_querystring.png)
+![Exercise 3 - querystring](images/exercise03_querystring.png)
 
-Lo que ocurre es que se añade un símbolo de interrogación seguido de los nombres de campos de formulario que tengamos con sus valores. En este caso, vemos `chara=slime` porque nuestro `<select>` tiene el atributo `name` a `chara`, mientras que `slime` es el valor (`value`) de la opción seleccionada.
+What is happening here is that a question mark, followed by the names of the form's fields with their values, has been added. In this case we can see `chara=slime` because our `<select>` porque nuestro `<select>` has the `name` attribute set to `chara`, while `slime` is the `value` for the selected option.
 
-A esta cadena (`?chara=slime`) se la conoce como _querystring_, y sirve para pasar parámetros de request al servidor. Nosotros no estamos programando un servidor y únicamente queremos obtener el valor del formulario para realizar una acción _nosotros_ (el cliente web).
+This string (`?chara=slime`) is known as **querystring**, and its purpose is to pass request parameters to the server. We are not programming a server, and only want to obtain the form's value in order to perform an action _on our side_ (that of the Web client).
 
-Esto se soluciona interceptando el evento `submit` del formulario y cancelándolo para que el navegador no realice una nueva request al servidor, recargando la página:
+This is fixed by intercepting the `submit` event from the form and cancelling it so that the browser will not make a new request to the server, reloading the page:
 
 ```javascript
 var form = document.querySelector('form[name=killing-machine]');
@@ -250,9 +250,9 @@ form.addEventListener('submit', function (event) {
 });
 ```
 
-Comprueba que el botón ahora no recarga la página, sino que imprime un mensaje por consola.
+Notice how the button no longer reloads the page, but rather prints out a message on the console.
 
-Vamos ahora a sacar la ID del personaje consultando qué valor tiene el `<select>` seleccionado. Para ello, simplemente tenemos que acceder a su propiedad `value`. Cambia el callback de `submit` por lo siguiente:
+Now we shall retrieve the character's ID by looking up the value selected on `<select>`. To do this, all we need to do is access its `value` property. Replace the callback in `submit` with the following:
 
 ```javascript
 event.preventDefault();
@@ -260,30 +260,30 @@ var charaID = form.querySelector('[name=chara]').value;
 console.log('Killed character:', charaID);
 ```
 
-Comprueba en la consola que la ID es diferente según la opción que se seleccione.
+In the console, notice how the ID is different depending on the option that is selected.
 
-![Ejercicio 3 - valor de select](images/exercise03_selected_value.png)
+![Exercise 3 - value of select](images/exercise03_selected_value.png)
 
 
-### Paso 4. Atributos data para mapear elementos
+### Step 4. Data attributes for element mapping
 
-En este paso, añadiremos una clase CSS al elemento de la lista que corresponda cuando matemos a un personaje. Así, lo marcaremos como muerto.
+In this step, we shall add a CSS class to the appropriate element of the list when we kill its corresponding character, thereby marking it dead.
 
-¿Cómo podemos hacer para relacionar el valor seleccionado con otro nodo HTML?
+What can we do so as to relate the selected value to another HTML node?
 
-Podríamos añadir un atributo ID a los elementos de la lista y luego utilizar `getElementById` para seleccionar ese elemento y manipularlo. El problema es que **las ID's tienen que ser únicas**. Para este ejemplo nos valdría, ¿pero qué pasa si necesitamos renderizar esa misma party en otra parte de la página?
+One thing we could do is add an ID attribute to the elements of the list, and then use `getElementById` in order to select that element and manipulate it. The problem is, **IDs must be unique**. It would serve us for this particular example, but what if we need to render the same party on another part of the page?
 
-La solución es _inventarnos_ un **atributo HTML a nuestra elección** y guardar ahí la ID del personaje (¡o cualquier otro valor que queramos!). Podemos añadir uno o más atributos personalizados a cualquier etiqueta HTML, el único requisito es que tengan el **prefijo `data-`**. Tendríamos así elementos renderizados de esta manera:
+The solution is to _make up_ an **HTML attribute of our own invention** and store the character's ID there (or any other value we like). We can add one or more custom attributes to any HTML tag; the only requirement would be for them to have **the prefix, `data-`**. Thus, we would have elements rendered as follows:
 
 ```html
 <li data-charaid="bat1">...</li>
 ```
 
-Así, podríamos acceder a este elemento utilizando `querySelector('[data-chara-id=bat1]')`, por ejemplo.
+We could thus access this element by using `querySelector('[data-chara-id=bat1]')`, for instance.
 
-Estos atributos se llaman _data attributes_. Podemos acceder a ellos desde JavaScript con la propiedad `dataset`, que contiene un mapa en la que los nombre de los atributos (_sin_ el prefijo `data-`) son las _keys_. En este ejemplo, `li.dataset.charaid` nos devolvería `bat1` (asumiendo que `li` es el elemento `<li>` que queremos).
+These attributes are called _data attributes_. We can access them from JavaScript with the `dataset` property, which contains a map on which the names of the attributes (_without_ the prefix `data-`) would be the _keys_. In this example, `li.dataset.charaid` would return `bat1` (assuming that `li` were the `<li>` element we wanted).
 
-Primero debemos añadir este atributo data cuando rellenamos la lista:
+We must first add this data attribute when filling in the list:
 
 ```javascript
 var li = document.createElement('li');
@@ -292,11 +292,11 @@ li.dataset.charaid = character.id;
 list.appendChild(li);
 ```
 
-Puedes comprobar que el atributo está puesto correctamente usando el inspector:
+You can check whether the attribute is correctly set by using the inspector:
 
-![Inspeccionando el atributo data](images/exercise03_inspector_data_attr.png)
+![Inspecting the data attribute](images/exercise03_inspector_data_attr.png)
 
-Ahora modifica el callback de `submit` del siguiente modo:
+Now, modify the callback in `submit` as follows:
 
 ```javascript
 event.preventDefault();
@@ -305,49 +305,49 @@ var li = list.querySelector('[data-charaid=' + charaID + ']');
 li.classList.add('dead');
 ```
 
-Con esto, cada vez que se pulse el botón se añade la clase CSS `dead` al elemnto `<li>` que contenga el personaje seleccionado. En el archivo CSS `styles.css` hemos creado antes una regla que muestra a los elementos con clase `dead` con el texto tachado:
+This way, every time we push the button the CSS class `dead` is added to the `<li>` element which contains the selected character. On the CSS file `styles.css` we have already created a rule that displays elements of the `dead` class with   Con esto, cada vez que se pulse el botón se añade la clase CSS `dead` al elemnto `<li>` que contenga el personaje seleccionado. En el archivo CSS `styles.css` hemos creado antes una regla que muestra a los elementos con clase `dead` in strikethrough:
 
-![Ejercicio 3 - clase CSS](images/exercise03_strikethrough.png)
+![Exercise 3 - CSS class](images/exercise03_strikethrough.png)
 
 ---
 
-**Ejercicio**: prueba a desactivar el botón de kill si la opción seleccionada del `<select>` es un personaje que ya está muerto.
+**Exercise**: try disabling the kill button if the selected option on `<select>` is a character that is already dead.
 
-- Desactiva el botón nada más matar al personaje, poniendo la propiedad `disabled` de `<button>` a `true`.
-- Subscríbete al evento `change` de `<select>`, que se dispara cuando el valor seleccionado cambia.
-    1. Averigua si el `<li>` del personaje correspondiente tiene la clase `dead`. Para ello, utiliza el método adecuado de la [propiedad `classList`](https://developer.mozilla.org/en/docs/Web/API/Element/classList).
-    2. Cambia la propiedad `disabled` de `<button>` en función de si el personaje está vivo todavía o muerto.
+- Disable the button as soon as the character is dead, setting the `disabled` option of `<button>` to `true`.
+- Subscribe to the `change` event of `<select>`, which fires whenever the selected value changes.
+    1. Find out whether the corresponding character's `<li>` has the `dead` class. To do this, use the appropriate method from the [`classList` property](https://developer.mozilla.org/en/docs/Web/API/Element/classList).
+    2. Change the `disabled` property of `<button>` according to whether the character is living or dead.
 
-Recursos:
+Resources:
 
 - [`Event.preventDefault`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) (MDN)
 - [Using data attributes](https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes) (MDN)
 - [`Element.classList`](https://developer.mozilla.org/en/docs/Web/API/Element/classList) (MDN)
 
 
-Notas:
+Notes:
 
-- Podemos usar `querySelector` sobre cualquier elemento del DOM, no sólo sobre `document`. En este caso, limitaremos la búsqueda sólo a sus hijos.
+- We can use `querySelector` on any element of the DOM, not only `document`. In this case, we shall restrict the search to its children.
 
-## Ejercicio 4. Estado de la _party_
+## Exercise 4. Party status
 
-Vamos a pintar ahora el estado de la _party_ de la práctica anterior en un `<canvas>`.
+Now we shall proceed to draw the status of the party of characters from the previous practice on a `<canvas>`.
 
-### Paso 1. Adapta el ejercicio anterior
+### Step 1. Adapt the previous exercise
 
-Modifica tu fichero HTML para cambiar el título, el texto del botón e incluir un elemento `<canvas>` como se muestra a continuación:
+Modify your HTML file to change the title, the button text and include a `<canvas>` element as we show below:
 
 ```html
 <!doctype html>
 <html>
 <head>
-    <title>Ejercicios</title>
+    <title>Exercises</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css" type="text/css">
     <script src="main.js"></script>
 </head>
 <body>
-    <!-- ¡Cambia el título! Vamos a matar a los monstruos, pero despacito. -->
+    <!-- Change the title! We are going to kill the monsters, but we will take our time. -->
     <h1>Attack the monsters!</h1>
     <canvas width="800" height="600"></canvas>
     <ul id="party-monsters">
@@ -355,7 +355,7 @@ Modifica tu fichero HTML para cambiar el título, el texto del botón e incluir 
     <form name="killing-machine">
         <p>
             <select name="chara"></select>
-            <!-- También hemos cambiado el texto del botón. -->
+            <!-- We have also changed the button text. -->
             <button type="submit">Hit!</button>
         </p>
     </form>
@@ -366,7 +366,7 @@ Modifica tu fichero HTML para cambiar el título, el texto del botón e incluir 
 </html>
 ```
 
-Modifica el fichero CSS también para añadir la siguiente regla y ocultar las imágenes:
+Modify the CSS file too, so as to add the following rule and hide the images:
 
 ```css
 .resources {
@@ -374,7 +374,7 @@ Modifica el fichero CSS también para añadir la siguiente regla y ocultar las i
 }
 ```
 
-Y finalmente, abre el fichero `main.js` y modifica la _party_ para incluir los puntos de vida:
+To wrap things up, open the `main.js` file and modify the party to include their hit points:
 
 ```javascript
 var party = [
@@ -384,7 +384,7 @@ var party = [
 ];
 ```
 
-Modifica el _callback_ de `submit` de la siguiente forma para que en vez de matar directamente, dirija un ataque contra el enemigo de 5 puntos de vida:
+Modify the callback in `submit` as follows, so that instead of outright killing them it deals a 5 hit point attack against them:
 
 ```javascript
 event.preventDefault();
@@ -393,13 +393,13 @@ var character = findCharById(charaID);
 character.hp -= 5;
 
 if (character.hp <= 0) {
-    character.hp = 0; // corrige el valor en caso de que sea negativo.
+    character.hp = 0; // adjust the value in case it is negative.
     var li = list.querySelector('[data-charaid=' + charaID + ']');
     li.classList.add('dead');
 }
 ```
 
-La función `findCharById` queda así:
+The `findCharById` function will look like this:
 
 ```javascript
 function findCharById(charaID) {
@@ -407,11 +407,11 @@ function findCharById(charaID) {
 }
 ```
 
-Ahora necesitarás más de un click para acabar con un enemigo. Puedes usar el depurador para ver cómo los enemigos pierden vida a cada click.
+Now you will need to click more than once to destroy an enemy. You can use the debugger to see how the enemies lose their hit points with each click.
 
-### Paso 2. El bucle de renderizado
+### Step 2. The rendering loop
 
-Lo que vamos a hacer ahora es implementar un bucle de renderizado muy sencillo. Como ya hemos visto en los artículos de teoría, no podemos hacer algo como:
+What we shall do now is implement a very simple rendering loop. As we have already seen in the theory, we cannot do anything like:
 
 ```javascript
 while (true) {
@@ -419,7 +419,7 @@ while (true) {
 }
 ```
 
-La razón es que bloquearíamos el hilo principal y dejaríamos la página inutilizada. Lo que tenemos que hacer es programar un renderizado a cada _frame_ utilizando `requestAnimationFrame`. Dentro de la función `onload` añade lo siguiente:
+The reason being that we would lock the main thread up, leaving the page disabled. What we need to do is program a frame-by-frame render by using `requestAnimationFrame`. Add the following within the `onload` function:
 
 ```js
 var lastRender = 0;
@@ -428,9 +428,9 @@ var context = canvas.getContext('2d');
 
 function render() {
     requestAnimationFrame(function (t) {
-        // Borra todo...
+        // Delete it all...
         context.clearRect(0, 0, 800, 600);
-        // ...y repinta.
+        // ...and redraw.
         renderParty();
         console.log('Delta time:', t - lastRender);
         lastRender = t;
@@ -439,50 +439,50 @@ function render() {
 }
 
 function renderParty(t) {
-    console.log('Pintando la party en tiempo', t);
+    console.log('Time to draw the party: ', t);
 }
 
 render();
 ```
 
-Observa la salida por consola. **¿Qué representa la cantidad impresa?**
+Check out the console output. **What does the number it prints out stand for?**
 
-### Paso 3. Pintar el fondo
+### Step 3. Drawing the background
 
-Vamos a esbozar en qué consiste pintar la party. Eso es fácil. Cambia el código de `renderParty` para que sea:
+Now we shall sketch out what it means to draw the party. That is easy enough. Change the code of `renderParty` so that it looks like this:
 
 ```javascript
 function renderParty(t) {
     renderBackground();
-    renderCharacters(t); // pásale t a la función que pinta los enemigos.
+    renderCharacters(t); // pass t to the function that draws enemies.
     renderUI();
 }
 
 var bgImage = document.getElementById('background');
 function renderBackground() {
-    console.log('Pintando el fondo.');
+    console.log('Drawing the background.');
 }
 
 function renderCharacters(t) {
-    console.log('Pintando a los personajes.');
+    console.log('Drawing the characters.');
 }
 
 function renderUI() {
-    console.log('Pintando la interfaz.');
+    console.log('Drawing the interface.');
 }
 ```
 
-**Nota**: mucho ojo con utilizar `console.log` dentro de las funciones de render. Hacer esto 60 veces por segundo puede degradar el rendimiento de la aplicación si tienes las herramientas de desarrollador abiertas.
+**Note**: be extremely careful about using `console.log` within rendering functions. Doing this 60 times per second can degrade the application's performance if you have the developer tools open.
 
-Ahora vamos a pintar el fondo. Cambia la función `renderBackground` para que sólo incluya el siguiente código:
+Now let us draw the background. Change the `renderBackground` function so that it only includes the following code:
 
 ```js
 context.drawImage(bgImage, 0, 0)
 ```
 
-### Paso 4. Pintar los enemigos
+### Step 4. Drawing the enemies
 
-Pintaremos los enemigos con primitivas gráficas. El _slime_ será un círculo verde y el murciélago un círculo azul. Si alguno de los personajes está muerto, lo pintaremos en gris. Borra el log y modifica la función `renderCharacters` para que incluya:
+We will use graphical primitives to draw the enemies. The "slime" will be a green circle, while the bat will be a blue circle. If any of the characters is dead, we will draw them in grey. Delete the log and modify the `renderCharacters` function so that it includes:
 
 ```javascript
 var charaSpace = 800 / party.length;
@@ -492,13 +492,13 @@ party.forEach(function (char, index) {
     var y;
     if (char.hp === 0) {
         context.fillStyle = 'grey';
-        y = 500; // en el suelo porque está muerto.
+        y = 500; // on the ground because character is dead.
     } else if (char.name === 'Bat') {
         context.fillStyle = 'blue';
-        y = 50 * Math.sin(t/100) + 300; // flotando en el aire.
+        y = 50 * Math.sin(t/100) + 300; // floating in the air.
     } else if (char.name === 'Slime') {
         context.fillStyle = 'green';
-        y = 400; // en el suelo pero no en la tumba.
+        y = 400; // on the ground, but not in the grave.
     }
     context.beginPath();
     context.arc(x, y, 50, 0, 2 * Math.PI);
@@ -506,9 +506,9 @@ party.forEach(function (char, index) {
 });
 ```
 
-### Paso 5. Pintar la UI
+### Step 5. Drawing the UI
 
-Falta pintar unas barras de vida justo debajo de cada enemigo. Para ello, reemplaza el contenido de la función `renderUI` por el siguiente:
+We still need to draw some life bars right beneath each enemy. To do this, replace the contents of the `renderUI` function with the following:
 
 ```javascript
 var width = 100;
@@ -534,9 +534,9 @@ party.forEach(function (char, index) {
 
 ---
 
-**Ejercicio**: modifica los `hp` de la lista `party` para que estén al máximo y haz que cuando reciban un golpe la barra se anime hasta el nuevo valor.
+**Exercise**: modify the `hp` in the `party` list so that they are maxed out, and make it so that whenever they are hit, the bar will animate from its prior value to the new one.
 
-Recursos:
+Resources:
 
 - [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
 - [`CanvasRenderingContext2D.clearRect`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect)

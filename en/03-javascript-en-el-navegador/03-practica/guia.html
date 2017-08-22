@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Guía · GitBook</title>
+        <title>Guide · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -107,7 +107,7 @@
                 <a href="../../01-intro/">
             
                     
-                    El entorno de trabajo
+                    The work environment
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <span>
             
                     
-                    JavaScript básico
+                    JavaScript basics
             
                 </span>
             
@@ -134,7 +134,7 @@
                 <a href="../../02-javascript/0201-poo/">
             
                     
-                    Programación orientada a objetos
+                    Object-oriented programming
             
                 </a>
             
@@ -147,7 +147,7 @@
                 <a href="../../02-javascript/0202-modelo-de-datos/">
             
                     
-                    El modelo de datos de JavaScript
+                    The JavaScript data model
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="../../02-javascript/0203-modelo-de-ejecucion/">
             
                     
-                    El modelo de ejecución de JavaScript
+                    The JavaScript execution model
             
                 </a>
             
@@ -173,7 +173,7 @@
                 <a href="../../02-javascript/02-ejercicios/">
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -186,7 +186,7 @@
                 <a href="../../02-javascript/02-practica/">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -200,7 +200,7 @@
                 <a href="../../02-javascript/02-practica/GUIDE.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -236,7 +236,7 @@
                 <span>
             
                     
-                    JavaScript en el navegador
+                    JavaScript in the browser
             
                 </span>
             
@@ -250,7 +250,7 @@
                 <a href="../0301-dom/">
             
                     
-                    Navegador y DOM
+                    The browser & DOM
             
                 </a>
             
@@ -276,7 +276,7 @@
                 <span>
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -289,7 +289,7 @@
                 <a href="./">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -303,7 +303,7 @@
                 <a href="guia.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -351,7 +351,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Guía</a>
+        <a href="../.." >Guide</a>
     </h1>
 </div>
 
@@ -366,13 +366,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="gu&#xED;a">Gu&#xED;a</h1>
-<p><em>Nota: lee primero el <a href="./">enunciado de la pr&#xE1;ctica</a> antes de leer este documento.</em></p>
-<p>Esta es una gu&#xED;a paso a paso con sugerencias para afrontar la pr&#xE1;ctica. Es recomendable <strong>leer este documento entero</strong> &#x2013;especialmente el apartado de <em>Consideraciones</em>&#x2013; antes de ponerse a realizar el primer paso.</p>
-<p>Tambi&#xE9;n es recomendable tener fresca en la cabeza la API de la pr&#xE1;ctica anterior de las batallas RPG con Node: repasa el enunciado de la pr&#xE1;ctica o su c&#xF3;digo fuente.</p>
-<p>Durante el desarrollo de esta pr&#xE1;ctica, si te atascas sobre qu&#xE9; llamadas a la API hay que hacer, siempre puedes consultar el archivo <code>index.js</code> de la pr&#xE1;ctica anterior &#x2013;donde hay programado un cliente de dicha API.</p>
-<h2 id="1-mostrar-los-personajes">1. Mostrar los personajes</h2>
-<p>En el c&#xF3;digo HTML de base, hay dos listas <code>&lt;ul class=&quot;character-list&quot;&gt;</code> que hay que rellenar con elementos <code>&lt;li&gt;</code>, uno por personaje. Debemos indicar el nombre del personaje junto con sus atributos de vida y man&#xE1;. M&#xE1;s adelante nos ser&#xE1; util poder referinos a ese personaje, as&#xED; que es conveniente almacenar en un atributo data su ID de personaje.</p>
+                                <h1 id="guide">Guide</h1>
+<p><em>Note: read first the <a href="./">practice formulation</a> before reading this document.</em></p>
+<p>This is a step-by-step guide with suggestions toward approaching the practice. It is advisable to read <strong>this whole document</strong>, especially the <em>Considerations</em> section, before getting started on the first step.</p>
+<p>It is also recommendable to have a fresh memory of the API from the previous practice on RPG battles with Node; review the practice formulation or its source code.</p>
+<p>Should you get stuck wondering which API calls to make during the development of this practice, you can always check with the <code>index.js</code> file from the previous practice, where there is a programmed client of the aforementioned API.</p>
+<h2 id="1-displaying-the-characters">1. Displaying the characters</h2>
+<p>In the starter HTML code, there are two lists <code>&lt;ul class=&quot;character-list&quot;&gt;</code> which you have to fill with <code>&lt;li&gt;</code> elements, one per character. We need to indicate the character&apos;s name along with her hit and mana point attributes. Further on, it will be useful to be able to refer to that character, so it is best to store her character ID to an attribute.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;character-list&quot;</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- ... --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-chara-id</span>=<span class="hljs-string">&quot;bat 2&quot;</span>&gt;</span>
@@ -380,114 +380,113 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 </code></pre>
-<p>Aunque las listas <code>&lt;ul&gt;</code> est&#xE1;n creadas en el archivo HTML, falta rellenar su contenido, lo cual se ha de hacer din&#xE1;micamente con JavaScript. Con <code>Battle.prototype.characters.allFrom</code> se puede acceder a las vistas (<code>CharactersView</code>) de los personajes de una party.</p>
-<p>Como habr&#xE1; que refrescar el contenido de estas listas, es recomendable implementar una funci&#xF3;n que haga esto, para poder llamarla m&#xE1;s adelante desde otros sitios.</p>
-<p>Por ahora, se puede comenzar con mostrar los personajes al inicio de cada turno. Para ello, hay que subscribirse al evento <code>turn</code> de <code>Battle</code>.</p>
-<p><img src="images/parties.png" alt="Listado de las parties"></p>
-<h3 id="documentaci&#xF3;n-relacionada">Documentaci&#xF3;n relacionada</h3>
+<p>Although the <code>&lt;ul&gt;</code> lists are created in the HTML file, we still need to fill in their content, which is something we have to do dynamically with JavaScript. We can access the character views (<code>CharactersView</code>) of the characters in a party with  <code>Battle.prototype.characters.allFrom</code>.</p>
+<p>Since the contents of these lists will have to be updated, it is convenient to implement a function that will do this; then we will be able to call it from elsewhere.</p>
+<p>For the time being, we can begin by displaying the characters at the start of every turn. To do this, we need to subscribe to the <code>turn</code> event from <code>Battle</code>.</p>
+<p><img src="images/parties.png" alt="Listing of parties"></p>
+<h3 id="related-documentation">Related documentation</h3>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target="_blank"><code>Element.innerHTML</code></a> en la MDN.</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank"><code>Document.querySelector</code></a> en la MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML" target="_blank"><code>Element.innerHTML</code></a> on the MDN.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector" target="_blank"><code>Document.querySelector</code></a> on the MDN</li>
 </ul>
-<h2 id="2-mostrar-el-personaje-seleccionado">2. Mostrar el personaje seleccionado</h2>
-<p>El CSS est&#xE1; preparado para que un elemento con la clase <code>active</code> aparezca resaltado, indicando que es el turno de dicho personaje.</p>
-<p>En el callback evento <code>turn</code> de <code>Battle</code> se nos pasa la informaci&#xF3;n de cada turno. Uno de los datos del evento es la ID del personaje activo, con lo que podemos usar un <code>querySelector</code> para seleccionar el <code>&lt;li&gt;</code> de dicho personaje y a&#xF1;adir la clase <code>active</code>.</p>
-<p><img src="images/highlight_current_chara.png" alt="Selecci&#xF3;n del personaje actual"></p>
-<h3 id="documentaci&#xF3;n-relacionada">Documentaci&#xF3;n relacionada</h3>
+<h2 id="2-displaying-the-selected-character">2. Displaying the selected character</h2>
+<p>The CSS is set up so that an element with the class <code>active</code> is highlighted, indicating it is that character&apos;s turn.</p>
+<p>In the callback of the <code>turn</code> event from <code>Battle</code>, we get the info from every turn. One of the data points of the event is the active character&apos;s ID, with which we can use a <code>querySelector</code> in order to select that character&apos;s <code>&lt;li&gt;</code> and add the <code>active</code> class to her.</p>
+<p><img src="images/highlight_current_chara.png" alt="Current character selection"></p>
+<h3 id="related-documentation">Related documentation</h3>
 <ul>
-<li><a href="https://developer.mozilla.org/en/docs/Web/API/Element/classList" target="_blank"><code>Element.classList</code></a> en la MDN</li>
-<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes" target="_blank">Using data attributes</a> (gu&#xED;a en la MDN)</li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/Element/classList" target="_blank"><code>Element.classList</code></a> on the MDN</li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes" target="_blank">Using data attributes</a> (guide on the MDN)</li>
 </ul>
-<h2 id="3-mostrar-el-men&#xFA;-de-acciones-de-batalla">3. Mostrar el men&#xFA; de acciones de batalla</h2>
-<p>Dentro de la secci&#xF3;n <code>&lt;section class=&quot;battle-menu&quot;&gt;</code> hay tres formularios, que aparecen ocultos gracias a un estilo <code>display: none</code> aplicado <em>inline</em>. Cada formulario representa una &quot;fase&quot; del men&#xFA; de batalla, y presentar&#xE1; una lista de opciones al jugador.</p>
-<p>Se puede obtener una lista de las opciones disponibles en un momento dado con el m&#xE9;todo <code>list</code> de <code>Battle.prototype.options</code>. Con dicha lista, se pueden generar una serie de <em>radio buttons</em> para que el jugador pueda elegir la opci&#xF3;n deseada.</p>
-<p>Esta lista de <em>radio buttons</em> tendr&#xE1; el siguiente aspecto &#x2013;pero se ha de generar din&#xE1;micamente con JavaScript:</p>
+<h2 id="3-displaying-the-battle-action-menu">3. Displaying the battle action menu</h2>
+<p>Within the section <code>&lt;section class=&quot;battle-menu&quot;&gt;</code> we can find three forms, which are hidden from display thanks to the inline style <code>display: none</code>. Each form represents a &quot;stage&quot; of the battle menu, and presents a list of options to the player.</p>
+<p>A list of the options that are available at any given time can be obtained with the <code>list</code> method of <code>Battle.prototype.options</code>. With this list, we can generate a series of radio buttons so that the player can choose her desired option.</p>
+<p>This list of radio buttons will look like this, though it has to be dynamically generated with JavaScript:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;choices&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;option&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;attack&quot;</span>&gt;</span> attack<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;option&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;defend&quot;</span>&gt;</span> defend<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;option&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;cast&quot;</span>&gt;</span> cast<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
 </code></pre>
-<p>Hemos de generar esta lista din&#xE1;micamente dentro de las acciones a tomar cuando se dispare el evento <code>turn</code> de <code>Battle</code>. En este caso, la lista a generar es de <strong>las acciones</strong> que puede tomar un personaje, lo que se corresponde con el formulario con su atributo <code>name</code> a <code>select-action</code>.</p>
-<p><img src="images/actions_menu.png" alt="Men&#xFA; de acciones"></p>
-<h2 id="4-seleccionar-una-acci&#xF3;n">4. Seleccionar una acci&#xF3;n</h2>
-<p>Los <em>radio buttons</em> tienen un funcionamiento peculiar, puesto que comparten el atributo <code>name</code>. Esta es la manera que tiene el navegador de &quot;agruparlos&quot;, de forma que s&#xF3;lo pueda estar activo un &#xFA;nico <em>radio button</em> en un momento dado.</p>
-<p>Se puede acceder f&#xE1;cilmente al valor (<em>value</em>) de un <strong>grupo de <em>radio buttons</em></strong> a trav&#xE9;s del formulario al que pertenecen. Por ejemplo, para el men&#xFA; de batalla hemos establecido un <code>name</code> para el grupo de <code>&quot;option&quot;</code>. Suponiendo que su formulario est&#xE1; almacenado en la variable <code>form</code>, podr&#xED;amos tener:</p>
+<p>We have to generate this list dynamically within the actions to be taken whenever <code>Battle</code> fires the <code>turn</code> event. In this case, the list to be generated is that of the actions available to a character, which corresponds to the form which <code>name</code> atribute has the value <code>select-action</code>.</p>
+<p><img src="images/actions_menu.png" alt="Actions menu"></p>
+<h2 id="4-selecting-an-action">4. Selecting an action</h2>
+<p>Radio buttons have a peculiar behavior, since they share the <code>name</code> attribute. This is the way the browser &quot;groups&quot; them so that only a single radio button can be active at any given time.</p>
+<p>The value of a <strong>radio button group</strong> can be easily accessed through the form they belong to. For instance, we have set a <code>name</code> for the <code>&quot;option&quot;</code> group in the battle menu. Provided that its form is stored in the <code>form</code> variable, we could have the following:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> action = form.elements[<span class="hljs-string">&apos;option&apos;</span>].value;
 battle.options.select(action);
 </code></pre>
-<p>Obviamente hay que realizar esto cuando el jugador haya pulsado el bot&#xF3;n de <em>Select action</em>. Para ello, hay que subscribirse al evento <code>submit</code> del formulario. Es imprescindible que adem&#xE1;s anulemos dicho evento con <code>preventDefault</code> para evitar que el navegador recargue la p&#xE1;gina.</p>
-<p>Debemos adem&#xE1;s <strong>validar</strong> el formulario, para asegurarnos de que el jugador <em>ha seleccionado</em> una opci&#xF3;n. HTML5 nos permite hacer validaciones sencillas con JavaScript en el lado del cliente. Para requerir un campo, debemos a&#xF1;adir el atributo <code>required</code> a dicho elemento. En el caso de un grupo de <em>radio buttons</em>, basta con a&#xF1;adir <code>required</code> a uno cualquiera:</p>
+<p>Obviously, this has to be done when the player has pressed the <em>Select action</em> button. To that end, we need to subscribe to the form&apos;s <code>submit</code> event. It is also indispensable to disable said event with <code>preventDefault</code> in order to prevent the browser from reloading the page.</p>
+<p>We must also <strong>validate</strong> the form in order to ensure that the player <em>has selected</em> an option. HTML5 allows us to carry out simple client-side validations with JavaScript. To make a field mandatory, we need to add the <code>required</code> attribute to said element. In the case of a radio button group, all we need is to add <code>required</code> to any one of them:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;option&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;attack&quot;</span> <span class="hljs-attr">required</span>&gt;</span>
 </code></pre>
-<p>Para comprobar que este paso est&#xE1; hecho correctamente, puedes subscribirte al evento <code>info</code> de <code>Battle</code> e imprimir los datos de dicho evento. Con lo que hay hecho ahora deber&#xED;a funcionar la acci&#xF3;n de <em>Defend</em>, puesto que no requiere ning&#xFA;n paso m&#xE1;s.</p>
-<p><img src="images/defend_info.png" alt="Log de la acci&#xF3;n de defender"></p>
-<h3 id="documentaci&#xF3;n-relacionada">Documentaci&#xF3;n relacionada</h3>
+<p>In order to check that this step has been correctly realized, you can subscribe to the <code>info</code> event of <code>Battle</code> and print out said event&apos;s data. The <em>Defend</em> action should work with what has been done up to now, since it needs no further steps.</p>
+<p><img src="images/defend_info.png" alt="Defend action log"></p>
+<h3 id="related-documentation">Related documentation</h3>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms" target="_blank">HTML Forms Guide</a>, una lista de art&#xED;culos y tutoriales sobre formularios HTML5.</li>
-<li><a href="https://developer.mozilla.org/en/docs/Web/API/Event/preventDefault" target="_blank"><code>Event.preventDefault</code></a>  en la MDN</li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormControlsCollection" target="_blank"><code>HTMLFormControlsCollection</code></a> en la MDN (para informaci&#xF3;n sobre <code>HTMLFormElement.elements</code>)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms" target="_blank">HTML Forms Guide</a>, a list of articles and tutorials on HTML5 forms.</li>
+<li><a href="https://developer.mozilla.org/en/docs/Web/API/Event/preventDefault" target="_blank"><code>Event.preventDefault</code></a> on the MDN.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormControlsCollection" target="_blank"><code>HTMLFormControlsCollection</code></a> on the MDN (for info on <code>HTMLFormElement.elements</code>)</li>
 </ul>
-<h2 id="5-seleccionar-un-objetivo">5. Seleccionar un objetivo</h2>
-<p>Se hace de forma similar a seleccionar una acci&#xF3;n: se ha de generar la lista  de opciones din&#xE1;micamente con JavaScript, as&#xED; como interceptar el evento <code>submit</code> de este formulario y llamar a <code>battle.options.select</code> con el objetivo seleccionado por el jugador.</p>
-<p>Un a&#xF1;adido que tiene este formulario es un enlace que nos permite <strong>cancelar la acci&#xF3;n actual</strong>. Para que funcione, hemos de interceptar el evento <code>click</code> de dicho enlace, usar <code>preventDefault</code> para que el navegador no haga nada, y llamar a <code>battle.options.cancel</code>.</p>
-<p>Por supuesto, hay que controlar qu&#xE9; men&#xFA; est&#xE1; visible cada momento. Esto lo podemos hacer cambiando su estilo CSS inline, a trav&#xE9;s de la propiedad <code>display</code>:</p>
-<pre><code class="lang-javascript">actionForm.style.display = <span class="hljs-string">&apos;none&apos;</span>; <span class="hljs-comment">// oculta el formulario de acciones</span>
+<h2 id="5-selecting-a-target">5. Selecting a target</h2>
+<p>This is done similarly to selecting an action: we need to dynamically generate the options list with JavaScript, as well as intercept this form&apos;s <code>submit</code> event and call <code>battle.options.select</code> with the player&apos;s selected target.</p>
+<p>One extra bit in this form is a link that lets us <strong>cancel the current action</strong>. In order for it to work, we need to intercept said link&apos;s <code>click</code> event, use <code>preventDefault</code> to prevent the browser from doing anything, and call <code>battle.options.cancel</code>.</p>
+<p>Of course, we need to control which menu is visible at any time. We can do this by changing their inline CSS style, through the <code>display</code> property:</p>
+<pre><code class="lang-javascript">actionForm.style.display = <span class="hljs-string">&apos;none&apos;</span>; <span class="hljs-comment">// hides the actions form</span>
 </code></pre>
-<pre><code class="lang-javascript">targetForm.style.display = <span class="hljs-string">&apos;block&apos;</span>; <span class="hljs-comment">// muestra el formulario de objetivos</span>
+<pre><code class="lang-javascript">targetForm.style.display = <span class="hljs-string">&apos;block&apos;</span>; <span class="hljs-comment">// shows the targets form</span>
 </code></pre>
-<p>Para comprobar que funciona, prueba a elegir atacar un objetivo en los men&#xFA;s y comprueba el mensaje que emite el evento <code>info</code> de <code>Battle</code> en la consola:</p>
-<p><img src="images/attack_info.png" alt="Log de atacar"></p>
-<p>Como re-renderizamos los personajes de las <em>parties</em> en cada turno (cada vez que <code>Battle</code> emite <code>turn</code>), si el ataque ha tenido &#xE9;xito, deber&#xED;amos ver c&#xF3;mo han disminuido sus puntos de vida.</p>
-<h3 id="documentaci&#xF3;n-relacionada">Documentaci&#xF3;n relacionada</h3>
+<p>To ensure that it works, try choosing to attack a target in the menus and checking the messages output by the <code>info</code> event of <code>Battle</code> on the console:</p>
+<p><img src="images/attack_info.png" alt="Attack log"></p>
+<p>Since we are re-rendering all of the parties&apos; characters on each turn (every time <code>Battle</code> fires the <code>turn</code> event), if the attack has been successful, we should be able to see how the target&apos;s hit points have decreased.</p>
+<h3 id="related-documentation">Related documentation</h3>
 <ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank">Propiedad CSS <code>display</code></a> en la MDN</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display" target="_blank"><code>display</code> CSS property</a> on the MDN</li>
 </ul>
-<h2 id="6-seleccionar-un-hechizo">6. Seleccionar un hechizo</h2>
-<p>Esto es muy similar a seleccionar una acci&#xF3;n o un objetivo. Hay que generar, de nuevo, la lista de opciones (en este caso, hechizos disponibles) din&#xE1;micamente, y ocultar / ense&#xF1;ar el men&#xFA; que corresponda seg&#xFA;n el flujo.</p>
-<p>Seleccionar un hechizo ocurre tras haber seleccionado la opci&#xF3;n <em>Cast</em> en el men&#xFA; de acciones, y una vez seleccinado el hechizo debemos mostrar el formulario de seleccionar un objetivo.</p>
-<p>La particularidad de este men&#xFA; es que <strong>puede ser que no haya ninguna opci&#xF3;n disponible</strong>. En este caso, debemos desactivar el bot&#xF3;n del formulario si la lista de opciones est&#xE1; vac&#xED;a (y activarlo en caso contrario). Para ello, hay que usar la propiedad <code>disabled</code> del bot&#xF3;n.</p>
-<p><img src="images/disabled_spells.png" alt="Bot&#xF3;n desactivado"></p>
-<h2 id="7-panel-de-informaci&#xF3;n">7. Panel de informaci&#xF3;n</h2>
-<p>Hay que mostrar informaci&#xF3;n al usuario sobre el resultado de una acci&#xF3;n concreta: si el ataque tuvo &#xE9;xito o no, cuanto da&#xF1;o caus&#xF3;, etc.</p>
-<p><img src="images/info_panel.png" alt="Panel de informaci&#xF3;n de batalla"></p>
-<p>En el archivo HTML hay un p&#xE1;rrafo con ID <code>battle-info</code>, cuyo contenido puedes modificar para mostrar estos mensajes de informaci&#xF3;n de batalla.</p>
-<p>Esta informaci&#xF3;n de batalla la podemos obtener subscribi&#xE9;ndonos al evento <code>info</code> de <code>Battle</code>, que nos proporcionar&#xE1; los datos de qu&#xE9; personaje actu&#xF3;, contra qui&#xE9;n, si tuvo &#xE9;xito, etc.</p>
-<p>Para facilitar la tarea, se ha incluido una funci&#xF3;n llamada <code>prettifyEffect</code>, que devuelve una string &quot;bonita&quot; (en lugar de <code>[Object object]</code>) con los efectos aplicados en el ataque.</p>
+<h2 id="6-selecting-a-spell">6. Selecting a spell</h2>
+<p>This is very similar to selecting an action or a target. Again, we need to dynamically generate the options list (in this case, available spells), and hide or show the appropriate menu as per the flow.</p>
+<p>Spell selection happens after having selected the <em>Cast</em> option in the actions menu; once we have selected a spell we need to show the target selection form.</p>
+<p>A particularity of this menu is that <strong>there may be no available options</strong>. In this case, we need to disable the form&apos;s button if the options list is empty (and otherwise enable it). To do this, we need to use the button&apos;s <code>disabled</code> property.</p>
+<p><img src="images/disabled_spells.png" alt="Disabled button"></p>
+<h2 id="7-info-panel">7. Info panel</h2>
+<p>We need to show the user information on the result of a given action: whether the attack was successful or not, how much damage it inflicted, etc.</p>
+<p><img src="images/info_panel.png" alt="Battle info panel"></p>
+<p>There is a paragraph with the ID <code>battle-info</code> within the HTML file; you can modify its content in order to display these battle info messages.</p>
+<p>We can obtain this battle info by subscribing to the <code>info</code> event of <code>Battle</code>, which will provide us with the data for which character took action, against whom, whether she did so successfully, etc.</p>
+<p>For easier completion of the task, we have included a function called <code>prettifyEffect</code>, which returns a &quot;pretty&quot; string (instead of <code>[Object object]</code>) with the effects applied in the attack.</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> effectsTxt = prettifyEffect(effect || {});
 <span class="hljs-comment">// ej: -&gt; &apos;-5 hp, +5 mp&apos;</span>
 </code></pre>
-<h2 id="8-marcar-personajes-como-muertos">8. Marcar personajes como muertos</h2>
-<p>Ahora que los personajes pueden atacar, podemos mostrar cu&#xE1;ndo uno ha muerto. La hoja de estilos CSS incluye una clase <code>dead</code> que, aplicada a un elemento, lo muestra como &quot;muerto&quot; (en este caso, tachado).</p>
-<p><img src="images/death.png" alt="Personaje marcado como muerto"></p>
-<p>Para ello, se ha de modificar el c&#xF3;digo que se ha programado en el paso 1 para mostrar los personajes, de forma que cada elemento de la lista (<code>&lt;li&gt;</code>) tenga la clase <code>dead</code> si el personaje est&#xE1; muerto (los puntos de vida est&#xE1;n a cero).</p>
-<h2 id="9-final-del-juego">9. Final del juego</h2>
-<p>Hay que mostrar un mensaje en el panel de informaci&#xF3;n que indique que el juego ha acabado y qui&#xE9;n ha ganado. Adem&#xE1;s, hay que volver a mostrar los personajes para que se muestre el resultado final de la batalla (con una de las <em>parties</em> con todos los personajes muertos).</p>
-<p>El juego se acaba cuando <code>Battle</code> emite el evento <code>end</code>, por lo que debemos implementar dicho c&#xF3;digo en un callback de este evento.</p>
-<p><img src="images/end_game.png" alt="Mensaje de final del juego"></p>
+<h2 id="8-marking-characters-as-dead">8. Marking characters as dead</h2>
+<p>Now that the characters can attack, we can show when one of them has died. The CSS style sheet includes a <code>dead</code> class which, once applied to an element, marks it as &quot;dead&quot; (in this case, by changing its typeface to strikethrough).</p>
+<p><img src="images/death.png" alt="Character marked as dead"></p>
+<p>To this end, we need to modify the code programmed in step 1 to display the characters, so that every element of the list (<code>&lt;li&gt;</code>) has the <code>dead</code> class if the character is dead (i.e., its hit points are equal to zero).</p>
+<h2 id="9-endgame">9. Endgame</h2>
+<p>We need to show a message in the info panel to indicate when the game is over, and who has won. Additionally, we need to show the characters again to display the end result of the battle (with all of the characters in one of the parties dead).</p>
+<p>The game is over when <code>Battle</code> fires the <code>end</code> event, so we need to implement this code in a callback for this event.</p>
+<p><img src="images/end_game.png" alt="Endgame message"></p>
 <hr>
-<h2 id="consideraciones">Consideraciones</h2>
+<h2 id="considerations">Considerations</h2>
 <h3 id="template-strings">Template strings</h3>
-<p>Las <em>template strings</em> (o <em>template literals</em>) son una caracter&#xED;stica de ES6, pero que <a href="http://kangax.github.io/compat-table/es6/" target="_blank">ya est&#xE1; implementada</a> en la mayor&#xED;a de navegadores modernos.
-Pueden resultarte &#xFA;tiles en esta pr&#xE1;ctica, ya que soportan <strong>interpolaci&#xF3;n de expresiones</strong> y declaraciones <strong>multilinea</strong>.</p>
-<p>En su manera m&#xE1;s b&#xE1;sica, se definen igual que una string normal, pero usando backticks <code>`:</code></p>
+<p><em>Template strings</em> (or <em>template literals</em>) are a feature of ES6, but one that is <a href="http://kangax.github.io/compat-table/es6/" target="_blank">already implemented</a> in most modern browsers. They can be useful for this practice, since they support <strong>expression interpolation</strong> y <strong>multiline</strong> declarations.</p>
+<p>In their easiest form, they are defined the same way as a normal string, but using backticks <code>`:</code></p>
 <pre><code class="lang-javascript"><span class="hljs-string">`Hello, world!`</span>
 </code></pre>
-<p>Se pueden tener strings multil&#xED;neas sin necesidad de romper la cadena ni usar el operador de concatenaci&#xF3;n:</p>
+<p>We can have multiline strings without any need for breaking the string up, or using the concatenation operator:</p>
 <pre><code class="lang-javascript"><span class="hljs-string">`Hello,
 world!`</span>
 </code></pre>
-<p>Para interpolar expresiones, debemos poner la expresi&#xF3;n a interpolar entre los caracteres <code>${}</code>:</p>
+<p>In order to interpolate expressions, we have to place the expression we want to interpolate between the characters <code>${}</code>:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> name = <span class="hljs-string">&apos;Darth Vader&apos;</span>;
 <span class="hljs-string">`Hello, <span class="hljs-subst">${name}</span>`</span>;
 </code></pre>
-<p>No s&#xF3;lo podemos utilizar variables, sino otro tipo de expresiones:</p>
+<p>Not only can we use variables, but other types of expressions:</p>
 <pre><code class="lang-javascript"><span class="hljs-string">`Hello, <span class="hljs-subst">${name.toUpperCase()}</span>, here&apos;s a calculation: <span class="hljs-subst">${2 + 2}</span>`</span>
 </code></pre>
-<p>Recordemos tambi&#xE9;n que el operador ternario es tambi&#xE9;n una expresi&#xF3;n, y nos permite interpolar condiciones sencillas:</p>
+<p>Also, remember that the ternary operator is an expression too, and allows us to interpolate simple conditions:</p>
 <pre><code class="lang-javascript"><span class="hljs-string">`Hello, you are <span class="hljs-subst">${life &gt; 0 ? &apos;alive&apos; : &apos;dead&apos;}</span>`</span>;
 </code></pre>
-<p>Un ejemplo pr&#xE1;ctico que muestra la diferencia entre usar template strings y strings normales para generar c&#xF3;digo HTML a usar dentro de la propiedad <code>innerHTML</code>:</p>
+<p>A practical example showing the difference between using template strings and normal strings in order to generate HTML code to be used within the <code>innerHTML</code> property:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> list = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;ul.shopping-list&apos;</span>);
 <span class="hljs-keyword">var</span> data = {name: <span class="hljs-string">&apos;Banana&apos;</span>, amount: <span class="hljs-number">3</span>, price: <span class="hljs-number">0.5</span>};
 
@@ -501,16 +500,16 @@ list.innerHTML += <span class="hljs-string">&apos;&lt;li class=&quot;&apos;</spa
     data.name + <span class="hljs-string">&apos;, &apos;</span> + data.amount * data.price + <span class="hljs-string">&apos;&#x20AC;&apos;</span> +
     <span class="hljs-string">&apos;&lt;/li&gt;&apos;</span>;
 </code></pre>
-<p><strong>Documentaci&#xF3;n</strong>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals" target="_blank"><em>Template strings</em></a> en la MDN.</p>
-<h3 id="atributos-data">Atributos data</h3>
-<p>Las ID&apos;s de los personajes repetidos tienen un espacio en blanco (p.ej: <code>bat 2</code>). Para poder usar esto en un <code>querySelector</code>, se deben utilizar comillas:</p>
+<p><strong>Documentation</strong>: <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template strings</a> on the MDN.</p>
+<h3 id="data-attributes">Data attributes</h3>
+<p>Repeated character IDs have a blank space (e.g., <code>bat 2</code>). If we want to use this in a <code>querySelector</code>, we need to use double quotes:</p>
 <pre><code class="lang-javascript"><span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;[data-chara-id=&quot;bat 2&quot;]&apos;</span>);
 </code></pre>
-<p>Para acceder a ese atributo data usando la propiedad <code>dataset</code> hay que tener en cuenta que los guiones se transforman en <a href="https://en.wikipedia.org/wiki/Camel_case#Computer_programming" target="_blank">camel case</a>. As&#xED;, si se usa como atributo data <code>data-chara-id</code>, se acceder&#xED;a a &#xE9;l de la siguiente manera:</p>
+<p>In order to use that data attribute by using the <code>dataset</code> property, we need to keep in mind that dashes transform into <a href="https://en.wikipedia.org/wiki/Camel_case#Computer_programming" target="_blank">camel case</a>. Thus, if used as the <code>data-chara-id</code> data attribute, we would access it as follows:</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.querySelector([data-chara-id=<span class="hljs-string">&quot;bat 2&quot;</span>]);
 <span class="hljs-built_in">console</span>.log(el.dataset.charaId); <span class="hljs-comment">// imprimir&#xED;a bat 2</span>
 </code></pre>
-<p><strong>Documentaci&#xF3;n</strong>: <a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes" target="_blank">Using data attributes</a> en la MDN.</p>
+<p><strong>Documentation</strong>: <a href="https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes" target="_blank">Using data attributes</a> on the MDN.</p>
 
                                 
                                 </section>
@@ -538,7 +537,7 @@ list.innerHTML += <span class="hljs-string">&apos;&lt;li class=&quot;&apos;</spa
 
             
                 
-                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Práctica">
+                <a href="./" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Practice">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -550,7 +549,7 @@ list.innerHTML += <span class="hljs-string">&apos;&lt;li class=&quot;&apos;</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Guía","level":"1.4.4.1","depth":3,"previous":{"title":"Práctica","level":"1.4.4","depth":2,"path":"03-javascript-en-el-navegador/03-practica/index.md","ref":"03-javascript-en-el-navegador/03-practica/index.md","articles":[{"title":"Guía","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"03-javascript-en-el-navegador/03-practica/guia.md","mtime":"2016-11-22T10:00:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:35:47.095Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Guide","level":"1.4.4.1","depth":3,"previous":{"title":"Practice","level":"1.4.4","depth":2,"path":"03-javascript-en-el-navegador/03-practica/index.md","ref":"03-javascript-en-el-navegador/03-practica/index.md","articles":[{"title":"Guide","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"03-javascript-en-el-navegador/03-practica/guia.md","mtime":"2017-08-22T18:17:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:37:55.899Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

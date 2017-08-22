@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Práctica · GitBook</title>
+        <title>Practice · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -109,7 +109,7 @@
                 <a href="../../01-intro/">
             
                     
-                    El entorno de trabajo
+                    The work environment
             
                 </a>
             
@@ -122,7 +122,7 @@
                 <span>
             
                     
-                    JavaScript básico
+                    JavaScript basics
             
                 </span>
             
@@ -136,7 +136,7 @@
                 <a href="../../02-javascript/0201-poo/">
             
                     
-                    Programación orientada a objetos
+                    Object-oriented programming
             
                 </a>
             
@@ -149,7 +149,7 @@
                 <a href="../../02-javascript/0202-modelo-de-datos/">
             
                     
-                    El modelo de datos de JavaScript
+                    The JavaScript data model
             
                 </a>
             
@@ -162,7 +162,7 @@
                 <a href="../../02-javascript/0203-modelo-de-ejecucion/">
             
                     
-                    El modelo de ejecución de JavaScript
+                    The JavaScript execution model
             
                 </a>
             
@@ -175,7 +175,7 @@
                 <a href="../../02-javascript/02-ejercicios/">
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -188,7 +188,7 @@
                 <a href="../../02-javascript/02-practica/">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -202,7 +202,7 @@
                 <a href="../../02-javascript/02-practica/GUIDE.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -238,7 +238,7 @@
                 <span>
             
                     
-                    JavaScript en el navegador
+                    JavaScript in the browser
             
                 </span>
             
@@ -252,7 +252,7 @@
                 <a href="../0301-dom/">
             
                     
-                    Navegador y DOM
+                    The browser & DOM
             
                 </a>
             
@@ -278,7 +278,7 @@
                 <span>
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -291,7 +291,7 @@
                 <a href="./">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -305,7 +305,7 @@
                 <a href="guia.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -353,7 +353,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Práctica</a>
+        <a href="../.." >Practice</a>
     </h1>
 </div>
 
@@ -368,100 +368,100 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="cliente-web-para-batallas-rpg">Cliente web para batallas RPG</h1>
-<p>A continuaci&#xF3;n se expone la pr&#xE1;ctica propuesta para esta unidad. Tras leer este enunciado, se recomienda <em>encarecidamente</em> consultar la <strong><a href="guia.html">gu&#xED;a de la pr&#xE1;ctica</a></strong> para su realizaci&#xF3;n.</p>
-<h2 id="enunciado">Enunciado</h2>
-<p>La pr&#xE1;ctica consiste en implementar un cliente visual (en este caso, <strong>una p&#xE1;gina web</strong>) para el juego de batallas de la pr&#xE1;ctica de la unidad anterior.</p>
-<p><img src="images/screenshot.png" alt="Captura de pantalla del cliente"></p>
-<p>Como punto de partida, se ha provisto de un  href=&quot;start-here.zip&quot; target=&quot;_blank&quot;&gt;esqueleto de proyecto&lt;/a&gt; con los siguientes archivos:</p>
+                                <h1 id="web-client-for-rpg-battles">Web client for RPG battles</h1>
+<p>Below is a breakdown of the proposed practice for this unit. After reading this formulation, we <em>strongly</em> recommend looking up the <strong><a href="guia.html">practice guide</a></strong> in order to accomplish it.</p>
+<h2 id="formulation">Formulation</h2>
+<p>The practice consists of the implementation of a visual client (in this case, <strong>a webpage</strong>) for the battle game from the previous unit&apos;s practice.</p>
+<p><img src="images/screenshot.png" alt="Client screenshot"></p>
+<p>As a starting point, we provide a <a href="start-here.zip" target="_blank">project framework</a> with the following files:</p>
 <ul>
-<li><code>index.html</code>: c&#xF3;digo HTML de partida</li>
-<li><code>styles.css</code>: hoja de estilo</li>
-<li><code>js/main.js</code>: el archivo de partida JavaScript</li>
-<li><code>js/rpg.js</code>: un archivo con el c&#xF3;digo de la librer&#xED;a de batallas de la pr&#xE1;ctica. Tambi&#xE9;n puedes usar tu propio c&#xF3;digo (consulta la secci&#xF3;n de <em>Adaptaci&#xF3;n del c&#xF3;digo de la pr&#xE1;ctica anterior</em>).</li>
+<li><code>index.html</code>: starter HTML code</li>
+<li><code>styles.css</code>: stylesheet</li>
+<li><code>js/main.js</code>: starter JavaScript file</li>
+<li><code>js/rpg.js</code>: a file with the code for the practice&apos;s battle library. You can also use your own code (check out the section <em>Adapting code from the previous practice</em>).</li>
 </ul>
-<p>En este c&#xF3;digo inicial se incluye ya implementado lo siguiente:</p>
+<p>This starter code already implements the following:</p>
 <ul>
-<li><p>Carga desde el archivo HTML de los recursos JavaScript y CSS.</p>
+<li><p>JavaScript and CSS resource loading from HTML file.</p>
 </li>
-<li><p>Esqueleto HTML con una interfaz ya hecha. Puedes modificar este HTML para a&#xF1;adir m&#xE1;s cosas, o cambiar elementos de la UI que no te convenzan, pero no es obligatorio.</p>
+<li><p>HTML framework with a ready-made interface. You can modify this HTML to add extra bits, or change UI elements you do not like, but it is not necessary to do so.</p>
 </li>
-<li><p>Creaci&#xF3;n de una instancia de <code>Battle</code>, as&#xED; como el setup de las <em>parties</em> y la subscripci&#xF3;n a los eventos m&#xE1;s relevantes. La informaci&#xF3;n de dichos eventos se imprime por consola (lo cual puedes eliminar/modificar a tu gusto).</p>
-</li>
-</ul>
-<p>Hay que implementar las siguientes <em>features</em>:</p>
-<ul>
-<li><p>Mostrar los personajes de ambas <em>parties</em>, con sus ID&apos;s, puntos de vida y de man&#xE1;.</p>
-</li>
-<li><p>Marcar qu&#xE9; personaje est&#xE1; seleccionado, cambiando su estilo o a&#xF1;adiendo un car&#xE1;cter especial (p.ej: <code>*</code>).</p>
-</li>
-<li><p>Marcar qu&#xE9; personajes est&#xE1;n muertos, cambiando su estilo o a&#xF1;adiendo un car&#xE1;cter especial (p.ej: <code>&#x271D;</code>).</p>
-</li>
-<li><p>Implementar el men&#xFA; de batalla con sus siguientes estados: selecci&#xF3;n de acci&#xF3;n, selecci&#xF3;n de objetivo y selecci&#xF3;n de hechizo.</p>
-</li>
-<li><p>Mostrar informaci&#xF3;n de qu&#xE9; ha pasado cada turno (p.ej <code>Bat attacked Wizz, but missed</code>).</p>
-</li>
-<li><p>Mostrar un mensaje al final de la batalla indicando cu&#xE1;l es el bando ganador.</p>
+<li><p>Creation of an instance of <code>Battle</code>, as well as party setup as well as subscription to the most relevant events. The info on said events is printed out on the console (you can remove or modify this as you like).</p>
 </li>
 </ul>
-<p>Para implementar estas <em>features</em> b&#xE1;sicas, es recomendable seguir el procedimiento marcado por <strong>la <a href="GUIDE.md">gu&#xED;a</a> de la pr&#xE1;ctica</strong>.</p>
-<p>Otras caracter&#xED;sticas opcionales que se podr&#xED;an implementar, ser&#xED;an:</p>
+<p>The following features need to be implemented:</p>
 <ul>
-<li><p>En el men&#xFA; de selecci&#xF3;n de objetivo, mostrar en un color diferente los personajes de cada <em>party</em>.</p>
+<li><p>Display the characters in both parties, with their IDs, hit points, and mana points.</p>
 </li>
-<li><p>Al terminar la batalla, mostrar un bot&#xF3;n o enlace para empezar una nueva (esto se puede hacer simplemente recargando la p&#xE1;gina).</p>
+<li><p>Signal which character is selected, by changing her style or adding a special character (e.g., <code>*</code>).</p>
 </li>
-<li><p>Crear la composici&#xF3;n de una o ambas <em>parties</em> de manera aleatoria.</p>
+<li><p>Signal which characters are dead, by changing their style or adding a special character (e.g., <code>&#x271D;</code>).</p>
+</li>
+<li><p>Implement the battle menu with its following states: action selection, target selection, and spell selection.</p>
+</li>
+<li><p>Display info feed on what has happened on each turn (e.g., <code>Bat attacked Wizz, but missed</code>).</p>
+</li>
+<li><p>Display a message at the end of the battle, indicating which side is the victor.</p>
 </li>
 </ul>
-<h2 id="adaptaci&#xF3;n-del-c&#xF3;digo-de-la-pr&#xE1;ctica-anterior">Adaptaci&#xF3;n del c&#xF3;digo de la pr&#xE1;ctica anterior</h2>
-<p>En la versi&#xF3;n actual de JavaScript no hay ning&#xFA;n mecanismo para gestionar m&#xF3;dulos (por ejemplo, usando la funci&#xF3;n <code>require</code> como en Node). Es por esto que no podemos utilizar ni <code>require</code> ni <code>module.exports</code>.</p>
-<p>Adem&#xE1;s, ciertas partes que forman parte de la librer&#xED;a est&#xE1;ndar de Node, como el m&#xF3;dulo <code>events</code> para implementar eventos, no forman parte del est&#xE1;ndar JavaScript.</p>
-<p>Hay una herramienta, <a href="http://browserify.org/" target="_blank"><strong>Browserify</strong></a> que nos permite transformar m&#xF3;dulos de Node &#x2013;con sus dependencias&#x2013; en c&#xF3;digo que funciona en el browser. Tambi&#xE9;n incluye <strong>polyfills</strong>.</p>
-<h3 id="instrucciones">Instrucciones</h3>
-<h4 id="opci&#xF3;n-a-usar-el-c&#xF3;digo-propio">Opci&#xF3;n A: usar el c&#xF3;digo propio</h4>
-<p>Si has acabado la pr&#xE1;ctica anterior, puedes utilizar ese c&#xF3;digo en esta. Sigue los pasos que hay a continuaci&#xF3;n para adaptar ese c&#xF3;digo de Node a c&#xF3;digo que puedas ejecutar en el navegador.</p>
+<p>In order to implement these basic features, it is advisable to follow the procedure outlined by the <strong><a href="GUIDE.md">practice guide</a></strong>.</p>
+<p>Some other features that could be optionally implemented would be:</p>
+<ul>
+<li><p>On the target selection menu, display characters belonging to different parties in different colors.</p>
+</li>
+<li><p>On finishing the battle, display a button or link to start a new one (this can otherwise be done by simply reloading the page).</p>
+</li>
+<li><p>The ability to randomize the makeup of either or both parties.</p>
+</li>
+</ul>
+<h2 id="adapting-code-from-the-previous-practice">Adapting code from the previous practice</h2>
+<p>The current version of JavaScript features no module management mechanisms (such as using the <code>require</code> function, as in Node). Due to this, we cannot use either <code>require</code>, or <code>module.exports</code>.</p>
+<p>Additionally, certain parts that belong in the Node standard library, such as the event implementation module <code>events</code>, are not a part of the JavaScript standard.</p>
+<p>There is a tool, <a href="http://browserify.org/" target="_blank"><strong>Browserify</strong></a>, which allows us to transform Node modules &#x2013;along with their dependencies&#x2013; into code that can run on the browser. It also includes <strong>polyfills</strong>.</p>
+<h3 id="instructions">Instructions</h3>
+<h4 id="option-a-using-our-own-code">Option A: using our own code</h4>
+<p>If you have finished the previous practice, you can use that code in this one. Follow the steps below in order to adapt that code from Node into code you can run on the browser.</p>
 <ol>
-<li><p>Como vamos a necesitar dos m&#xF3;dulos, <code>Battle</code> y <code>entities</code> (junto a sus dependencias), tenemos que crear un archivo &quot;ra&#xED;z&quot; con esos dos. Crea en la ra&#xED;z del directorio de la pr&#xE1;ctica anterior un archivo <code>export.js</code> con el siguiente contenido:</p>
+<li><p>Since we are going to need two modules, <code>Battle</code> and <code>entities</code> (along with their dependencies), we need to create a &quot;root&quot; file with those two. Create an <code>export.js</code> file in the root of the previous practice&apos;s directory, with the following content:</p>
 <pre><code class="lang-javascript"> <span class="hljs-built_in">module</span>.exports = {
    <span class="hljs-string">&quot;Battle&quot;</span>: <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./src/Battle.js&apos;</span>),
    <span class="hljs-string">&quot;entities&quot;</span>: <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./src/entities.js&apos;</span>)
  };
 </code></pre>
 </li>
-<li><p>De nuevo en la ra&#xED;z del directorio de la pr&#xE1;ctica anterior, instala Browserify con npm:</p>
+<li><p>Again, in the root of the previous practice&apos;s directory, install Browserify with npm:</p>
 <pre><code> npm install --save-dev browserify
 </code></pre></li>
-<li><p>Comprueba que el archivo <code>package.json</code> se ha modificado y que ahora aparece Browserify listado dentro de <code>devDependencies</code>. Por ejemplo:</p>
+<li><p>Make sure that the <code>package.json</code> file has been modified and Browserify now appears listed within <code>devDependencies</code>. For instance:</p>
 <pre><code class="lang-json"> <span class="hljs-string">&quot;devDependencies&quot;</span>: {
    <span class="hljs-string">&quot;browserify&quot;</span>: <span class="hljs-string">&quot;^13.1.0&quot;</span>
  }
 </code></pre>
 </li>
-<li><p>Edita <code>package.json</code> para a&#xF1;adir un comando de script m&#xE1;s, que ejecutar&#xE1; Browserify:</p>
+<li><p>Edit <code>package.json</code> to add one more script command, which will launch Browserify:</p>
 <pre><code class="lang-json"> <span class="hljs-string">&quot;scripts&quot;</span>: {
    <span class="hljs-string">&quot;bundle&quot;</span>: <span class="hljs-string">&quot;browserify export.js --standalone RPG &gt; rpg.js&quot;</span>
  }
 </code></pre>
 </li>
-<li><p>Ejecuta dicho comando, que generar&#xE1; un archivo <code>rpg.js</code> en el ra&#xED;z de ese directorio.</p>
+<li><p>Execute said command, which will generate an <code>rpg.js</code> file within the root of that directory.</p>
 <pre><code class="lang-bash"> npm run bundle
 </code></pre>
 </li>
-<li><p>Ahora puedes copiar <code>rpg.js</code> al directorio <code>js</code> de la pr&#xE1;ctica 2. Cuando se cargue el archivo con una etiqueta <code>&lt;script&gt;</code> en el navegador, habr&#xE1; un objeto global <code>RPG</code>, con dos propiedades: <code>entities</code> y <code>Battle</code>.</p>
+<li><p>Now you can copy <code>rpg.js</code> into the <code>js</code> directory from practice 2. When the file with the tag <code>&lt;script&gt;</code> is loaded into the browser, there will be an <code>RPG</code> global object, with two properties: <code>entities</code> and <code>Battle</code>.</p>
 </li>
 </ol>
-<h4 id="opci&#xF3;n-b-usar-una-implementaci&#xF3;n-de-terceros">Opci&#xF3;n B: usar una implementaci&#xF3;n de terceros</h4>
-<p>Puedes emplear el archivo <code>rpg.js</code> &#x2013;incluido ya en el c&#xF3;digo fuente de partida&#x2013;, que contiene una implementaci&#xF3;n de la pr&#xE1;ctica anterior.</p>
-<h2 id="auto-reload-del-navegador">Auto-reload del navegador</h2>
-<p>Si quieres que el navegador <strong>autom&#xE1;ticamente recargue</strong> la p&#xE1;gina cuando modifques un archivo, lo puedes conseguir f&#xE1;cilmente con <a href="https://www.browsersync.io/" target="_blank"><strong>Browsersync</strong></a>. No es obligatorio, pero quiz&#xE1;s te resulte m&#xE1;s c&#xF3;modo programar as&#xED;.</p>
-<p>Puedes instalar Browsersync de manera global (para as&#xED; utilizarlo desde cualquier directorio) v&#xED;a npm con el flag <code>-g</code>:</p>
+<h4 id="option-b-using-a-third-party-implementation">Option B: using a third-party implementation</h4>
+<p>You can use the <code>rpg.js</code> file &#x2013;which is already included in the starter source code&#x2013;, which contains an implementation of the previous practice.</p>
+<h2 id="browser-auto-reload">Browser auto-reload</h2>
+<p>If you want the browser to <strong>automatically reload</strong> the page whenever you modify a file, you can do it easily enough by using <a href="https://www.browsersync.io/" target="_blank"><strong>Browsersync</strong></a>. It is not mandatory, but you may be more comfortable programming this way.</p>
+<p>You can install Browsersync globally (so that you can use it from any directory) via npm with the <code>-g</code> flag:</p>
 <pre><code class="lang-bash">npm install -g browser-sync
 </code></pre>
-<p>Una vez instalado, puedes lanzarlo en el directorio ra&#xED;z de la pr&#xE1;ctica. El siguiente comando ejecuta browsersync, lanza un servidor local y activa la auto-recarga del navegador cuando haya alg&#xFA;n cambio en los ficheros HTML, CSS o JavaScript:</p>
+<p>Once installed, you can launch it from the practice&apos;s root directory. The following command launches browsersync, starts a local server and enables browser auto-reload whenever there is a change in the HTML, CSS or JavaScript files:</p>
 <pre><code class="lang-bash">browser-sync start --server --files=<span class="hljs-string">&quot;*.html,js/*.js,*.css&quot;</span>
 </code></pre>
-<p>Para m&#xE1;s informaci&#xF3;n, consulta la <a href="https://www.browsersync.io/docs/command-line" target="_blank">documentaci&#xF3;n de Browsersync</a>.</p>
+<p>For further info, check out the <a href="https://www.browsersync.io/docs/command-line" target="_blank">Browsersync documentation</a>.</p>
 
                                 
                                 </section>
@@ -489,12 +489,12 @@
 
             
                 
-                <a href="../03-ejercicios/index.md" class="navigation navigation-prev " aria-label="Previous page: Ejercicios guiados">
+                <a href="../03-ejercicios/index.md" class="navigation navigation-prev " aria-label="Previous page: Guided exercises">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="guia.html" class="navigation navigation-next " aria-label="Next page: Guía">
+                <a href="guia.html" class="navigation navigation-next " aria-label="Next page: Guide">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -505,7 +505,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Práctica","level":"1.4.4","depth":2,"next":{"title":"Guía","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]},"previous":{"title":"Ejercicios guiados","level":"1.4.3","depth":2,"path":"03-javascript-en-el-navegador/03-ejercicios/index.md","ref":"03-javascript-en-el-navegador/03-ejercicios/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"03-javascript-en-el-navegador/03-practica/index.md","mtime":"2016-11-22T10:00:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:35:47.095Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Practice","level":"1.4.4","depth":2,"next":{"title":"Guide","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]},"previous":{"title":"Guided exercises","level":"1.4.3","depth":2,"path":"03-javascript-en-el-navegador/03-ejercicios/index.md","ref":"03-javascript-en-el-navegador/03-ejercicios/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"03-javascript-en-el-navegador/03-practica/index.md","mtime":"2017-08-22T18:17:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:37:55.899Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

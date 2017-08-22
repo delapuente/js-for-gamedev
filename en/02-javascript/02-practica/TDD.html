@@ -107,7 +107,7 @@
                 <a href="../../01-intro/">
             
                     
-                    El entorno de trabajo
+                    The work environment
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <span>
             
                     
-                    JavaScript básico
+                    JavaScript basics
             
                 </span>
             
@@ -134,7 +134,7 @@
                 <a href="../0201-poo/">
             
                     
-                    Programación orientada a objetos
+                    Object-oriented programming
             
                 </a>
             
@@ -147,7 +147,7 @@
                 <a href="../0202-modelo-de-datos/">
             
                     
-                    El modelo de datos de JavaScript
+                    The JavaScript data model
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="../0203-modelo-de-ejecucion/">
             
                     
-                    El modelo de ejecución de JavaScript
+                    The JavaScript execution model
             
                 </a>
             
@@ -173,7 +173,7 @@
                 <a href="../02-ejercicios/">
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -186,7 +186,7 @@
                 <a href="./">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -200,7 +200,7 @@
                 <a href="GUIDE.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -236,7 +236,7 @@
                 <span>
             
                     
-                    JavaScript en el navegador
+                    JavaScript in the browser
             
                 </span>
             
@@ -250,7 +250,7 @@
                 <a href="../../03-javascript-en-el-navegador/0301-dom/">
             
                     
-                    Navegador y DOM
+                    The browser & DOM
             
                 </a>
             
@@ -276,7 +276,7 @@
                 <span>
             
                     
-                    Ejercicios guiados
+                    Guided exercises
             
                 </a>
             
@@ -289,7 +289,7 @@
                 <a href="../../03-javascript-en-el-navegador/03-practica/">
             
                     
-                    Práctica
+                    Practice
             
                 </a>
             
@@ -303,7 +303,7 @@
                 <a href="../../03-javascript-en-el-navegador/03-practica/guia.html">
             
                     
-                    Guía
+                    Guide
             
                 </a>
             
@@ -366,20 +366,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="tdd-desarrollo-dirigido-por-tests">TDD: Desarrollo dirigido por tests</h1>
-<p>Practicando TDD, iremos escribiendo c&#xF3;digo de forma que los tests pasen. Los
-tests vienen dados pero est&#xE1;n desactivados. La <a href="GUIDE.html">gu&#xED;a de la pr&#xE1;ctica</a> recomienda en qu&#xE9; orden activar los tests para completar la pr&#xE1;ctica
-poco a poco.</p>
-<h3 id="tests-y-suites">Tests y suites</h3>
-<p>En esta pr&#xE1;ctica usamos <a href="http://jasmine.github.io" target="_blank"><strong>Jasmine</strong></a> como framework
-para tests. En Jasmine escribimos suites y tests. Las suites se pueden anidar
-y pueden llevar c&#xF3;digo de inicializaci&#xF3;n. En general, la API de Jasmine es muy
-clara y no necesita mayor explicaci&#xF3;n. De todas formas, aqu&#xED; tienes un ejemplo:</p>
-<pre><code class="lang-js">describe(<span class="hljs-string">&apos;Las suites en Jasmine&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                                <h1 id="tdd-test-driven-development">TDD: Test-driven development</h1>
+<p>By practicing TDD, we will get to write code so that it passes tests. These tests are already there, but disabled. The <a href="GUIDE.html">practice guide</a> recommends an optimal order we can enable the tests in, so as to gradually fulfill the practice.</p>
+<h3 id="tests-and-suites">Tests and suites</h3>
+<p>Throughout this practice, we shall use <a href="http://jasmine.github.io" target="_blank"><strong>Jasmine</strong></a> as a test framework. We write suites and tests in Jasmine. Suites can be nested and they can also include initialization code. The Jasmine API is generally crystal clear, and does not need much more in the way of explanation. In any case, here goes an example:</p>
+<pre><code class="lang-js">describe(<span class="hljs-string">&apos;Suites in Jasmine&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
-  describe(<span class="hljs-string">&apos;pueden anidarse&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  describe(<span class="hljs-string">&apos;can be nested&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
-    it(<span class="hljs-string">&apos;y encierran tests con expectativas&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;and enclose tests with expectations&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
       expect(<span class="hljs-number">2</span> + <span class="hljs-number">2</span>).toBe(<span class="hljs-number">4</span>);
     });
 
@@ -387,9 +382,7 @@ clara y no necesita mayor explicaci&#xF3;n. De todas formas, aqu&#xED; tienes un
 
 });
 </code></pre>
-<p>Se llama test a un fragmento de c&#xF3;digo que pone a prueba una funcionalidad
-espec&#xED;fica. El test puede pasar o fallar. En caso de fallo, la consola mostrar&#xE1;
-por qu&#xE9; ha fallado en la forma de una traza:</p>
+<p>We call &apos;test&apos; a code fragment that checks for a specific functionality. The test can pass or fail. In case of failure, the console will show the reason it did so by means of a trace:</p>
 <pre><code class="lang-js"><span class="hljs-number">15.2</span>) Expected <span class="hljs-string">&apos;b&apos;</span> to be <span class="hljs-string">&apos;c&apos;</span>.
     Error: Expected <span class="hljs-string">&apos;b&apos;</span> to be <span class="hljs-string">&apos;c&apos;</span>.
         at stack (<span class="hljs-regexp">/Users/</span>salva/workspace/pvli2017-rpg-battle/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:<span class="hljs-number">1640</span>:<span class="hljs-number">17</span>)
@@ -403,64 +396,50 @@ por qu&#xE9; ha fallado en la forma de una traza:</p>
         at QueueRunner.run (<span class="hljs-regexp">/Users/</span>salva/workspace/pvli2017-rpg-battle/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:<span class="hljs-number">1938</span>:<span class="hljs-number">9</span>)
         at QueueRunner.execute (<span class="hljs-regexp">/Users/</span>salva/workspace/pvli2017-rpg-battle/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:<span class="hljs-number">1923</span>:<span class="hljs-number">10</span>)
 </code></pre>
-<p>La traza contiene el fallo y d&#xF3;nde se ha producido en el conjunto de llamadas
-desde la m&#xE1;s reciente hasta la m&#xE1;s vieja. A veces los fallos son producto de
-implementaciones que no cumplen las expectativas, otras veces ser&#xE1;n fallos en
-tiempo de ejecuci&#xF3;n y otras ser&#xE1;n fallos de sintaxis.</p>
-<p>Acost&#xFA;mbrate a fallar y a encontrar en la traza el punto exacto del c&#xF3;digo que
-est&#xE1; bajo tu control para solucionarlo. Para ello busca las carpetas <code>spec</code> y
-<code>src</code> entre la traza. El primer n&#xFA;mero tras la ruta es la l&#xED;nea del fallo.</p>
-<h3 id="activando-y-desactivando-tests">Activando y desactivando tests</h3>
-<p>Los tests y las suites pueden desactivarse a&#xF1;adiendo el prefijo <code>x</code>. Por
-ejemplo:</p>
-<pre><code class="lang-js">describe(<span class="hljs-string">&apos;Las suites en Jasmine&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+<p>The trace contains both the failure and where it happened in the set of calls, from the most recent to the earliest. Failures are sometimes a consequence of implementations not fulfilling expectations, some other times they will be due to runtime errors, and on yet other occasions they will be the product of syntax errors.</p>
+<p>Get used to failing, as well as searching the trace for the exact point in the code that is up for you to fix. In order to do this, look for the <code>spec</code> and <code>src</code> folders in the trace. The first number after the path will be the line that contains the failure.</p>
+<h3 id="enabling-and-disabling-tests">Enabling and disabling tests</h3>
+<p>Tests and suites can be disabled by adding the prefix, <code>x</code>. For instance:</p>
+<pre><code class="lang-js">describe(<span class="hljs-string">&apos;Suites in Jasmine&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
-  describe(<span class="hljs-string">&apos;pueden anidarse&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  describe(<span class="hljs-string">&apos;can be nested&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
-    it(<span class="hljs-string">&apos;y encierran tests con expectativas&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;and enclose tests with expectations&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
       expect(<span class="hljs-number">2</span> + <span class="hljs-number">2</span>).toBe(<span class="hljs-number">4</span>);
     });
 
-    xit(<span class="hljs-string">&apos;este test est&#xE1; desactivado&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    xit(<span class="hljs-string">&apos;this test is disabled&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
     });
 
   });
 
-  xdescribe(<span class="hljs-string">&apos;la suite y todos sus tests est&#xE1;n desactivados.&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  xdescribe(<span class="hljs-string">&apos;the suite and all of its tests are disabled.&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
   });
 
 });
 </code></pre>
-<p>Los tests desactivados no comprueban las expectativas pero Jasmine te
-informa de que est&#xE1;n desactivados.</p>
-<h3 id="el-ciclo-de-desarrollo">El ciclo de desarrollo</h3>
-<p>Cuando est&#xE9;s desarrollando, es conveniente que pases los test a menudo por dos
-motivos:</p>
+<p>Disabled tests will not check for expectations, but Jasmine will report that they are disabled.</p>
+<h3 id="the-development-cycle">The development cycle</h3>
+<p>Whenever you are developing, it is best for you to run the tests often for two reasons:</p>
 <ul>
-<li>Comprobar que avanzas.</li>
-<li>Comprobar que no has roto nada.</li>
+<li>To check whether you are advancing.</li>
+<li>To check whether you have broken anything.</li>
 </ul>
-<p>Para ello puedes ejecutar el comando:</p>
+<p>To do this, you can run the command:</p>
 <pre><code>$ npm run-script watch
-</code></pre><p>Esta tarea monitoriza los cambios en los archivos de las carpetas <code>spec</code> y
-<code>src</code> y cuando detecte un cambio, lanzara todos los tests.</p>
-<p>A veces, el error es tan estrepitoso que rompe la monitorizaci&#xF3;n. En tal caso
-tendr&#xE1;s que reintroducir el comando manualmente.</p>
-<p>Cada vez que realices una modificaci&#xF3;n y los tests pasen, haz un commit nuevo.</p>
-<h3 id="depurando-tests-as&#xED;ncronos">Depurando tests as&#xED;ncronos</h3>
-<p>Algunos tests son as&#xED;ncronos y pueden producir <em>timeouts</em>. En general un
-<em>timeout</em> no es un resultado positivo. El problema de los <em>timeouts</em> es que
-pueden ralentizar toda la suite as&#xED; que la recomendaci&#xF3;n en estos casos es
-afrontarlos uno a uno, desactivando el resto y activ&#xE1;ndolos poco a poco.</p>
-<p>Reconocer&#xE1;s un test as&#xED;ncrono porque lleva un par&#xE1;metro <code>done</code> como en el
-ejemplo:</p>
+</code></pre><p>This task monitors changes in the files within the <code>spec</code> and <code>src</code> folders, and will launch all of the tests when it detects a change.</p>
+<p>Sometimes, an error is catastrophic enough that it will break the monitoring. Should that happen, you will have to manually reenter the command.</p>
+<p>Make a new commit anytime you make a modification and it passes the tests.</p>
+<h3 id="debugging-asynchronous-tests">Debugging asynchronous tests</h3>
+<p>Some tests are asynchronous and can cause <em>timeouts</em>. Generally speaking, a <em>timeout</em> is not a desirable outcome. The problem with <em>timeouts</em> is that they can slow the whole suite down, so the recommended course of action in these cases is to tackle them one by one, by disabling the rest and enabling them gradually.</p>
+<p>You will recognize asynchronous tests because they have a <code>done</code> parameter, as in the example:</p>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;events&apos;</span>).EventEmitter;
 
 describe(<span class="hljs-string">&apos;EventEmitter&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
 
-  it(<span class="hljs-string">&apos;emite eventos arbitrarios&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+  it(<span class="hljs-string">&apos;emits arbitrary events&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
     <span class="hljs-keyword">var</span> ee = <span class="hljs-keyword">new</span> EventEmitter();
     ee.on(<span class="hljs-string">&apos;turn&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">turn</span>) </span>{
       expect(turn.number).toBe(<span class="hljs-number">1</span>);
@@ -471,23 +450,18 @@ describe(<span class="hljs-string">&apos;EventEmitter&apos;</span>, <span class=
 
 });
 </code></pre>
-<h2 id="estrategia-general-para-la-depuraci&#xF3;n">Estrategia general para la depuraci&#xF3;n</h2>
-<p>Es muy recomendable que mantengas una rama estable donde todos los tests pasen
-y los que no est&#xE9;n desactivados. Cuando te embarques en la tarea de hacer que
-un test pase, crea una rama para esa tarea y cuando termines m&#xE9;zclala con la
-rama estable.</p>
-<p>Cuando encuentres un error, intenta seguir los siguientes pasos:</p>
+<h2 id="general-debugging-strategy">General debugging strategy</h2>
+<p>It is very recommendable for you to keep a stable branch where all tests pass, and those which do not are disabled. Whenever you embark on the task of making a test pass, create a branch for that task, and merge it with the stable branch when it is done.</p>
+<p>Whenever you find an error, try to follow these steps:</p>
 <ol>
-<li>Desactiva los tests as&#xED;ncronos que est&#xE9;n tardando demasiado. <strong>Necesitas un
-ciclo de desarrollo r&#xE1;pido.</strong></li>
-<li><strong>&#xA1;&#xA1;Lee el error!!</strong>.</li>
-<li>Busca en la traza el lugar donde se original el error:<ol>
-<li>Si es un fallo en una expectativa, localiza el punto de entrada en
-tu c&#xF3;digo.</li>
-<li>Deja trazas con <code>console.log()</code> inspeccionando el estado de tus objetos.</li>
+<li>Disable the asynchronous tests that are taking too long. <strong>You need a fast development cycle.</strong></li>
+<li><strong>Read the error!!</strong></li>
+<li>Search the trace for the place where the error is originated:<ol>
+<li>If it is a failed expectation, locate the entry point in your code.</li>
+<li>Keep traces with <code>console.log()</code> inspecting your objects&apos; state.</li>
 </ol>
 </li>
-<li>Salva y relanza los tests a menudo.</li>
+<li>Save and reload the tests often.</li>
 </ol>
 
                                 
@@ -516,7 +490,7 @@ tu c&#xF3;digo.</li>
 
             
                 
-                <a href="GUIDE.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Guía">
+                <a href="GUIDE.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Guide">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -528,7 +502,7 @@ tu c&#xF3;digo.</li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"TDD","level":"1.3.5.2","depth":3,"next":{"title":"JavaScript en el navegador","level":"1.4","depth":1,"ref":"","articles":[{"title":"Navegador y DOM","level":"1.4.1","depth":2,"path":"03-javascript-en-el-navegador/0301-dom/index.md","ref":"03-javascript-en-el-navegador/0301-dom/index.md","articles":[]},{"title":"Canvas","level":"1.4.2","depth":2,"path":"03-javascript-en-el-navegador/0302-canvas/index.md","ref":"03-javascript-en-el-navegador/0302-canvas/index.md","articles":[]},{"title":"Ejercicios guiados","level":"1.4.3","depth":2,"path":"03-javascript-en-el-navegador/03-ejercicios/index.md","ref":"03-javascript-en-el-navegador/03-ejercicios/index.md","articles":[]},{"title":"Práctica","level":"1.4.4","depth":2,"path":"03-javascript-en-el-navegador/03-practica/index.md","ref":"03-javascript-en-el-navegador/03-practica/index.md","articles":[{"title":"Guía","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]}]}]},"previous":{"title":"Guía","level":"1.3.5.1","depth":3,"path":"02-javascript/02-practica/GUIDE.md","ref":"02-javascript/02-practica/GUIDE.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"02-javascript/02-practica/TDD.md","mtime":"2017-05-22T16:49:45.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:35:47.095Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TDD","level":"1.3.5.2","depth":3,"next":{"title":"JavaScript in the browser","level":"1.4","depth":1,"ref":"","articles":[{"title":"The browser & DOM","level":"1.4.1","depth":2,"path":"03-javascript-en-el-navegador/0301-dom/index.md","ref":"03-javascript-en-el-navegador/0301-dom/index.md","articles":[]},{"title":"Canvas","level":"1.4.2","depth":2,"path":"03-javascript-en-el-navegador/0302-canvas/index.md","ref":"03-javascript-en-el-navegador/0302-canvas/index.md","articles":[]},{"title":"Guided exercises","level":"1.4.3","depth":2,"path":"03-javascript-en-el-navegador/03-ejercicios/index.md","ref":"03-javascript-en-el-navegador/03-ejercicios/index.md","articles":[]},{"title":"Practice","level":"1.4.4","depth":2,"path":"03-javascript-en-el-navegador/03-practica/index.md","ref":"03-javascript-en-el-navegador/03-practica/index.md","articles":[{"title":"Guide","level":"1.4.4.1","depth":3,"path":"03-javascript-en-el-navegador/03-practica/guia.md","ref":"03-javascript-en-el-navegador/03-practica/guia.md","articles":[]}]}]},"previous":{"title":"Guide","level":"1.3.5.1","depth":3,"path":"02-javascript/02-practica/GUIDE.md","ref":"02-javascript/02-practica/GUIDE.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"es","gitbook":"*"},"file":{"path":"02-javascript/02-practica/TDD.md","mtime":"2017-08-22T18:17:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-22T18:37:55.899Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
